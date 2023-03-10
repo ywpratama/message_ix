@@ -152,6 +152,8 @@ Sets
     land_type       types of land use
     year_all        "All periods, including historical and future periods outside the horizon"
     year (year_all) "Periods in model horizon, without historical and (for limited-foresight mode) future periods"
+    year4 (year_all) years included in a model instance (for myopic or rolling-horizon optimization)
+    year_hist (year_all) historical year
     time            subannual time periods (seasons - days - hours)
     shares          share constraint relations
     relation        generic linear relations
@@ -296,6 +298,7 @@ Sets
     addon(tec)                              technologies that are an add-on to other (parent) technologies
     type_addon                              types of add-on technologies (that can be applied mutually exclusive)
     cat_addon(type_addon,addon)             mapping of add-on technologies to respective add-on technology types
+    newtec(tec)                             new technologies that will experience technological learning
     type_year                               types of year aggregations
     cat_year(type_year,year_all)            mapping of years to respective categories
     type_emission                           types of emission aggregations
