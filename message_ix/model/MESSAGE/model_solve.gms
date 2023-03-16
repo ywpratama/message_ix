@@ -99,7 +99,7 @@ else
 
 * include all past periods and future periods including the period where the %foresight% is reached
              year(year_all2)$( ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
-             year4(year_all2)$((ord(year_all2) < ord(year_all))) = yes ;
+             year4(year_all2)$((ord(year_all2) le ord(year_all))) = yes ;
 
              option threads = 4 ;
              Solve MESSAGE_LP using LP minimizing OBJ ;
