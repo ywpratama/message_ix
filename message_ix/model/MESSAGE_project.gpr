@@ -732,9 +732,6 @@ PlaneRownr=-1
 [RP:MODEL_SETUP]
 1=
 
-[RP:MODEL_CORE]
-1=
-
 [RP:MODEL_LEARNINGEOS]
 1=
 
@@ -742,6 +739,9 @@ PlaneRownr=-1
 1=
 
 [RP:MESSAGE_MASTER]
+1=
+
+[RP:MODEL_CORE]
 1=
 
 [MRUFILES]
@@ -754,13 +754,11 @@ PlaneRownr=-1
 7=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\learningeos.gdx
 
 [OPENWINDOW_1]
-FILE0=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE\model_core.gms
-FILE1=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE\model_learningeos.gms
-FILE2=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE\model_solve.gms
-FILE3=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE_master.gms
-FILE4=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE_master.lst
-FILE5=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\model_solve.lst
-FILE6=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE_master.gms
+FILE0=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_core.gms
+FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_solve.gms
+FILE2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
+FILE3=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.lst
+FILE4=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
 MAXIM=0
 TOP=7
 LEFT=50

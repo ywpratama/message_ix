@@ -142,7 +142,7 @@ else
         ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
 
 
-        Display year,year4,year_all,year_all2,model_horizon ;
+        Display year,year4,year_all,year_all2,model_horizon, CAP_NEW.l ;
     ) ; # end of the recursive-dynamic loop
 
 ) ; # end of if statement for the selection betwen perfect-foresight or recursive-dynamic model
