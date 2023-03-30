@@ -39,29 +39,42 @@ def include_tech(
     year_df = scenario.vintage_and_active_years()
     vintage_years, act_years = year_df["year_vtg"], year_df["year_act"]
     
-#    if df[technology]['year_vtg'] is None:
-    yv = vintage_years
-#    else:
-#        yv = df[technology]['year_vtg']
-#    
-#    if df[technology]['year_act'] is None:
-    ya = act_years
-#    else:
-#       ya = df[technology]['year_act']
-#        
-#    
+    if df.isna()[technology]['year_vtg']:
+        yv = vintage_years
+    else:
+        yv = df[technology]['year_vtg']
+    
+    if df.isna()[technology]['year_act']:
+        ya = act_years
+    else:
+        ya = df[technology]['year_act']
+    
+    if df.isna()['unit']['time']:
+        t_unit = '-'
+    else:
+        t_unit = df['unit']['time']
+    
+    
     if technology not in set(scenario.set("technology")):
         scenario.add_set("technology", technology)
+    
+    if not parameter:
+        df_param = df.apply(pd.to_numeric, errors='coerce')
+        parameter = df_param['DACCS'].dropna().index
+    
+    df_in = df[technology]
             
     for par in parameter:
         par_data = make_df(
             par,
-            node_loc=df[technology]['node_loc'],
+            node_loc=df_in['node_loc'],
             year_vtg=yv,
             year_act=ya,
-            time=df[technology]['time'],
-            unit="-",
+            mode=df_in['mode'],
+            emission=df_in['emission'],
+            time=df_in['time'],
+            unit=t_unit,
             technology=technology,
-            value=df[technology][par],
-        )
+            value=df_in[par],
+            )
         scenario.add_par(par, par_data)
