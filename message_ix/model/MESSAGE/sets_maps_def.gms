@@ -160,6 +160,7 @@ Sets
     lvl_spatial     hierarchical levels of spatial resolution
     lvl_temporal    hierarchical levels of temporal resolution
     rating          identifies the 'quality' of the renewable energy potential (bins acc. to Sullivan)
+    size            unit size of technology
 ;
 
 * definition of aliases

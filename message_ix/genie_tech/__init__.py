@@ -108,7 +108,8 @@ def include_learning(
     filepath    : string, path of the input file
         the default is in the module's folder
     """
-    parameter = ['learning_rate','eos_rate']
+    
+    parameter = ['learning_par','eos_par','nbr_unit_ref','u_ref','u']
     # Reading new technology database
     if not filepath:
         module_path = os.path.abspath(__file__) # get the module path
@@ -123,11 +124,24 @@ def include_learning(
             scenario.add_set("technology", tech)
         
         df_in = df[tech]
-            
-    for par in parameter:
-        par_data = make_df(
-            par,
-            technology=tech,
-            value=df_in[par],
-            )
-        scenario.add_par(par, par_data)
+    
+        size = df_in['size'].split(',')
+        
+        
+        for z in size:
+            if z not in set(scenario.set("size")):
+                scenario.add_set("size", z)
+
+        
+        for par in parameter:
+            if par == 'u':
+                v = [float(i) for i in df_in['u'].split(',')]
+            else:
+                v = df_in[par]
+            par_data = make_df(
+                par,
+                technology=tech,
+                value=v,
+                unit='-',
+                size=z)
+            scenario.add_par(par, par_data)
