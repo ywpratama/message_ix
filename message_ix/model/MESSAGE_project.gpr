@@ -817,11 +817,11 @@ Decim=7
 PlaneRownr=-1
 
 [GDXDISP: emission_factor Par 6]
-PlaneDim=0
-RowDim=6
+PlaneDim=2
+RowDim=3
 Squeeze=1
 SqTrail0=0
-Order=1,2,3,4,5,6
+Order=5,6,1,2,3,4
 Decim=7
 PlaneRownr=-1
 
@@ -1088,7 +1088,8 @@ PlaneRownr=-1
 
 [OPENWINDOW_1]
 FILE0=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_emission_bound_DACCS.gdx
-FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_emission_bound_DACCS.gdx
+FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_learningeos.gms
+FILE2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_learningeos.gms
 MAXIM=0
 TOP=7
 LEFT=50
