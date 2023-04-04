@@ -886,4 +886,5 @@ Parameters
     eos_par(tec)         economy of scale rate of technology
     nbr_unit_ref(tec)    initial number of unit as reference
     u_ref(tec)           unit size reference
+    u(tec,size)          technology size
 ;

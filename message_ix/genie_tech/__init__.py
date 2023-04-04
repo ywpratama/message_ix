@@ -76,19 +76,56 @@ def include_tech(
         df_in = df[tech]
                 
         for par in parameter:
-            par_data = make_df(
-                par,
-                node_loc=df_in['node_loc'],
-                year_vtg=yv,
-                year_act=ya,
-                mode=df_in['mode'],
-                emission=df_in['emission'],
-                time=df_in['time'],
-                unit=t_unit,
-                technology=tech,
-                value=df_in[par],
-                )
-            scenario.add_par(par, par_data)
+            if par == 'input':
+                par_data = make_df(
+                    par,
+                    node_loc=df_in['node_loc'],
+                    year_vtg=yv,
+                    year_act=ya,
+                    mode=df_in['mode'],
+                    emission=df_in['emission'],
+                    time=df_in['time'],
+                    unit=t_unit,
+                    technology=tech,
+                    commodity=df_in['commodity_in'],
+                    level=df_in['level_in'],
+                    value=df_in[par],
+                    node_origin=df_in['node_loc'], 
+                    time_origin=df_in['time'],
+                    )
+                scenario.add_par(par, par_data)
+            elif par == 'output':
+                par_data = make_df(
+                    par,
+                    node_loc=df_in['node_loc'],
+                    year_vtg=yv,
+                    year_act=ya,
+                    mode=df_in['mode'],
+                    emission=df_in['emission'],
+                    time=df_in['time'],
+                    unit=t_unit,
+                    technology=tech,
+                    commodity=df_in['commodity_out'],
+                    level=df_in['level_out'],
+                    value=df_in[par],
+                    node_dest=df_in['node_loc'], 
+                    time_dest=df_in['time'],
+                    )
+                scenario.add_par(par, par_data)
+            else:
+                par_data = make_df(
+                    par,
+                    node_loc=df_in['node_loc'],
+                    year_vtg=yv,
+                    year_act=ya,
+                    mode=df_in['mode'],
+                    emission=df_in['emission'],
+                    time=df_in['time'],
+                    unit=t_unit,
+                    technology=tech,
+                    value=df_in[par],
+                    )
+                scenario.add_par(par, par_data)
 
 def include_learning(
     scenario,
@@ -135,13 +172,21 @@ def include_learning(
         
         for par in parameter:
             if par == 'u':
-                v = [float(i) for i in df_in['u'].split(',')]
+                val = [float(i) for i in df_in['u'].split(',')]
+                for v in range(len(val)):
+                    par_data = make_df(
+                        par,
+                        technology=tech,
+                        value=val[v],
+                        unit='-',
+                        size=size[v])
+                    scenario.add_par(par, par_data)
             else:
-                v = df_in[par]
-            par_data = make_df(
-                par,
-                technology=tech,
-                value=v,
-                unit='-',
-                size=z)
-            scenario.add_par(par, par_data)
+                val = df_in[par]
+                par_data = make_df(
+                    par,
+                    technology=tech,
+                    value=val,
+                    unit='-',
+                    size=z)
+                scenario.add_par(par, par_data)

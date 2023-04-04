@@ -182,6 +182,7 @@ Alias(time,time_act);
 Alias(time,time_od);
 Alias(mode,mode2);
 Alias(commodity,commodity2);
+Alias (size,size2);
 
 *----------------------------------------------------------------------------------------------------------------------*
 * Category types and mappings                                                                                                       *

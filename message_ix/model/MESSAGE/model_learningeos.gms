@@ -1,14 +1,14 @@
-SETS
-  size           'size'  / small, medium, large / ;
+*SETS
+*  size           'size'  / small, medium, large / ;
 
-ALIAS (size,size2);
+*ALIAS (size,size2);
 PARAMETERS
   cap_new2(node,newtec,year_all2)        'annual newly installed capacity'
   bin_cap_new(node,newtec,year_all2)     'binary of newly installed capacity'
-  u(size)                                'unit size'
-         / small      5
-           medium     10
-           large      50     /
+*  u(size)                                'unit size'
+*         / small      5
+*           medium     10
+*           large      50     /
   inv_cost_ref(node,newtec)              'initial capex'    ;
 inv_cost_ref(node,newtec) = 1500;
 
@@ -32,11 +32,11 @@ EQUATIONS
 
 
 OBJECTIVE_INNER..                        OBJECT =e= sum((node,newtec,year_all2), CAPEX_TEC(node,newtec,year_all2)*cap_new2(node,newtec,year_all2)) ;
-CAP_NEW_BALANCE(node,newtec,year_all2).. sum(size, NBR_UNIT(node,newtec,size,year_all2)*u(size)) =e= cap_new2(node,newtec,year_all2) ;
+CAP_NEW_BALANCE(node,newtec,year_all2).. sum(size, NBR_UNIT(node,newtec,size,year_all2)*u(newtec,size)) =e= cap_new2(node,newtec,year_all2) ;
 CAPEX_ESTIMATE(node,newtec,year_all2)..  CAPEX_TEC(node,newtec,year_all2)*cap_new2(node,newtec,year_all2) =g= sum(size,inv_cost_ref(node,newtec)
-                                              * NBR_UNIT(node,newtec,size,year_all2)*u(size)
+                                              * NBR_UNIT(node,newtec,size,year_all2)*u(newtec,size)
                                               * [(((sum((size2,year_all3)$(ord(year_all3) le ord(year_all2) and ord(year_all3) gt hist_length), NBR_UNIT(node,newtec,size2,year_all3))+nbr_unit_ref(newtec))/nbr_unit_ref(newtec))**(-learning_par(newtec)))]
-                                              * [((u(size)/u_ref(newtec))**eos_par(newtec))]) ;
+                                              * [((u(newtec,size)/u_ref(newtec))**eos_par(newtec))]) ;
 NO_BUILT_YEAR(node,newtec,year_all2)..   CAPEX_TEC(node,newtec,year_all2) =e= bin_cap_new(node,newtec,year_all2)*CAPEX_TEC(node,newtec,year_all2)
                                                                               + (1-bin_cap_new(node,newtec,year_all2))*CAPEX_TEC(node,newtec,year_all2-1) ;
 
