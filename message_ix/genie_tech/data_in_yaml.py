@@ -10,4 +10,8 @@ import yaml
 with open('tech_data.yml','r') as stream:
     tech_data = yaml.safe_load(stream)
 
-print(tech_data)
+technology = list(tech_data.keys())
+
+for tech in technology:
+    print(tech)
+    print(tech_data[tech])
