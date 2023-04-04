@@ -1,0 +1,22 @@
+
+DACCS:
+  node_loc: Westeros
+  time: year
+  mode: standard
+  emission: CO2
+  investment_cost: 2500
+  var_cost: 100
+  fix_cost: 10
+  input:
+    electricity: 1
+  output: 
+    light: 0
+  emission_factor: -20
+  capacity_factor: 1
+  technical_lifetime: 20
+  initial_new_capacity_up: 0.5
+  growth_new_capacity_up: 0.5
+  region_cost_factor:
+    Westeros: 1
+    Westerlands: 1.2
+  

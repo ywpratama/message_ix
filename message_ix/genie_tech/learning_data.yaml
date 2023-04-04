@@ -1,0 +1,15 @@
+size:
+    - small
+    - medium
+    - large
+
+
+wind_ppl:
+  learning_par: 0.9  
+  eos_par: 0.9
+  nbr_unit_ref: 100
+  u_ref: 5
+  u:
+    small: 5
+    medium: 10
+    large: 50
