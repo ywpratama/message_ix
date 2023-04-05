@@ -3,6 +3,9 @@ size:
     - medium
     - large
 
+unit:
+  u_ref: GW
+  u: GW
 
 wind_ppl:
   learning_par: 0.9  
