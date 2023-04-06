@@ -7,11 +7,12 @@ Created on Tue Apr  4 15:36:19 2023
 
 import yaml
 import pandas as pd
-#import ixmp
-#import message_ix
+import ixmp
+import message_ix
 import os
-#from message_ix.utils import make_df
+from message_ix.utils import make_df
 
+#%%
 def length(data):
     if isinstance(data, str):
         result = 1
@@ -26,12 +27,17 @@ with open('learning_data.yaml','r') as stream:
 technology = list(set(list(learning_data.keys())).difference(['size','unit']))
 print(technology)
 
-'''
+
 for tech in technology:
     data_in = learning_data.get(tech)
     parameter = list(data_in.keys())
     
     for par in parameter:
+        if not learning_data.get('unit').get(par):
+            unit = '-'
+        else:
+            unit = learning_data.get('unit').get(par)
+        data = []
         if par == 'u':
             value = list(data_in.get(par).values())
             size = list(data_in.get(par).keys())
@@ -40,15 +46,18 @@ for tech in technology:
                     par,
                     technology=tech,
                     value=value[v],
-                    unit='-',
+                    unit=unit,
                     size=size[v])
-                print(par_data)    
+                data.append(par_data)
+            par_data = pd.concat(data).reset_index(drop=True)
+            print(par_data)    
         else:
             value = data_in.get(par)
             par_data = make_df(
                 par,
                 technology=tech,
                 value=value,
-                unit='-')
+                unit=unit)
+            data.append(par_data)
+            par_data = pd.concat(data).reset_index(drop=True)
             print(par_data)    
-'''

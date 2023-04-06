@@ -16,3 +16,9 @@ wind_ppl:
     small: 5
     medium: 10
     large: 50
+
+DACCS:
+  u:
+    small: 5
+    medium: 10
+    large: 50
