@@ -1,24 +1,21 @@
-size:
-    - small
-    - medium
-    - large
-
-unit:
-  u_ref: GW
-  u: GW
-
 wind_ppl:
   learning_par: 0.9  
   eos_par: 0.9
   nbr_unit_ref: 100
-  u_ref: 5
+  u_ref: 
+    value: 5
+    unit: GW
   u:
-    small: 5
-    medium: 10
-    large: 50
+    sizes:
+      small: 5
+      medium: 10
+      large: 50
+    unit: GW
 
 DACCS:
   u:
-    small: 5
-    medium: 10
-    large: 50
+    sizes:
+      small: 5
+      medium: 10
+      large: 50
+    unit: GW

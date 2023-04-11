@@ -7,9 +7,6 @@ Created on Tue Apr  4 15:36:19 2023
 
 import yaml
 import pandas as pd
-import ixmp
-import message_ix
-import os
 from message_ix.utils import make_df
 
 #%%
@@ -24,8 +21,14 @@ def length(data):
 with open('learning_data.yaml','r') as stream:
     learning_data = yaml.safe_load(stream)
 
+print(learning_data)
+
 technology = list(set(list(learning_data.keys())).difference(['size','unit']))
 print(technology)
+
+par_list = ['learning_par','eos_par','nbr_unit_ref','u_ref','u']
+
+data = {par: [] for par in par_list}
 
 
 for tech in technology:
@@ -37,7 +40,6 @@ for tech in technology:
             unit = '-'
         else:
             unit = learning_data.get('unit').get(par)
-        data = []
         if par == 'u':
             value = list(data_in.get(par).values())
             size = list(data_in.get(par).keys())
@@ -48,9 +50,7 @@ for tech in technology:
                     value=value[v],
                     unit=unit,
                     size=size[v])
-                data.append(par_data)
-            par_data = pd.concat(data).reset_index(drop=True)
-            print(par_data)    
+                data[par+'_data'].append(par_data)
         else:
             value = data_in.get(par)
             par_data = make_df(
@@ -58,6 +58,9 @@ for tech in technology:
                 technology=tech,
                 value=value,
                 unit=unit)
-            data.append(par_data)
-            par_data = pd.concat(data).reset_index(drop=True)
-            print(par_data)    
+            data[par+'_data'].append(par_data)
+for e in range(len(par_list)):
+    if data[par_list[e]+'_data'] != []:
+        data[par_list[e]+'_data'] = pd.concat(data[par_list[e]+'_data']).reset_index(drop=True)
+        
+        
