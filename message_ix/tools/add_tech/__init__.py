@@ -11,7 +11,7 @@ import message_ix
 import os
 from message_ix.utils import make_df
 
-def include_tech(
+def add_tech(
     scenario,
     technology=[],
     parameter=[],
@@ -127,7 +127,7 @@ def include_tech(
                     )
                 scenario.add_par(par, par_data)
 
-def include_learning(
+def add_learning(
     scenario,
     technology=[],
     parameter=[],
