@@ -1,0 +1,47 @@
+# technology 'database'
+DACCS:
+  inv_cost: 
+    value: 2500
+    unit: $/kW
+#  fix_cost: 
+#    value: 10
+#    unit: $/kWa
+#  var_cost: 
+#    value: 100
+#    unit: $/kWa
+#  emission_factor:
+#    value: -20
+#    unit: tCO2/kWa
+#PV:
+#  input:
+#    value:
+#      final:
+#        electricity: 1
+#    unit: '-'
+#  output:
+#    value: 
+#      useful:
+#        light: 0
+#    unit: '-'
+#  capacity_factor:
+#    value: 1
+#    unit: '-'
+#  technical_lifetime:
+#    value: 20
+#    unit: y
+#  growth_new_capacity_up:
+#    value: 0.5
+#    unit: '-'
+#  initial_new_capacity_up: 
+#    value: 0.5
+#    unit: GW
+
+# model specific data
+model_data:
+  DACCS: 
+    cost_by_region:
+      Westeros: 1
+      Westerlands: 0.8
+#    cost_by_time:
+#      reduction_rate: 0.05
+#  first_active_year: 700
