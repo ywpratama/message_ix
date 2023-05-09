@@ -51,7 +51,27 @@ model_data:
         Westeros: 1
         Westerlands: 0.8
       year_vtg:
-        reduction_rate: 0.05
+        rate: -0.05
+    fix_cost:
+      node_loc:
+        Westeros: 1
+        Westerlands: 0.8
+      year_vtg:
+        rate: -0.05
+      year_act:
+        rate: 0.03
+    var_cost:
+      node_loc:
+        Westeros: 1
+        Westerlands: 0.8
+      year_vtg:
+        rate: -0.05
+      year_act:
+        rate: 0.03
+      mode:
+        standard: 1
+      time:
+        year: 1
 #  wind_ppl: 
 #    cost_by_region:
 #      Westeros: 1
