@@ -99,7 +99,7 @@ else
 
 * include all past periods and future periods including the period where the %foresight% is reached
              year(year_all2)$( ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
-             year4(year_all2)$((ord(year_all2) < ord(year_all))) = yes ;
+             year4(year_all2)$((ord(year_all2) le ord(year_all))) = yes ;
 
              option threads = 4 ;
              Solve MESSAGE_LP using LP minimizing OBJ ;
@@ -142,7 +142,7 @@ else
         ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
 
 
-        Display year,year4,year_all,year_all2,model_horizon ;
+        Display year,year4,year_all,year_all2,model_horizon, CAP_NEW.l ;
     ) ; # end of the recursive-dynamic loop
 
 ) ; # end of if statement for the selection betwen perfect-foresight or recursive-dynamic model
