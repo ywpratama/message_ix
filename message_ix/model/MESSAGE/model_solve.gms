@@ -115,23 +115,27 @@ else
                  put_utility 'log' /'+++ MESSAGEix did not solve to optimality - run is aborted, no output produced! +++ ' ;
                  ABORT "MESSAGEix did not solve to optimality!"
              ) ;
-
+$ontext
              IF(%learningmode% = 1,
 *            passing CAP_NEW values to update cap_new2 data for unit and size optimization
                  cap_new2(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
 *            this is to make bin param equal to 1 when technology is built, and 0 if otherwise
                  bin_cap_new(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
                  bin_cap_new(node,newtec,year_all2)$(bin_cap_new(node,newtec,year_all2) > 0) = 1 ;
+*$offtext
                  solve learningeos using nlp minimizing OBJECT;
 *            passing CapexTec values to update inv_cost data for MESSAGE optimization
                  inv_cost(node,newtec,year_all2) = CAPEX_TEC.l(node,newtec,year_all2);
 
                  display bin_cap_new, NBR_UNIT.l, CAPEX_TEC.l, inv_cost, cap_new2, CAP_NEW.l;
                  );
-
+$offtext
+*$ontext
 * fix all variables of the current iteration period 'year_all' to the optimal levels
         EXT.fx(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
         CAP_NEW.fx(node,tec,year4) = CAP_NEW.l(node,tec,year4) ;
+*        CAP_NEW.up(node,tec,year4) = 1.01*CAP_NEW.l(node,tec,year4) ;
+*        CAP_NEW.lo(node,tec,year4) = 0.99*CAP_NEW.l(node,tec,year4) ;
 *        CAP.fx(node,tec,year4,year4) = CAP.l(node,tec,year4,year4) ;
         CAP.up(node,tec,year4,year4) = 1.000001*CAP.l(node,tec,year4,year4) ;
         CAP.lo(node,tec,year4,year4) = 0.999999*CAP.l(node,tec,year4,year4) ;
@@ -140,7 +144,7 @@ else
         CAP_NEW_LO.fx(node,tec,year4) = CAP_NEW_LO.l(node,tec,year4) ;
         ACT_UP.fx(node,tec,year4,time) = ACT_UP.l(node,tec,year4,time) ;
         ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
-
+*$offtext
 
         Display year,year4,year_all,year_all2,model_horizon, CAP_NEW.l ;
     ) ; # end of the recursive-dynamic loop
