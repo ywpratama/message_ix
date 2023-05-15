@@ -11,7 +11,7 @@ DACCS:
     unit: $/kWa
   emission_factor:
     value: 1
-    unit: '-'
+    unit: tCO2/kWa
   #input:
   #  value:
   #    final:
@@ -72,6 +72,13 @@ model_data:
         standard: 1
       time:
         year: 1
+    emission_factor:
+      mode:
+        standard: 1
+      emission:
+        CO2: -20
+        CH4: 0
+
 #  wind_ppl: 
 #    cost_by_region:
 #      Westeros: 1
