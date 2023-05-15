@@ -2,7 +2,6 @@ SETS
   size           'size'  / small, medium, large / ;
 
 ALIAS (size,size2);
-
 PARAMETERS
   cap_new2(node,newtec,year_all2)        'annual newly installed capacity'
   bin_cap_new(node,newtec,year_all2)     'binary of newly installed capacity'
