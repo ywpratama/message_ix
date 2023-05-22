@@ -160,6 +160,7 @@ Sets
     lvl_spatial     hierarchical levels of spatial resolution
     lvl_temporal    hierarchical levels of temporal resolution
     rating          identifies the 'quality' of the renewable energy potential (bins acc. to Sullivan)
+    size            unit size of technology
 ;
 
 * definition of aliases
@@ -181,6 +182,7 @@ Alias(time,time_act);
 Alias(time,time_od);
 Alias(mode,mode2);
 Alias(commodity,commodity2);
+Alias (size,size2);
 
 *----------------------------------------------------------------------------------------------------------------------*
 * Category types and mappings                                                                                                       *

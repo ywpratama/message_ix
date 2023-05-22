@@ -47,6 +47,7 @@ _ABBREV = {
     "ya": ("year", "year_act"),
     "yr": ("year", "year_rel"),
     "yv": ("year", "year_vtg"),
+    "z": ("size", "size"),
 }
 
 
@@ -106,6 +107,7 @@ MESSAGE_ITEMS = {
     "type_tec": dict(ix_type="set"),
     "type_year": dict(ix_type="set"),
     "year": dict(ix_type="set"),
+    "size": dict(ix_type="set"),
     #
     # Indexed sets
     "addon": dict(ix_type="set", idx_sets=["technology"]),
@@ -261,6 +263,12 @@ MESSAGE_ITEMS = {
     # Order of sub-annual time slices
     "time_order": dict(ix_type="par", idx_sets=["lvl_temporal", "time"]),
     "var_cost": item("par", "nl t yv ya m h"),
+    # Technology cost learning parameters
+    "learning_par": item("par", "t"),
+    "eos_par": item("par", "t"),
+    "nbr_unit_ref": item("par", "t"),
+    "u_ref": item("par", "t"),
+    "u": item("par", "t z"),
     #
     # commented: for certain variables and equations, ixmp_source requires that the
     # `idx_sets` and `idx_names` parameters be empty, but then internally uses the
