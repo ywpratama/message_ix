@@ -39,8 +39,8 @@ OBJECTIVE_INNER..                        OBJECT =e= sum((node,newtec,year_all2),
 CAP_NEW_BALANCE(node,newtec,year_all2).. sum(size, NBR_UNIT(node,newtec,size,year_all2)*u(size)) =e= cap_new2(node,newtec,year_all2) ;
 CAPEX_ESTIMATE(node,newtec,year_all2)..  CAPEX_TEC(node,newtec,year_all2)*cap_new2(node,newtec,year_all2) =g= sum(size,inv_cost_ref(node,newtec)
                                               * NBR_UNIT(node,newtec,size,year_all2)*u(size)
-                                              * [(((sum((size2,year_all3)$(ord(year_all3) le ord(year_all2) and ord(year_all3) gt hist_length), NBR_UNIT(node,newtec,size2,year_all3))+nbr_unit_ref(newtec))/nbr_unit_ref(newtec))**(-b(newtec)))]
-                                              * [((u(size)/u_ref(newtec))**rho(newtec))]) ;
+                                              * [(((sum((size2,year_all3)$(ord(year_all3) le (ord(year_all2)-1) and ord(year_all3) gt hist_length), NBR_UNIT(node,newtec,size2,year_all3))+nbr_unit_ref(newtec))/nbr_unit_ref(newtec))**(-b(newtec)))]
+                                              * [((u(size)/u_ref(newtec))**rho(newtec))/(u(size)/u_ref(newtec))]) ;
 NO_BUILT_YEAR(node,newtec,year_all2)..   CAPEX_TEC(node,newtec,year_all2) =e= bin_cap_new(node,newtec,year_all2)*CAPEX_TEC(node,newtec,year_all2)
                                                                               + (1-bin_cap_new(node,newtec,year_all2))*CAPEX_TEC(node,newtec,year_all2-1) ;
 
