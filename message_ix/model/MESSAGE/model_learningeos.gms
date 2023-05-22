@@ -31,6 +31,7 @@ EQUATIONS
   OBJECTIVE_INNER        total investment cost
   CAP_NEW_BALANCE        installed capacity balance
   CAPEX_ESTIMATE         estimating average capex
+  INITIAL_YEAR          annual investment cost
   NO_BUILT_YEAR          annual investment cost
 ;
 
@@ -41,7 +42,8 @@ CAPEX_ESTIMATE(node,newtec,year_all2)..  CAPEX_TEC(node,newtec,year_all2)*cap_ne
                                               * NBR_UNIT(node,newtec,size,year_all2)*u(size)
                                               * [(((sum((size2,year_all3)$(ord(year_all3) le (ord(year_all2)-1) and ord(year_all3) gt hist_length), NBR_UNIT(node,newtec,size2,year_all3))+nbr_unit_ref(newtec))/nbr_unit_ref(newtec))**(-b(newtec)))]
                                               * [((u(size)/u_ref(newtec))**rho(newtec))/(u(size)/u_ref(newtec))]) ;
-NO_BUILT_YEAR(node,newtec,year_all2)..   CAPEX_TEC(node,newtec,year_all2) =e= bin_cap_new(node,newtec,year_all2)*CAPEX_TEC(node,newtec,year_all2)
+INITIAL_YEAR(node,newtec,year_all2)$(ord(year_all2) eq 1)..   CAPEX_TEC(node,newtec,year_all2) =e= inv_cost_ref(node,newtec) ;
+NO_BUILT_YEAR(node,newtec,year_all2)$(ord(year_all2) gt 1)..   CAPEX_TEC(node,newtec,year_all2) =e= bin_cap_new(node,newtec,year_all2)*CAPEX_TEC(node,newtec,year_all2)
                                                                               + (1-bin_cap_new(node,newtec,year_all2))*CAPEX_TEC(node,newtec,year_all2-1) ;
 
 model learningeos / all /;
