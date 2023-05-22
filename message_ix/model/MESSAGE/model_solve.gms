@@ -8,8 +8,6 @@
 *set year_rd(year_all) /700, 710/;
 *set year_rd(year_all) all year in recursive dynamic iterations ;
 *year_rd(year_all) = ord(year_all) >1;
-Parameter iter 'iteration number';
-iter = 1;
 Scalars
    prev_OBJ    previous objective value / 0 /
    delta_OBJ   difference between current and previous OBJ values  / 1 /
