@@ -41,7 +41,7 @@ def add_tech(
     if not filepath:
         module_path = os.path.abspath(__file__)                                 # get the module path
         package_path = os.path.dirname(os.path.dirname(module_path))            # get the package path
-        path = os.path.join(package_path, 'genie_tech/tech_data.xlsx')          # join the current working directory with a filename
+        path = os.path.join(package_path, 'add_tech/technology_data.xlsx')          # join the current working directory with a filename
         df = pd.read_excel(path,index_col=0)
     else:
         df = pd.read_excel(filepath,index_col=0)
@@ -151,7 +151,7 @@ def add_learning(
     if not filepath:
         module_path = os.path.abspath(__file__) # get the module path
         package_path = os.path.dirname(os.path.dirname(module_path)) # get the package path
-        path = os.path.join(package_path, 'genie_tech/tech_data.xlsx') # join the current working directory with a filename
+        path = os.path.join(package_path, 'add_tech/technology_data.xlsx') # join the current working directory with a filename
         df = pd.read_excel(path,index_col=0)
     else:
         df = pd.read_excel(filepath,index_col=0)
