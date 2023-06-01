@@ -51,6 +51,7 @@ if (%foresight% = 0,
                  );
                prev_OBJ = OBJ.l ;
                display count_iter, delta_OBJ;
+               display year,year_all,year_all2,model_horizon ;
                count_iter = count_iter + 1 ;
          );
     ELSE
@@ -58,6 +59,7 @@ if (%foresight% = 0,
          put_utility 'log' /'+++ Solve the perfect-foresight version of MESSAGEix +++ ' ;
          option threads = 4 ;
          Solve MESSAGE_LP using LP minimizing OBJ ;
+         display year,year_all,year_all2,model_horizon ;
     );
 
 
@@ -127,9 +129,10 @@ else
     LOOP(year_all$( model_horizon(year_all) ),
 
 * include all past periods and future periods including the period where the %foresight% is reached
-             year(year_all2)$( ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
-             year4(year_all2)$((ord(year_all2) le ord(year_all))) = yes ;
+             year(year_all2)$( ORD(year_all2) ge (ORD(year_all)) and ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
+             year4(year_all2)$( ORD(year_all2) ge (ORD(year_all)) and (ord(year_all2) le ord(year_all))) = yes ;
 
+             put_utility 'log' /'+++ Solve the recursive-dynamic version of MESSAGEix +++ ' ;
              option threads = 4 ;
              Solve MESSAGE_LP using LP minimizing OBJ ;
 *            write model status summary
@@ -159,17 +162,14 @@ else
                  );
 
 * fix all variables of the current iteration period 'year_all' to the optimal levels
-        EXT.fx(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
-        CAP_NEW.fx(node,tec,year4) = CAP_NEW.l(node,tec,year4) ;
-*        CAP.fx(node,tec,year4,year4) = CAP.l(node,tec,year4,year4) ;
-        CAP.up(node,tec,year4,year4) = 1.000001*CAP.l(node,tec,year4,year4) ;
-        CAP.lo(node,tec,year4,year4) = 0.999999*CAP.l(node,tec,year4,year4) ;
-        ACT.fx(node,tec,year4,year4,mode,time) = ACT.l(node,tec,year4,year4,mode,time) ;
+        EXT.lo(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
+        CAP_NEW.lo(node,tec,year4) = CAP_NEW.l(node,tec,year4) ;
+        CAP.lo(node,tec,year4,year4) = CAP.l(node,tec,year4,year4) ;
+        ACT.lo(node,tec,year4,year4,mode,time) = ACT.l(node,tec,year4,year4,mode,time) ;
         CAP_NEW_UP.fx(node,tec,year4) = CAP_NEW_UP.l(node,tec,year4) ;
         CAP_NEW_LO.fx(node,tec,year4) = CAP_NEW_LO.l(node,tec,year4) ;
         ACT_UP.fx(node,tec,year4,time) = ACT_UP.l(node,tec,year4,time) ;
         ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
-
 
         Display year,year4,year_all,year_all2,model_horizon, CAP_NEW.l ;
     ) ; # end of the recursive-dynamic loop

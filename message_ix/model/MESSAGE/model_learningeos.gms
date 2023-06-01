@@ -5,8 +5,8 @@ ALIAS (size,size2);
 PARAMETERS
   cap_new2(node,newtec,year_all2)        'annual newly installed capacity'
   bin_cap_new(node,newtec,year_all2)     'binary of newly installed capacity'
-  rho(newtec)                            'economy of scale parameter'            / wind_ppl      0.8       / #0.8
-  b(newtec)                              'technology cost learning parameter'    / wind_ppl      0.1     / #0.9
+  rho(newtec)                            'economy of scale parameter'            / wind_ppl      1       / #0.8
+  b(newtec)                              'technology cost learning parameter'    / wind_ppl      0     / #0.9
   u(size)                                'unit size'
          / small      5
            medium     10
