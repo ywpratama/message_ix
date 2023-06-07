@@ -1,0 +1,3 @@
+Issues noted:
+1. When technology parameters are not included, it will create errors because the parameters are not in gdx. 
+   Need to add those parameters (with zero or none values) by default - similar to other parameters implementation.

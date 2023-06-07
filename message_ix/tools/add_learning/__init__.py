@@ -18,43 +18,37 @@ from message_ix.utils import make_df
 
 
 def generate_df(
-        filepath="",
-        scenario=None,
+        filepath=""
         ):
     if not filepath:
         module_path = os.path.abspath(__file__)                                 # get the module path
         package_path = os.path.dirname(os.path.dirname(module_path))            # get the package path
-        path = os.path.join(package_path, 'add_tech/tech_data.yaml')            # join the current working directory with a filename
+        path = os.path.join(package_path, 'add_tech/tech_data.yaml')          # join the current working directory with a filename
         with open(path,'r') as stream:
             tech_data = yaml.safe_load(stream)
     else:
         with open(filepath,'r') as stream:
             tech_data = yaml.safe_load(stream)
     
-    regions = []
-    modes = []
-    emissions = []
-    time = []
-    commodities = []
-    levels = []
-
+    years = [*range(700,730,10)]
+    regions = ['Westeros', 'Westerlands']
+    modes = ['standard']
+    emissions = ['CO2','CH4']
+    time = ['year']
     first_active_year = tech_data['model_data'].get('first_active_year')
-    # If those are not provided, then this block of code is needed to retrieve them from the data input
-    if not regions:
-        regions = list(tech_data.get('model_data',{}).get('DACCS',{}).get('fix_cost',{}).get('node_loc').keys())
-    if not modes:
-        modes = list(tech_data.get('model_data',{}).get('DACCS',{}).get('var_cost',{}).get('mode').keys())
-    if not emissions:
-        emissions = list(tech_data.get('model_data',{}).get('DACCS',{}).get('emission_factor',{}).get('emission').keys())
-    if not time:
-        time = list(tech_data.get('model_data',{}).get('DACCS',{}).get('var_cost',{}).get('time').keys())
-    if not commodities:
-        commodities = list(tech_data.get('model_data',{}).get('DACCS',{}).get('input',{}).get('commodity').keys())
-    if not levels:
-        levels = list(tech_data.get('model_data',{}).get('DACCS',{}).get('input',{}).get('level').keys())
+
+    years_dict = {yv:[ya for ya in years if ya >= yv] for yv in years if yv >= first_active_year}
+
+    vtg = [yv for ya in list(years_dict.keys()) for yv in repeat(ya,len(years_dict[ya]))]
     
-    years_vtg_act = scenario.vintage_and_active_years()
-    years_vtg_act = years_vtg_act[years_vtg_act['year_vtg'] >= first_active_year]
+    act = [yv for ya in list(years_dict.keys()) for yv in repeat(ya,len(years_dict[ya]))]
+    
+    years_vtg_act = pd.DataFrame(
+        {
+        'year_vtg':[k for k, v in years_dict.items() for i in range(len(v))],
+        'year_act':[ya for value in years_dict.values() for ya in value]
+        }
+    )
     
     parameters = {}
     for tech in set(tech_data) - set(['model_data']):
@@ -94,28 +88,15 @@ def generate_df(
                     for t in range(len(time)):
                         for e in range(len(data[par])):
                             data[par][e] = data[par][e].assign(time=time[t])
-                            if 'time_origin' in parameters[par]:
-                                data[par][e] = data[par][e].assign(time_origin=time[t])
-                if 'commodity' in parameters[par]:
-                    print(par,'True')
-                    data[par] = data[par]*len(commodities)
-                    for c in range(len(commodities)):
-                        for e in range(len(data[par])):
-                            data[par][e] = data[par][e].assign(commodity=commodities[c])
-                if 'level' in parameters[par]:
-                    data[par] = data[par]*len(levels)
-                    for l in range(len(levels)):
-                        for e in range(len(data[par])):
-                            data[par][e] = data[par][e].assign(level=levels[l])
-                
+    data = {k: pd.concat(v).reset_index(drop=True) for k, v in data.items()}
     
-    data = {k: pd.concat(v).reset_index(drop=True) for k, v in data.items()}    
     # Expanded DataFrame
     data_expand ={par: [] for par in list(parameters.keys())} 
     for par in list(parameters.keys()):
         for tech, diffs in tech_data['model_data'].items():
             if tech != 'first_active_year':
                 for reg in regions:
+                    print(par,tech,reg)
                     multiplier = []
                     for i in range(len(data[par])):
                         multiplier.append(
@@ -131,13 +112,10 @@ def generate_df(
                         )
     
                     value = data[par]['value']*multiplier
-                    # node origin is assumed to be always the same of the node
-                    if 'node_origin' in parameters[par]:
-                        kwargs = {'node_origin': reg}
-                    # assigning data expansion
                     data_expand[par].append(
-                        data[par].assign(node_loc=reg,value=value, **kwargs)
-                       )    
+                        data[par].assign(node_loc=reg,value=value)
+                       )
+    
     data_expand = {k: pd.concat(v) for k, v in data_expand.items() 
                if k in parameters.keys()}
     return data_expand
@@ -274,4 +252,68 @@ def add_tech(
                     technology=tech,
                     value=df_in[par],
                     )
+                scenario.add_par(par, par_data)
+
+def add_learning(
+    scenario,
+    technology=[],
+    parameter=[],
+    filepath=""
+    ):
+    
+    """
+    Parameters
+    ----------
+    scenario    : message_ix.Scenario()
+        MESSAGEix Scenario where the data will be included
+    technology  : list, optional 
+        additional technologies that will be included in the model
+        the default is all technologies in the input file
+    filepath    : string, path of the input file
+        the default is in the module's folder
+    """
+    
+    parameter = ['learning_par','eos_par','nbr_unit_ref','u_ref','u']
+    # Reading new technology database
+    if not filepath:
+        module_path = os.path.abspath(__file__) # get the module path
+        package_path = os.path.dirname(os.path.dirname(module_path)) # get the package path
+        path = os.path.join(package_path, 'add_tech/tech_data.xlsx') # join the current working directory with a filename
+        df = pd.read_excel(path,index_col=0)
+    else:
+        df = pd.read_excel(filepath,index_col=0)
+
+    for tech in technology:
+        if tech not in set(scenario.set("technology")):
+            scenario.add_set("technology", tech)
+        
+        df_in = df[tech]
+    
+        size = df_in['size'].split(',')
+        
+        
+        for z in size:
+            if z not in set(scenario.set("size")):
+                scenario.add_set("size", z)
+
+        
+        for par in parameter:
+            if par == 'u':
+                val = [float(i) for i in df_in['u'].split(',')]
+                for v in range(len(val)):
+                    par_data = make_df(
+                        par,
+                        technology=tech,
+                        value=val[v],
+                        unit='-',
+                        size=size[v])
+                    scenario.add_par(par, par_data)
+            else:
+                val = df_in[par]
+                par_data = make_df(
+                    par,
+                    technology=tech,
+                    value=val,
+                    unit='-',
+                    size=z)
                 scenario.add_par(par, par_data)

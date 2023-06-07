@@ -32,9 +32,9 @@ DACCS:
   initial_new_capacity_up: 
     value: 0.5
     unit: GW
-#  eos_par:
-#    value: 1
-#    unit: '-'
+  eos_par:
+    value: 1
+    unit: '-'
 #  learning_par:
 #    value: 0
 #    unit: '-'

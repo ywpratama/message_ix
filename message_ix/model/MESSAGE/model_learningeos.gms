@@ -4,7 +4,7 @@ Parameters
   inv_cost_ref(node,tec)              'initial capex' ;
 inv_cost_ref(node,tec) = 1500;
 
-$ontext
+*$ontext
 SETS
   size           'size'  / small, medium, large / ;
 
@@ -13,7 +13,7 @@ PARAMETERS
   cap_new2(node,tec,year_all2)        'annual newly installed capacity'
   bin_cap_new(node,tec,year_all2)     'binary of newly installed capacity'
   rho(tec)                            'economy of scale parameter'            / wind_ppl      1.0       / #0.8
-  b(tec)                              'technology cost learning parameter'    / wind_ppl      0.9     / #0.9
+  b(tec)                              'technology cost learning parameter'    / wind_ppl      0.0     / #0.9
   u(tec,size)                                'unit size'
          / wind_ppl.small      5
            wind_ppl.medium     10
@@ -22,7 +22,7 @@ PARAMETERS
   nbr_unit_ref(tec)                   'initial number of unit'                / wind_ppl      100     /
   u_ref(tec)                          'reference size'                        / wind_ppl      5       / ;
 inv_cost_ref(node,tec) = 1500;
-$offtext
+*$offtext
 SCALAR hist_length                       the length of historical periods;
 hist_length = card(year_all2) - card(model_horizon);
 
