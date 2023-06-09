@@ -4,7 +4,7 @@ Parameters
   inv_cost_ref(node,tec)              'initial capex' ;
 inv_cost_ref(node,tec) = 1500;
 
-*$ontext
+$ontext
 SETS
   size           'size'  / small, medium, large / ;
 
@@ -22,7 +22,7 @@ PARAMETERS
   nbr_unit_ref(tec)                   'initial number of unit'                / wind_ppl      100     /
   u_ref(tec)                          'reference size'                        / wind_ppl      5       / ;
 inv_cost_ref(node,tec) = 1500;
-*$offtext
+$offtext
 SCALAR hist_length                       the length of historical periods;
 hist_length = card(year_all2) - card(model_horizon);
 
@@ -47,8 +47,8 @@ OBJECTIVE_INNER..                        OBJECT =e= sum((node,tec,year_all2), CA
 CAP_NEW_BALANCE(node,tec,year_all2).. sum(size, NBR_UNIT(node,tec,size,year_all2)*u(tec,size)) =e= cap_new2(node,tec,year_all2) ;
 CAPEX_ESTIMATE(node,tec,year_all2)..  CAPEX_TEC(node,tec,year_all2)*cap_new2(node,tec,year_all2) =g= sum(size,inv_cost_ref(node,tec)
                                               * NBR_UNIT(node,tec,size,year_all2)*u(tec,size)
-                                              * [(((sum((size2,year_all3)$(ord(year_all3) le (ord(year_all2)-1) and ord(year_all3) gt hist_length), NBR_UNIT(node,tec,size2,year_all3))+nbr_unit_ref(tec))/nbr_unit_ref(tec))**(-b(tec)))]
-                                              * [((u(tec,size)/u_ref(tec))**rho(tec))/(u(tec,size)/u_ref(tec))]) ;
+                                              * [(((sum((size2,year_all3)$(ord(year_all3) le (ord(year_all2)-1) and ord(year_all3) gt hist_length), NBR_UNIT(node,tec,size2,year_all3))+nbr_unit_ref(tec))/nbr_unit_ref(tec))**(-learning_par(tec)))]
+                                              * [((u(tec,size)/u_ref(tec))**eos_par(tec))/(u(tec,size)/u_ref(tec))]) ;
 INITIAL_YEAR(node,tec,year_all2)$(ord(year_all2) eq 1)..   CAPEX_TEC(node,tec,year_all2) =e= inv_cost_ref(node,tec) ;
 NO_BUILT_YEAR(node,tec,year_all2)$(ord(year_all2) gt 1)..   CAPEX_TEC(node,tec,year_all2) =e= bin_cap_new(node,tec,year_all2)*CAPEX_TEC(node,tec,year_all2)
                                                                               + (1-bin_cap_new(node,tec,year_all2))*CAPEX_TEC(node,tec,year_all2-1) ;

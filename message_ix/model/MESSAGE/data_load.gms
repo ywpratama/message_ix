@@ -20,7 +20,7 @@ $LOAD balance_equality, time_relative
 $LOAD shares
 $LOAD addon, type_addon, cat_addon, map_tec_addon
 $LOAD storage_tec, level_storage, map_tec_storage
-*$LOAD size, learning_par, eos_par, nbr_unit_ref, u_ref, u
+$LOAD size, learning_par, eos_par, nbr_unit_ref, u_ref, u, inv_cost_ref
 $GDXIN
 
 Execute_load '%in%'

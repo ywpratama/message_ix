@@ -267,10 +267,10 @@ MESSAGE_ITEMS = {
     # Technology cost learning parameters
     "learning_par": item("par", "t "),
     "eos_par": item("par", "t "),
-    #"eos_par": dict(ix_type="par", idx_sets=["technology"], idx_names=["technology"]),
     "nbr_unit_ref": item("par", "t"),
     "u_ref": item("par", "t"),
     "u": item("par", "t z"),
+    "inv_cost_ref": item("par", "nl t"),
     #
     # commented: for certain variables and equations, ixmp_source requires that the
     # `idx_sets` and `idx_names` parameters be empty, but then internally uses the
