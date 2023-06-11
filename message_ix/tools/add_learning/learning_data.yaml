@@ -1,27 +1,125 @@
 wind_ppl:
-  learning_par: 0.9  
-  eos_par: 0.9
-  nbr_unit_ref: 100
+  learning_par: 0.072  
+  eos_par: 0.833
+  nbr_unit_ref: 400000
   u_ref: 
-    value: 5
+    value: 0.003
     unit: GW
   u:
     value:
-      small: 5
-      medium: 10
-      large: 50
+      small: 0.003
+      medium: 0.005
+      large: 0.010
     unit: GW
 
-DACCS:
-  learning_par: 0.9  
-  eos_par: 0.9
-  nbr_unit_ref: 100
+solar_pv_ppl:
+  learning_par: 0.15  
+  eos_par: 0.75
+  nbr_unit_ref: 940
   u_ref: 
-    value: 5
+    value: 0.06
     unit: GW
   u:
     value:
-      small: 5
-      medium: 10
-      large: 50
+      small: 0.06
+      medium: 0.5
+      large: 2
+    unit: GW
+
+solar_th_ppl:
+  learning_par: 0.119  
+  eos_par: 1.0
+  nbr_unit_ref: 130
+  u_ref: 
+    value: 0.1
+    unit: GW
+  u:
+    value:
+      small: 0.1
+      medium: 0.5
+      large: 2
+    unit: GW
+
+nuc_hc:
+  learning_par: -0.538  
+  eos_par: 1
+  nbr_unit_ref: 770
+  u_ref: 
+    value: 1.1
+    unit: GW
+  u:
+    value:
+      small: 0.6
+      medium: 1.1
+      large: 1.5
+    unit: GW
+
+coal_ppl:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2800
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 1.0
+      large: 2.0
+    unit: GW
+
+coal_adv_ccs:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 1.0
+      large: 2.0
+    unit: GW
+
+gas_cc:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 3776
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.5
+    unit: GW
+
+gas_ct:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 1083
+  u_ref: 
+    value: 0.2
+    unit: GW
+  u:
+    value:
+      small: 0.2
+      medium: 0.5
+      large: 1.0
+    unit: GW
+
+gas_cc_ccs:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
     unit: GW
