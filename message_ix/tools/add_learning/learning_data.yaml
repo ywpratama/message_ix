@@ -1,46 +1,20 @@
-wind_ppl:
-  learning_par: 0.072  
-  eos_par: 0.833
-  nbr_unit_ref: 400000
-  u_ref: 
-    value: 0.003
-    unit: GW
-  u:
-    value:
-      small: 0.003
-      medium: 0.005
-      large: 0.010
-    unit: GW
-
-solar_pv_ppl:
-  learning_par: 0.15  
-  eos_par: 0.75
-  nbr_unit_ref: 940
-  u_ref: 
-    value: 0.06
-    unit: GW
-  u:
-    value:
-      small: 0.06
-      medium: 0.5
-      large: 2
-    unit: GW
-
-solar_th_ppl:
-  learning_par: 0.119  
-  eos_par: 1.0
-  nbr_unit_ref: 130
+# ELECTRICITY SECTOR
+##  Nuclear
+nuc_hc:
+  learning_par: 0.538  
+  eos_par: 0.908
+  nbr_unit_ref: 10
   u_ref: 
     value: 0.1
     unit: GW
   u:
     value:
       small: 0.1
-      medium: 0.5
-      large: 2
+      medium: 0.2
+      large: 0.3
     unit: GW
 
-nuc_hc:
+nuc_lc:
   learning_par: -0.538  
   eos_par: 1
   nbr_unit_ref: 770
@@ -54,18 +28,146 @@ nuc_hc:
       large: 1.5
     unit: GW
 
-coal_ppl:
+## Biomass
+bio_istig:
   learning_par: 0.154  
   eos_par: 0.773
-  nbr_unit_ref: 2800
+  nbr_unit_ref: 5
   u_ref: 
     value: 0.45
     unit: GW
   u:
     value:
       small: 0.45
-      medium: 1.0
-      large: 2.0
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+bio_istig_ccs:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+h2_bio:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+h2_bio_ccs:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+eth_bio:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+eth_bio_ccs:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+liq_bio:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+liq_bio_ccs:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+bio_ppl:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+## Coal
+coal_adv:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
     unit: GW
 
 coal_adv_ccs:
@@ -78,10 +180,110 @@ coal_adv_ccs:
   u:
     value:
       small: 0.45
-      medium: 1.0
-      large: 2.0
+      medium: 0.9
+      large: 1.2
     unit: GW
 
+coal_ppl:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2800
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+coal_ppl_u:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2800
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+igcc:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2800
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+igcc_ccs:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2800
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+## Oil
+foil_ppl:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2800
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+loil_cc:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2800
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+loil_ppl:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2800
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
+    unit: GW
+
+## Gas
 gas_cc:
   learning_par: 0.154  
   eos_par: 0.773
@@ -93,7 +295,21 @@ gas_cc:
     value:
       small: 0.45
       medium: 0.9
-      large: 1.5
+      large: 1.2
+    unit: GW
+
+gas_cc_ccs:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 5
+  u_ref: 
+    value: 0.45
+    unit: GW
+  u:
+    value:
+      small: 0.45
+      medium: 0.9
+      large: 1.2
     unit: GW
 
 gas_ct:
@@ -110,16 +326,132 @@ gas_ct:
       large: 1.0
     unit: GW
 
-gas_cc_ccs:
+gas_htfc:
   learning_par: 0.154  
   eos_par: 0.773
-  nbr_unit_ref: 5
+  nbr_unit_ref: 1083
   u_ref: 
-    value: 0.45
+    value: 0.2
     unit: GW
   u:
     value:
-      small: 0.45
-      medium: 0.9
-      large: 1.2
+      small: 0.2
+      medium: 0.5
+      large: 1.0
+    unit: GW
+
+gas_ppl:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 1083
+  u_ref: 
+    value: 0.2
+    unit: GW
+  u:
+    value:
+      small: 0.2
+      medium: 0.5
+      large: 1.0
+    unit: GW
+
+## Geothermal
+geo_ppl:
+  learning_par: 0.072  
+  eos_par: 0.833
+  nbr_unit_ref: 400000
+  u_ref: 
+    value: 0.003
+    unit: GW
+  u:
+    value:
+      small: 0.003
+      medium: 0.005
+      large: 0.010
+    unit: GW
+
+## Hydro
+hydro_hc:
+  learning_par: 0.072  
+  eos_par: 0.833
+  nbr_unit_ref: 400000
+  u_ref: 
+    value: 0.003
+    unit: GW
+  u:
+    value:
+      small: 0.003
+      medium: 0.005
+      large: 0.010
+    unit: GW
+
+hydro_lc:
+  learning_par: 0.072  
+  eos_par: 0.833
+  nbr_unit_ref: 400000
+  u_ref: 
+    value: 0.003
+    unit: GW
+  u:
+    value:
+      small: 0.003
+      medium: 0.005
+      large: 0.010
+    unit: GW
+
+## Solar
+solar_pv_ppl:
+  learning_par: 0.15  
+  eos_par: 0.75
+  nbr_unit_ref: 940
+  u_ref: 
+    value: 0.06
+    unit: GW
+  u:
+    value:
+      small: 0.06
+      medium: 0.5
+      large: 1
+    unit: GW
+
+solar_th_ppl:
+  learning_par: 0.119  
+  eos_par: 1.0
+  nbr_unit_ref: 130
+  u_ref: 
+    value: 0.1
+    unit: GW
+  u:
+    value:
+      small: 0.1
+      medium: 0.5
+      large: 1
+    unit: GW
+
+## Wind
+wind_ppl:
+  learning_par: 0.072  
+  eos_par: 0.833
+  nbr_unit_ref: 400000
+  u_ref: 
+    value: 0.003
+    unit: GW
+  u:
+    value:
+      small: 0.003
+      medium: 0.005
+      large: 0.010
+    unit: GW
+
+wind_ppf:
+  learning_par: 0.072  
+  eos_par: 0.833
+  nbr_unit_ref: 400000
+  u_ref: 
+    value: 0.003
+    unit: GW
+  u:
+    value:
+      small: 0.003
+      medium: 0.005
+      large: 0.010
     unit: GW

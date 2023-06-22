@@ -32,18 +32,19 @@ if (%foresight% = 0,
     IF(%learningmode% = 1,
          put_utility 'log' /'+++ Solve the perfect-foresight with learning version of MESSAGEix +++ ' ;
          option threads = 4 ;
-         while(count_iter <= 10 and
+         while(count_iter <= 20 and
                delta_OBJ >= 0.01,
                Solve MESSAGE_LP using LP minimizing OBJ ;
 *              passing CAP_NEW values to update cap_new2 data for unit and size optimization
-               cap_new2(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
+               cap_new2(node,learning_tec,year_all2) = CAP_NEW.l(node,learning_tec,year_all2);
 *              making bin param equal to 1 when technology is built, and 0 if otherwise
-               bin_cap_new(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
-               bin_cap_new(node,newtec,year_all2)$(bin_cap_new(node,newtec,year_all2) > 0) = 1 ;
+               bin_cap_new(node,learning_tec,year_all2) = CAP_NEW.l(node,learning_tec,year_all2);
+               bin_cap_new(node,learning_tec,year_all2)$(bin_cap_new(node,learning_tec,year_all2) > 0) = 1 ;
 *              solving the unit and size optimization
                Solve learningeos using nlp minimizing OBJECT;
+               Execute_Unload "output/LearningOutput.gdx";
 *              passing CapexTec values to update inv_cost data for MESSAGE optimization
-               inv_cost(node,newtec,year_all2) = CAPEX_TEC.l(node,newtec,year_all2);
+               inv_cost(node,learning_tec,year_all2) = CAPEX_TEC.l(node,learning_tec,year_all2);
                if(count_iter = 1,
                        delta_OBJ = 1 ;
                else
@@ -150,13 +151,13 @@ else
 
              IF(%learningmode% = 1,
 *            passing CAP_NEW values to update cap_new2 data for unit and size optimization
-                 cap_new2(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
+                 cap_new2(node,learning_tec,year_all2) = CAP_NEW.l(node,learning_tec,year_all2);
 *            this is to make bin param equal to 1 when technology is built, and 0 if otherwise
-                 bin_cap_new(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
-                 bin_cap_new(node,newtec,year_all2)$(bin_cap_new(node,newtec,year_all2) > 0) = 1 ;
+                 bin_cap_new(node,learning_tec,year_all2) = CAP_NEW.l(node,learning_tec,year_all2);
+                 bin_cap_new(node,learning_tec,year_all2)$(bin_cap_new(node,learning_tec,year_all2) > 0) = 1 ;
                  solve learningeos using nlp minimizing OBJECT;
 *            passing CapexTec values to update inv_cost data for MESSAGE optimization
-                 inv_cost(node,newtec,year_all2) = CAPEX_TEC.l(node,newtec,year_all2);
+                 inv_cost(node,learning_tec,year_all2) = CAPEX_TEC.l(node,learning_tec,year_all2);
 
                  display bin_cap_new, NBR_UNIT.l, CAPEX_TEC.l, inv_cost, cap_new2, CAP_NEW.l;
                  );

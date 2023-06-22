@@ -20,8 +20,10 @@ $LOAD balance_equality, time_relative
 $LOAD shares
 $LOAD addon, type_addon, cat_addon, map_tec_addon
 $LOAD storage_tec, level_storage, map_tec_storage
-$LOAD size, learning_par, eos_par, nbr_unit_ref, u_ref, u, inv_cost_ref
+$LOAD learning_tec, size, learning_par, eos_par, nbr_unit_ref, u_ref, u, inv_cost_ref
 $GDXIN
+
+*Set newtec(tec) / wind_ppl / ;
 
 Execute_load '%in%'
 * general parameters
@@ -97,8 +99,6 @@ rating_unfirm('firm') = no ;
 Set rating_unrated(rating) ;
 rating_unrated(rating) = yes ;
 rating_unrated('unrated') = no ;
-
-Set newtec(tec) / wind_ppl / ;
 
 *----------------------------------------------------------------------------------------------------------------------*
 * assignment and computation of MESSAGE-specific auxiliary parameters                                                  *

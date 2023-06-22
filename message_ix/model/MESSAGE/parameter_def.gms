@@ -882,11 +882,11 @@ Parameters
 *----------------------------------------------------------------------------------------------------------------------*
 
 Parameters
-    learning_par(tec)            learning rate of technology
-    eos_par(tec)                 economy of scale rate of technology
-    nbr_unit_ref(tec)            initial number of unit as reference
-    u_ref(tec)                   unit size reference
-    u(tec,size)                  technology size
-    inv_cost_ref(node,tec)       investment cost reference for learning calculation
+    learning_par(learning_tec)            learning rate of technology
+    eos_par(learning_tec)                 economy of scale rate of technology
+    nbr_unit_ref(learning_tec)            initial number of unit as reference
+    u_ref(learning_tec)                   unit size reference
+    u(learning_tec,size)                  technology size
+    inv_cost_ref(node,learning_tec)       investment cost reference for learning calculation
 
 ;

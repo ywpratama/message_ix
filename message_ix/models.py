@@ -98,6 +98,7 @@ MESSAGE_ITEMS = {
     "relation": dict(ix_type="set"),
     "shares": dict(ix_type="set"),
     "storage_tec": dict(ix_type="set"),  # Storage reservoir technology
+    "learning_tec": dict(ix_type="set"), # Learning technology
     "technology": dict(ix_type="set"),
     "time": dict(ix_type="set"),
     "time_relative": dict(ix_type="set"),
@@ -151,7 +152,7 @@ MESSAGE_ITEMS = {
         ix_type="set", idx_sets=["time", "time"], idx_names=["time_parent", "time"]
     ),
     "type_tec_land": dict(ix_type="set", idx_sets=["type_tec"]),
-    #
+    
     # Parameters
     "abs_cost_activity_soft_lo": item("par", "nl t ya h"),
     "abs_cost_activity_soft_up": item("par", "nl t ya h"),

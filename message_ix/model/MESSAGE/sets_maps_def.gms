@@ -305,7 +305,7 @@ Sets
     addon(tec)                              technologies that are an add-on to other (parent) technologies
     type_addon                              types of add-on technologies (that can be applied mutually exclusive)
     cat_addon(type_addon,addon)             mapping of add-on technologies to respective add-on technology types
-    newtec(tec)                             new technologies that will experience technological learning
+    learning_tec(tec)                       new technologies that will experience technological learning
     type_year                               types of year aggregations
     cat_year(type_year,year_all)            mapping of years to respective categories
     type_emission                           types of emission aggregations

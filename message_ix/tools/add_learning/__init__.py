@@ -113,6 +113,8 @@ def add_learning(
             if tech not in set(scenario.set("technology")):
                 scenario.add_set("technology", tech)
             
+            if tech not in set(scenario.set("learning_tec")):
+                scenario.add_set("learning_tec", tech)
             selected_data = data[par][data[par]['technology'] == tech]
 
             if 'size' in list(selected_data.columns):            
@@ -122,14 +124,26 @@ def add_learning(
                         scenario.add_set("size", z)
             scenario.add_par(par, selected_data)
     
+    # importing initial investment cost as reference and intially-assumed costs in technology learning module
     inv_base_data = scenario.par('inv_cost')
     for tech in technology:
         if tech in set(inv_base_data['technology']):
+            hist_year = 2020
             first_vtg_year = scenario.par('inv_cost', filters={'technology':tech})['year_vtg'].iloc[0]
-        
-            selected_data = scenario.par('inv_cost',filters={'year_vtg':first_vtg_year,'technology':tech}).drop(columns='year_vtg')
 
-            scenario.add_par('inv_cost_ref', selected_data)
+            ref_year = first_vtg_year if first_vtg_year > hist_year else hist_year
+
+            inv_ref_data = scenario.par('inv_cost',filters={'year_vtg':ref_year,'technology':tech}).drop(columns='year_vtg')
+            scenario.add_par('inv_cost_ref', inv_ref_data)
+
+            inv_data = scenario.par('inv_cost',filters={'technology':tech})
+
+            for reg in list(set(inv_data['node_loc'])):
+                selected_data = inv_data[(inv_data['node_loc'] == reg) & (inv_data['year_vtg'] >= ref_year)]
+                selected_data['value'] = selected_data[selected_data['year_vtg'] == ref_year]['value'].iloc[0]
+                # adding new data to the data input
+                scenario.add_par('inv_cost', selected_data)
+
         else:
             print('\'inv_cost_ref\' data for',tech,'is not available.\n',
                   tech,'will not be considered in technology cost learning')
