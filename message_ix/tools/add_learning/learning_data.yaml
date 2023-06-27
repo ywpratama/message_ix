@@ -1,3 +1,75 @@
+# DACCS
+## High Temperature Aq. Sol. Large Scale
+dac_1_exports:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2
+  u_ref: 
+    value: 0.1
+    unit: '-' #MtC/y
+  u:
+    value:
+      small: 0.1
+      medium: 0.5
+      large: 1.0
+    unit: '-' #MtC/y
+
+dac_2_exports:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2
+  u_ref: 
+    value: 0.1
+    unit: '-' #MtC/y
+  u:
+    value:
+      small: 0.1
+      medium: 0.5
+      large: 1.0
+    unit: '-' #MtC/y
+
+dac_3_exports:
+  learning_par: 0.154  
+  eos_par: 0.773
+  nbr_unit_ref: 2
+  u_ref: 
+    value: 0.1
+    unit: '-' #MtC/y
+  u:
+    value:
+      small: 0.1
+      medium: 0.5
+      large: 1.0
+    unit: '-' #MtC/y
+
+dac_4_exports:
+  learning_par: 0.15  
+  eos_par: 0.75
+  nbr_unit_ref: 2
+  u_ref: 
+    value: 0.001
+    unit: '-' #MtC/y
+  u:
+    value:
+      small: 0.001
+      medium: 0.005
+      large: 0.010
+    unit: '-' #MtC/y
+
+dac_5_exports:
+  learning_par: 0.15  
+  eos_par: 0.75
+  nbr_unit_ref: 2
+  u_ref: 
+    value: 0.001
+    unit: '-' #MtC/y
+  u:
+    value:
+      small: 0.001
+      medium: 0.005
+      large: 0.010
+    unit: '-' #MtC/y
+
 # ELECTRICITY SECTOR
 ##  Nuclear
 nuc_hc:

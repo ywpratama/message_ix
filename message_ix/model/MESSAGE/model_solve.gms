@@ -40,11 +40,12 @@ if (%foresight% = 0,
 *              making bin param equal to 1 when technology is built, and 0 if otherwise
                bin_cap_new(node,learning_tec,year_all2) = CAP_NEW.l(node,learning_tec,year_all2);
                bin_cap_new(node,learning_tec,year_all2)$(bin_cap_new(node,learning_tec,year_all2) > 0) = 1 ;
+               bin_cap_new_glb(learning_tec,year_all2) = smax(node, bin_cap_new(node,learning_tec,year_all2))  ;
 *              solving the unit and size optimization
                Solve learningeos using nlp minimizing OBJECT;
                Execute_Unload "output/LearningOutput.gdx";
 *              passing CapexTec values to update inv_cost data for MESSAGE optimization
-               inv_cost(node,learning_tec,year_all2) = CAPEX_TEC.l(node,learning_tec,year_all2);
+               inv_cost(node,learning_tec,year_all2) = CAPEX_TEC_IDX.l(learning_tec,year_all2) * inv_cost_ref(node,learning_tec) ;
                if(count_iter = 1,
                        delta_OBJ = 1 ;
                else
@@ -155,11 +156,12 @@ else
 *            this is to make bin param equal to 1 when technology is built, and 0 if otherwise
                  bin_cap_new(node,learning_tec,year_all2) = CAP_NEW.l(node,learning_tec,year_all2);
                  bin_cap_new(node,learning_tec,year_all2)$(bin_cap_new(node,learning_tec,year_all2) > 0) = 1 ;
+                 bin_cap_new_glb(learning_tec,year_all2) = smax(node, bin_cap_new(node,learning_tec,year_all2))
                  solve learningeos using nlp minimizing OBJECT;
 *            passing CapexTec values to update inv_cost data for MESSAGE optimization
-                 inv_cost(node,learning_tec,year_all2) = CAPEX_TEC.l(node,learning_tec,year_all2);
+                 inv_cost(node,learning_tec,year_all2) = CAPEX_TEC_IDX.l(learning_tec,year_all2) * inv_cost_ref(node,learning_tec) ;
 
-                 display bin_cap_new, NBR_UNIT.l, CAPEX_TEC.l, inv_cost, cap_new2, CAP_NEW.l;
+                 display bin_cap_new, NBR_UNIT.l, inv_cost, cap_new2, CAP_NEW.l;
                  );
 
 * fix all variables of the current iteration period 'year_all' to the optimal levels
