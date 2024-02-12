@@ -36,40 +36,69 @@ def get_values(scenario,
         default is 'lvl'
     """
     
-    if isinstance(scenario.var(variable), pd.DataFrame): # this is specific for technology, hence all should be dataframe already
+    if isinstance(scenario.var(variable), pd.DataFrame):
         df = scenario.var(variable)
         dimensions = [col for col in df.columns if col not in ['lvl','mrg']]
         return df.set_index(dimensions)[[valuetype]]
     else:
         return scenario.var(variable)[valuetype]
 
-groups = {'DACs': ['LT_DAC','HT_DAC']}
 
+groups = {'DACs': ['LT_DAC','HT_DAC']}
 def get_report(scenario,
-               grouptec = '',
+               technologies = '',
               ): 
     """
     Parameters
     ----------
     scenario    : message_ix.Scenario()
         MESSAGEix Scenario where the data will be included
-    grouptec    : string
-        type of values reported to report,
-        either level or marginal.
-        default is 'lvl'
-    variable    : string
+    technologies    : string or list 
+        name of technology to be reported
+    variable    : string or list
         name of variable to report
     """
-    var_dict = {var: [] for var in ['CAP','CAP_NEW']}
+    var_dict  = {var: [] for var in ['CAP','CAP_NEW','INVESTMENT','REMOVAL']}
     
+    # listing model years to be reported
+    years_rep = (sorted(scenario.set('cat_year')
+                        .set_index('type_year')
+                        .loc['cumulative','year'].to_list()))
+    
+    # Create dataframe
     for var in var_dict.keys():
-        df = (get_values(scenario,var)['lvl'].unstack()
-              .loc[:,groups.get(grouptec),:]
-              .groupby(['node_loc']).sum()
-             )
+        # primary variables
+        if var in ['CAP','CAP_NEW']:
+            df = (get_values(scenario,var)['lvl'].unstack()
+                  .loc[:,groups.get(technologies),:]
+                  .groupby(['node_loc']).sum()
+                 )[years_rep]
+            
+        # investment
+        elif var == 'INVESTMENT':
+            depl = (get_values(scenario,'CAP_NEW')['lvl'].unstack()
+                   .loc[:,groups.get(technologies),:]
+                   )[years_rep]
+            
+            dfic = scen.par('inv_cost')
+            
+            inv  = (dfic.loc[dfic['technology'].isin(groups.get(technologies))]
+                    .set_index(['node_loc','technology','year_vtg'])['value'].unstack())
+            
+            df = depl.mul(inv).groupby(['node_loc']).sum()
+        
+        # removal
+        elif var == 'REMOVAL':
+            acts = get_values(scen,'ACT').droplevel(['mode','time'])
+            df   = acts.loc[:,groups.get(technologies),:,:]['lvl'].unstack().groupby(['node_loc']).sum()
+            
         df.loc['World'] = df.sum(axis=0)
         
         var_dict[var] = df
-        
-        return print(df) # TODO: This need to be printing to excel
+
+    # Create dictionary for variable dataframes and write variables to excel
+    with pd.ExcelWriter('get_report_output.xlsx', engine='openpyxl') as writer:
+        for var in var_dict.keys():
+            var_dict[var].to_excel(writer, sheet_name=var)
     
+    return var_dict

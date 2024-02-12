@@ -3,3 +3,4 @@ lpmethod = 4
 threads = 4
 epopt = 1e-06
 barcrossalg = 2
+scaind = 1

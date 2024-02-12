@@ -1,0 +1,781 @@
+[I 16:01:45.836 NotebookApp] Serving notebooks from local directory: C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\tutorial\dac_scenarios
+[I 16:01:45.837 NotebookApp] Jupyter Notebook 6.5.3 is running at:
+[I 16:01:45.837 NotebookApp] http://localhost:8888/?token=144fd1d7f9eb82887fc726b64be8723c729ae1d9ccde5948
+[I 16:01:45.837 NotebookApp]  or http://127.0.0.1:8888/?token=144fd1d7f9eb82887fc726b64be8723c729ae1d9ccde5948
+[I 16:01:45.837 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 16:01:45.998 NotebookApp] 
+    
+    To access the notebook, open this file in a browser:
+        file:///C:/Users/pratama/AppData/Roaming/jupyter/runtime/nbserver-14472-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/?token=144fd1d7f9eb82887fc726b64be8723c729ae1d9ccde5948
+     or http://127.0.0.1:8888/?token=144fd1d7f9eb82887fc726b64be8723c729ae1d9ccde5948
+[W 16:01:54.988 NotebookApp] Notebook [Tutorial] 4 get_report (DACs Capacity).ipynb is not trusted
+[I 16:01:55.186 NotebookApp] Kernel started: 9a8208a2-c35b-4461-b340-5c8c653cb4b5, name: python3
+[I 16:03:55.133 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+2024-01-31 16:04:03,006  INFO at.ac.iiasa.ixmp.Platform:165 - Welcome to the IX modeling platform!
+2024-01-31 16:04:03,009  INFO at.ac.iiasa.ixmp.Platform:166 -  connected to database 'jdbc:hsqldb:file:C:/Users/pratama/.local/share/ixmp/localdb/default' (user: ixmp)...
+[I 16:05:21.788 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:05:55.376 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:07:55.127 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:09:55.128 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:11:55.133 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:13:55.127 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:15:55.121 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:18:50.750 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:19:58.036 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:21:55.134 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:23:55.136 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:27:55.770 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[W 16:30:59.423 NotebookApp] Notebook [Tutorial] 1_creating baseline scenario.ipynb is not trusted
+[I 16:30:59.671 NotebookApp] Kernel started: a67462a5-0d34-4411-bcc5-93552ac8bc5e, name: python3
+[I 16:31:55.745 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+C:\Users\pratama\Anaconda3\envs\message_env\lib\site-packages\nbformat\__init__.py:129: MissingIDFieldWarning: Code cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+C:\Users\pratama\Anaconda3\envs\message_env\lib\site-packages\notebook\services\contents\manager.py:353: MissingIDFieldWarning: Code cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate_nb(model['content'])
+[I 16:33:55.141 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:35:55.140 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:37:55.153 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:39:55.140 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:41:55.747 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:43:55.148 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:45:55.764 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:47:55.759 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:49:55.140 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:50:07.605 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:51:55.628 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 16:53:55.151 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:01:55.155 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:03:55.144 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:05:55.135 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:07:55.770 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:09:55.771 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:11:55.138 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+--- Warning: The GAMS version [40.4.0] differs from the API version [24.8.3].
+[I 17:13:55.755 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:15:55.138 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+--- Warning: The GAMS version [40.4.0] differs from the API version [24.8.3].
+[I 17:17:55.646 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+--- Warning: The GAMS version [40.4.0] differs from the API version [24.8.3].
+[I 17:19:55.132 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:21:20.224 NotebookApp] Starting buffering for 9a8208a2-c35b-4461-b340-5c8c653cb4b5:8288d94883cd4ef3924e2d3f83f94b8e
+[I 17:21:22.585 NotebookApp] Kernel restarted: 9a8208a2-c35b-4461-b340-5c8c653cb4b5
+[I 17:21:22.597 NotebookApp] Restoring connection for 9a8208a2-c35b-4461-b340-5c8c653cb4b5:8288d94883cd4ef3924e2d3f83f94b8e
+[I 17:21:24.118 NotebookApp] Replaying 3 buffered messages
+[I 17:21:55.172 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+2024-01-31 17:22:36,071  INFO at.ac.iiasa.ixmp.Platform:165 - Welcome to the IX modeling platform!
+2024-01-31 17:22:36,071  INFO at.ac.iiasa.ixmp.Platform:166 -  connected to database 'jdbc:oracle:thin:@x8oda.iiasa.ac.at:1521/pIXMP2.iiasa.ac.at' (user: ixmp_dev)...
+[I 17:23:55.144 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+--- Warning: The GAMS version [40.4.0] differs from the API version [24.8.3].
+[I 17:25:55.152 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+--- Job MESSAGE_run.gms Start 01/31/24 17:27:17 40.4.0 d540b52e WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\40\gmsprmNT.txt
+    C:\Users\pratama\Documents\GAMS\gamsconfig.yaml
+--- GAMS Parameters defined
+    Input C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_run.gms
+    ScrDir C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\225a\
+    SysDir C:\GAMS\40\
+    LogOption 4
+    --in C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_baselineYWP.gdx
+    --out C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_baselineYWP.gdx
+    --iter C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgIterationReport_GENIE_sandbox_baselineYWP.gdx
+Licensee: Small MUD - 5 User License                     S210922|0002AP-GEN
+          IIASA, Information and Communication Technologies Dep.      DC216
+          C:\Users\pratama\Documents\GAMS\gamslice.txt
+          License Admin: Melanie Weed-Wenighofer, wenighof@iiasa.ac.at     
+Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
+GAMS 40.4.0   Copyright (C) 1987-2022 GAMS Development. All rights reserved
+--- Starting compilation
+--- MESSAGE_run.gms(65) 2 Mb
+--- . model_setup.gms(71) 2 Mb
+--- .. auxiliary_settings.gms(37) 2 Mb
+--- . model_setup.gms(74) 2 Mb
+--- .. version.gms(23) 2 Mb
+--- . model_setup.gms(75) 2 Mb
+--- .. version_check.gms(7) 2 Mb
+--- GDXin=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_baselineYWP.gdx
+--- GDX File ($gdxIn) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_baselineYWP.gdx
+--- .. version_check.gms(24) 3 Mb
+--- . model_setup.gms(78) 3 Mb
+--- .. sets_maps_def.gms(493) 3 Mb
+--- . model_setup.gms(79) 3 Mb
+--- .. parameter_def.gms(878) 3 Mb
+--- . model_setup.gms(82) 3 Mb
+--- .. data_load.gms(9) 3 Mb
+--- GDXin=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_baselineYWP.gdx
+--- GDX File ($gdxIn) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_baselineYWP.gdx
+--- .. data_load.gms(113) 27 Mb
+--- ... period_parameter_assignment.gms(118) 27 Mb
+--- .. data_load.gms(254) 27 Mb
+--- . model_setup.gms(85) 27 Mb
+--- .. scaling_investment_costs.gms(182) 27 Mb
+--- . model_setup.gms(91) 27 Mb
+--- .. model_core.gms(2311) 27 Mb
+--- . model_setup.gms(92) 27 Mb
+--- .. model_learningeos.gms(47) 27 Mb
+--- . model_setup.gms(92) 27 Mb
+--- MESSAGE_run.gms(71) 27 Mb
+--- . model_solve.gms(185) 27 Mb
+--- MESSAGE_run.gms(78) 27 Mb
+--- . reporting.gms(26) 27 Mb
+--- MESSAGE_run.gms(87) 27 Mb
+--- Starting execution: elapsed 0:00:00.122
+--- MESSAGE_run.gms(1608) 28 Mb
+    +++ Importing data from 'C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_baselineYWP.gdx'... +++
+--- MESSAGE_run.gms(1633) 28 Mb
+--- GDXin=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_baselineYWP.gdx
+--- MESSAGE_run.gms(1633) 399 Mb
+--- GDX File (execute_load) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_baselineYWP.gdx
+--- MESSAGE_run.gms(4544) 465 Mb
+    +++ Solve the perfect-foresight version of MESSAGEix +++
+--- Generating LP model MESSAGE_LP
+--- MESSAGE_run.gms(4563) 851 Mb
+---   618,753 rows  516,821 columns  3,314,994 non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.776E-15, 2.361E+05] - Zero values observed as well
+--- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+--- Matrix    [min, max] : [ 1.024E-07, 5.685E+06]
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:11.273
+
+IBM ILOG CPLEX   40.4.0 d540b52e Oct 3, 2022           WEI x86 64bit/MS Window
+
+--- GAMS/Cplex licensed for continuous and discrete problems.
+
+Reading parameter(s) from "C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\cplex.opt"
+>>  advind = 0
+>>  lpmethod = 4
+>>  threads = 4
+>>  epopt = 1e-06
+Finished reading from "C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\cplex.opt"
+
+--- GMO setup time: 0.00s
+--- Space for names approximately 60.77 Mb
+--- Use option 'names no' to turn use of names off
+--- GMO memory 286.29 Mb (peak 288.65 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.0.0 link memory 16.94 Mb (peak 128.44 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
+CPXPARAM_Advance                                 0
+CPXPARAM_LPMethod                                4
+CPXPARAM_Threads                                 4
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_Barrier_Limits_Iteration                100000000
+CPXPARAM_TimeLimit                               1000000
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   0
+Tried aggregator 1 time.
+LP Presolve eliminated 362415 rows and 267672 columns.
+Aggregator did 39671 substitutions.
+Reduced LP has 216458 rows, 219683 columns, and 1195199 nonzeros.
+Presolve time = 1.06 sec. (961.72 ticks)
+Parallel mode: using up to 4 threads for barrier.
+Number of nonzeros in lower triangle of A*A' = 1727884
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.36 sec. (422.28 ticks)
+Summary statistics for Cholesky factor:
+  Threads                   = 4
+  Rows in Factor            = 216458
+  Integer space required    = 1400636
+  Total non-zeros in factor = 8824708
+  Total FP ops to factor    = 1345521774
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf Inf Ratio
+   0   1.5490080e+10  -5.6208767e+08  1.37e+08  2.50e+06  4.05e+08  1.00e+00
+   1   1.2554155e+10  -7.5398731e+08  1.13e+08  2.07e+06  3.24e+08  3.93e-05
+   2   1.0248849e+10  -7.8502294e+08  9.38e+07  1.72e+06  2.83e+08  2.94e-05
+   3   9.0326935e+09  -7.8259100e+08  8.35e+07  1.53e+06  1.99e+08  2.29e-05
+   4   7.0693357e+09  -7.2354755e+08  6.65e+07  1.22e+06  1.21e+08  2.25e-05
+   5   5.1083243e+09  -6.1494678e+08  4.93e+07  9.02e+05  6.21e+07  2.82e-05
+   6   3.9545206e+09  -5.2721405e+08  3.89e+07  7.12e+05  3.92e+07  3.63e-05
+   7   2.8391192e+09  -4.1929491e+08  2.87e+07  5.25e+05  2.09e+07  5.29e-05
+   8   1.8712554e+09  -3.3978275e+08  1.96e+07  3.58e+05  1.32e+07  7.45e-05
+   9   1.0161936e+09  -2.1333982e+08  1.12e+07  2.04e+05  5.72e+06  1.42e-04
+  10   4.9319944e+08  -1.2810084e+08  5.68e+06  1.04e+05  2.75e+06  2.75e-04
+  11   2.8987711e+08  -7.3025211e+07  3.40e+06  6.22e+04  1.43e+06  5.05e-04
+  12   2.2188263e+08  -4.7852267e+07  2.61e+06  4.79e+04  9.04e+05  7.68e-04
+  13   1.8274904e+08  -4.1968647e+07  2.16e+06  3.96e+04  7.83e+05  8.99e-04
+  14   1.3274865e+08  -3.5542988e+07  1.57e+06  2.88e+04  6.59e+05  1.11e-03
+  15   1.0269034e+08  -2.8329461e+07  1.21e+06  2.22e+04  5.30e+05  1.40e-03
+  16   7.4485014e+07  -1.6452389e+07  8.73e+05  1.60e+04  3.25e+05  2.32e-03
+  17   6.4868568e+07  -1.0442021e+07  7.57e+05  1.39e+04  2.18e+05  3.42e-03
+  18   5.3247359e+07  -6.2073872e+06  6.19e+05  1.13e+04  1.38e+05  5.39e-03
+  19   4.6171986e+07  -3.5969753e+06  5.36e+05  9.81e+03  8.56e+04  8.49e-03
+  20   4.1659999e+07  -2.5696125e+06  4.83e+05  8.85e+03  6.35e+04  1.11e-02
+  21   3.5007570e+07  -1.5978777e+06  4.05e+05  7.42e+03  4.29e+04  1.58e-02
+  22   3.1442390e+07  -9.1471723e+05  3.63e+05  6.65e+03  2.99e+04  2.14e-02
+  23   2.6697419e+07  -4.8991532e+05  3.07e+05  5.62e+03  2.23e+04  2.71e-02
+  24   2.1755939e+07  -8.4045116e+04  2.48e+05  4.54e+03  1.64e+04  3.46e-02
+  25   1.8120981e+07   3.0440261e+05  2.04e+05  3.73e+03  1.19e+04  4.44e-02
+  26   1.5587067e+07   7.1619606e+05  1.73e+05  3.16e+03  7.99e+03  6.03e-02
+  27   1.3375818e+07   1.0146842e+06  1.45e+05  2.66e+03  5.47e+03  7.90e-02
+  28   1.1920906e+07   1.2092358e+06  1.27e+05  2.32e+03  4.06e+03  9.68e-02
+  29   9.8530265e+06   1.4086399e+06  1.01e+05  1.85e+03  2.78e+03  1.23e-01
+  30   8.5631109e+06   1.5577974e+06  8.44e+04  1.54e+03  2.05e+03  1.51e-01
+  31   7.7076458e+06   1.6444871e+06  7.33e+04  1.34e+03  1.69e+03  1.71e-01
+  32   6.8075668e+06   1.7103241e+06  6.15e+04  1.13e+03  1.46e+03  1.89e-01
+  33   6.2851620e+06   1.7627817e+06  5.45e+04  9.98e+02  1.30e+03  2.05e-01
+  34   6.1042603e+06   1.8039780e+06  5.21e+04  9.53e+02  1.19e+03  2.19e-01
+  35   5.7925489e+06   1.8640204e+06  4.78e+04  8.76e+02  1.04e+03  2.42e-01
+  36   5.4646560e+06   1.8985093e+06  4.34e+04  7.94e+02  9.53e+02  2.58e-01
+  37   5.1913201e+06   1.9276785e+06  3.96e+04  7.25e+02  8.85e+02  2.72e-01
+  38   4.8865933e+06   1.9520199e+06  3.54e+04  6.48e+02  8.34e+02  2.83e-01
+  39   4.7741441e+06   1.9953668e+06  3.38e+04  6.19e+02  7.49e+02  3.09e-01
+  40   4.5586103e+06   2.0361411e+06  3.07e+04  5.63e+02  6.69e+02  3.36e-01
+  41   4.4030217e+06   2.0595838e+06  2.85e+04  5.23e+02  6.23e+02  3.55e-01
+  42   4.2385101e+06   2.0837994e+06  2.62e+04  4.80e+02  5.77e+02  3.77e-01
+  43   4.1022409e+06   2.1245946e+06  2.43e+04  4.44e+02  5.05e+02  4.19e-01
+  44   3.9451813e+06   2.1444399e+06  2.20e+04  4.03e+02  4.72e+02  4.40e-01
+  45   3.8282993e+06   2.1839342e+06  2.03e+04  3.71e+02  4.10e+02  4.93e-01
+  46   3.8052895e+06   2.1930812e+06  1.99e+04  3.65e+02  3.96e+02  5.07e-01
+  47   3.7339342e+06   2.2211789e+06  1.89e+04  3.46e+02  3.51e+02  5.58e-01
+  48   3.6717758e+06   2.2239114e+06  1.80e+04  3.29e+02  3.47e+02  5.63e-01
+  49   3.6581670e+06   2.2336968e+06  1.78e+04  3.26e+02  3.31e+02  5.85e-01
+  50   3.5218231e+06   2.2475598e+06  1.58e+04  2.89e+02  3.09e+02  6.14e-01
+  51   3.4259227e+06   2.2719409e+06  1.44e+04  2.63e+02  2.72e+02  6.81e-01
+  52   3.3131036e+06   2.2823292e+06  1.27e+04  2.32e+02  2.57e+02  7.07e-01
+  53   3.2530975e+06   2.2967571e+06  1.18e+04  2.16e+02  2.38e+02  7.54e-01
+  54   3.2128518e+06   2.3090623e+06  1.12e+04  2.05e+02  2.21e+02  8.01e-01
+  55   3.1869840e+06   2.3152918e+06  1.08e+04  1.97e+02  2.13e+02  8.27e-01
+  56   3.1212684e+06   2.3372897e+06  9.78e+03  1.79e+02  1.84e+02  9.32e-01
+  57   3.0855497e+06   2.3445571e+06  9.24e+03  1.69e+02  1.75e+02  9.71e-01
+  58   3.0504786e+06   2.3586494e+06  8.70e+03  1.59e+02  1.57e+02  1.07e+00
+  59   3.0016984e+06   2.3710298e+06  7.95e+03  1.46e+02  1.41e+02  1.16e+00
+  60   2.9728513e+06   2.3834158e+06  7.50e+03  1.37e+02  1.27e+02  1.26e+00
+  61   2.9503117e+06   2.3937943e+06  7.15e+03  1.31e+02  1.14e+02  1.38e+00
+  62   2.9220931e+06   2.3999759e+06  6.71e+03  1.23e+02  1.07e+02  1.44e+00
+  63   2.8965523e+06   2.4109405e+06  6.31e+03  1.16e+02  9.47e+01  1.60e+00
+  64   2.8705421e+06   2.4162544e+06  5.91e+03  1.08e+02  8.83e+01  1.68e+00
+  65   2.8359586e+06   2.4224476e+06  5.37e+03  9.83e+01  8.11e+01  1.80e+00
+  66   2.8167460e+06   2.4278714e+06  5.07e+03  9.28e+01  7.50e+01  1.91e+00
+  67   2.7858077e+06   2.4347095e+06  4.58e+03  8.39e+01  6.72e+01  2.09e+00
+  68   2.7634720e+06   2.4426604e+06  4.23e+03  7.75e+01  5.81e+01  2.36e+00
+  69   2.7346413e+06   2.4475946e+06  3.78e+03  6.92e+01  5.25e+01  2.55e+00
+  70   2.7236629e+06   2.4544515e+06  3.61e+03  6.60e+01  4.49e+01  2.90e+00
+  71   2.6942682e+06   2.4641073e+06  3.14e+03  5.76e+01  3.40e+01  3.59e+00
+  72   2.6686374e+06   2.4695984e+06  2.74e+03  5.02e+01  2.78e+01  4.16e+00
+  73   2.6456547e+06   2.4737521e+06  2.38e+03  4.35e+01  2.33e+01  4.72e+00
+  74   2.6161303e+06   2.4788356e+06  1.91e+03  3.49e+01  1.82e+01  5.65e+00
+  75   2.5926709e+06   2.4820504e+06  1.52e+03  2.79e+01  1.53e+01  6.45e+00
+  76   2.5714267e+06   2.4858165e+06  1.17e+03  2.15e+01  1.21e+01  7.74e+00
+  77   2.5598055e+06   2.4900004e+06  9.79e+02  1.79e+01  8.89e+00  9.99e+00
+  78   2.5507391e+06   2.4929827e+06  8.26e+02  1.51e+01  6.61e+00  1.27e+01
+  79   2.5478959e+06   2.4939168e+06  7.78e+02  1.43e+01  5.90e+00  1.38e+01
+  80   2.5371633e+06   2.4952182e+06  5.97e+02  1.09e+01  4.92e+00  1.59e+01
+  81   2.5310748e+06   2.4962150e+06  4.92e+02  9.02e+00  4.24e+00  1.79e+01
+  82   2.5266894e+06   2.4969713e+06  4.16e+02  7.62e+00  3.75e+00  2.00e+01
+  83   2.5204260e+06   2.4989436e+06  3.06e+02  5.61e+00  2.52e+00  2.82e+01
+  84   2.5154716e+06   2.4998567e+06  2.19e+02  4.01e+00  1.96e+00  3.51e+01
+  85   2.5130726e+06   2.5004610e+06  1.76e+02  3.22e+00  1.61e+00  4.19e+01
+  86   2.5104791e+06   2.5013486e+06  1.29e+02  2.36e+00  1.12e+00  5.89e+01
+  87   2.5085315e+06   2.5021630e+06  9.38e+01  1.72e+00  6.63e-01  9.47e+01
+  88   2.5065004e+06   2.5025686e+06  5.72e+01  1.05e+00  4.31e-01  1.37e+02
+  89   2.5059833e+06   2.5027987e+06  4.77e+01  8.73e-01  3.11e-01  1.85e+02
+  90   2.5051063e+06   2.5030403e+06  3.16e+01  5.78e-01  1.83e-01  2.92e+02
+  91   2.5044141e+06   2.5032445e+06  1.87e+01  3.43e-01  8.02e-02  5.81e+02
+  92   2.5040353e+06   2.5032981e+06  1.17e+01  2.13e-01  5.46e-02  7.91e+02
+  93   2.5037656e+06   2.5033528e+06  6.42e+00  1.18e-01  3.27e-02  1.26e+03
+  94   2.5036198e+06   2.5033840e+06  3.54e+00  6.49e-02  2.11e-02  1.89e+03
+  95   2.5035439e+06   2.5034146e+06  2.00e+00  3.67e-02  1.05e-02  3.81e+03
+  96   2.5034940e+06   2.5034246e+06  1.01e+00  1.85e-02  6.88e-03  5.73e+03
+  97   2.5034720e+06   2.5034305e+06  5.55e-01  1.02e-02  4.89e-03  8.18e+03
+  98   2.5034584e+06   2.5034365e+06  2.73e-01  5.00e-03  2.90e-03  1.44e+04
+  99   2.5034515e+06   2.5034402e+06  1.33e-01  2.43e-03  1.63e-03  2.76e+04
+ 100   2.5034468e+06   2.5034420e+06  4.21e-02  7.70e-04  9.73e-04  4.96e+04
+ 101   2.5034455e+06   2.5034432e+06  1.96e-02  3.57e-04  5.10e-04  1.10e+05
+ 102   2.5034453e+06   2.5034434e+06  1.57e-02  2.86e-04  3.89e-04  1.50e+05
+ 103   2.5034448e+06   2.5034439e+06  9.44e-03  1.71e-04  1.26e-04  5.16e+05
+ 104   2.5034447e+06   2.5034440e+06  8.07e-03  1.36e-04  6.37e-05  1.09e+06
+ 105   2.5034443e+06   2.5034441e+06  3.02e-03  5.07e-05  2.52e-05  2.63e+06
+ 106   2.5034442e+06   2.5034441e+06  1.33e-03  2.24e-05  1.34e-05  4.34e+06
+ 107   2.5034442e+06   2.5034441e+06  4.30e-04  7.14e-06  5.07e-06  1.12e+07
+ 108   2.5034441e+06   2.5034441e+06  1.95e-04  3.13e-06  2.86e-06  2.01e+07
+ 109   2.5034441e+06   2.5034441e+06  9.07e-05  1.37e-06  9.92e-07  6.11e+07
+Barrier time = 19.70 sec. (20710.46 ticks)
+Parallel mode: deterministic, using up to 4 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting primal Simplex on 1 thread...
+
+Dual crossover.
+  Dual:  Fixing 170062 variables.
+   170061 DMoves:  Infeasibility  6.86006237e-05  Objective  2.50344413e+06
+   167349 DMoves:  Infeasibility  8.62117453e-05  Objective  2.50344413e+06
+   163948 DMoves:  Infeasibility  1.37682666e-04  Objective  2.50344413e+06
+   151155 DMoves:  Infeasibility  1.86084062e-04  Objective  2.50344413e+06
+   141913 DMoves:  Infeasibility  1.96687788e-04  Objective  2.50344413e+06
+   136754 DMoves:  Infeasibility  2.06186091e-04  Objective  2.50344414e+06
+   134373 DMoves:  Infeasibility  2.02901895e-04  Objective  2.50344414e+06
+   131414 DMoves:  Infeasibility  2.00184846e-04  Objective  2.50344414e+06
+   128553 DMoves:  Infeasibility  1.98504707e-04  Objective  2.50344414e+06
+   125852 DMoves:  Infeasibility  1.95239522e-04  Objective  2.50344414e+06
+   123108 DMoves:  Infeasibility  1.93839535e-04  Objective  2.50344414e+06
+   120487 DMoves:  Infeasibility  1.90443375e-04  Objective  2.50344414e+06
+   117824 DMoves:  Infeasibility  1.85749218e-04  Objective  2.50344414e+06
+   115185 DMoves:  Infeasibility  1.81833213e-04  Objective  2.50344414e+06
+   112585 DMoves:  Infeasibility  1.81312904e-04  Objective  2.50344414e+06
+   109697 DMoves:  Infeasibility  1.79226905e-04  Objective  2.50344414e+06
+   107006 DMoves:  Infeasibility  1.76891901e-04  Objective  2.50344414e+06
+   104352 DMoves:  Infeasibility  1.74493906e-04  Objective  2.50344414e+06
+   101645 DMoves:  Infeasibility  1.68561711e-04  Objective  2.50344414e+06
+    99037 DMoves:  Infeasibility  1.66981424e-04  Objective  2.50344414e+06
+    96682 DMoves:  Infeasibility  1.66173313e-04  Objective  2.50344414e+06
+    94168 DMoves:  Infeasibility  1.65499662e-04  Objective  2.50344414e+06
+    91508 DMoves:  Infeasibility  1.63596866e-04  Objective  2.50344414e+06
+    88564 DMoves:  Infeasibility  1.58466956e-04  Objective  2.50344414e+06
+    85667 DMoves:  Infeasibility  1.55465102e-04  Objective  2.50344414e+06
+    82929 DMoves:  Infeasibility  1.53833838e-04  Objective  2.50344414e+06
+    80970 DMoves:  Infeasibility  1.53071717e-04  Objective  2.50344414e+06
+    77991 DMoves:  Infeasibility  1.50677475e-04  Objective  2.50344414e+06
+    76077 DMoves:  Infeasibility  1.46969204e-04  Objective  2.50344414e+06
+    73648 DMoves:  Infeasibility  1.44181460e-04  Objective  2.50344414e+06
+    71207 DMoves:  Infeasibility  1.40810341e-04  Objective  2.50344414e+06
+    69164 DMoves:  Infeasibility  1.39086882e-04  Objective  2.50344414e+06
+    66260 DMoves:  Infeasibility  1.34798550e-04  Objective  2.50344414e+06
+    64164 DMoves:  Infeasibility  1.32665188e-04  Objective  2.50344414e+06
+    62228 DMoves:  Infeasibility  1.32302274e-04  Objective  2.50344414e+06
+    59116 DMoves:  Infeasibility  1.27357901e-04  Objective  2.50344414e+06
+    57141 DMoves:  Infeasibility  1.25524858e-04  Objective  2.50344414e+06
+    54941 DMoves:  Infeasibility  1.24259287e-04  Objective  2.50344414e+06
+    52066 DMoves:  Infeasibility  1.20565218e-04  Objective  2.50344414e+06
+    50033 DMoves:  Infeasibility  1.19387091e-04  Objective  2.50344414e+06
+    47208 DMoves:  Infeasibility  1.16248401e-04  Objective  2.50344414e+06
+    44968 DMoves:  Infeasibility  1.14897209e-04  Objective  2.50344414e+06
+    42755 DMoves:  Infeasibility  1.09125361e-04  Objective  2.50344414e+06
+    39750 DMoves:  Infeasibility  1.03736749e-04  Objective  2.50344414e+06
+    37567 DMoves:  Infeasibility  1.01990578e-04  Objective  2.50344414e+06
+    34865 DMoves:  Infeasibility  1.00762773e-04  Objective  2.50344414e+06
+    32547 DMoves:  Infeasibility  9.81800995e-05  Objective  2.50344414e+06
+    30325 DMoves:  Infeasibility  9.63484469e-05  Objective  2.50344414e+06
+    27223 DMoves:  Infeasibility  9.43878378e-05  Objective  2.50344414e+06
+    25080 DMoves:  Infeasibility  9.32275598e-05  Objective  2.50344414e+06
+    22938 DMoves:  Infeasibility  9.21172614e-05  Objective  2.50344414e+06
+    20086 DMoves:  Infeasibility  8.75863599e-05  Objective  2.50344414e+06
+    17860 DMoves:  Infeasibility  8.61034948e-05  Objective  2.50344414e+06
+    14512 DMoves:  Infeasibility  8.15334156e-05  Objective  2.50344414e+06
+    12222 DMoves:  Infeasibility  7.65127705e-05  Objective  2.50344414e+06
+     9662 DMoves:  Infeasibility  7.38697570e-05  Objective  2.50344414e+06
+     7075 DMoves:  Infeasibility  7.13938407e-05  Objective  2.50344414e+06
+     5432 DMoves:  Infeasibility  6.55215692e-05  Objective  2.50344413e+06
+     4247 DMoves:  Infeasibility  6.14742374e-05  Objective  2.50344413e+06
+     3077 DMoves:  Infeasibility  5.40445767e-05  Objective  2.50344413e+06
+     2231 DMoves:  Infeasibility  4.72367369e-05  Objective  2.50344413e+06
+     1418 DMoves:  Infeasibility  3.00892846e-05  Objective  2.50344413e+06
+
+Primal simplex solved model.
+
+Total crossover time = 8.03 sec. (5391.00 ticks)
+
+Total time on 4 threads = 28.83 sec. (27089.32 ticks)
+
+--- LP status (1): optimal.
+--- Cplex Time: 28.84sec (det. 27091.09 ticks)
+
+
+Optimal solution found
+Simplex iterations after crossover: 0
+Objective:      2503444.135424
+
+--- Reading solution for model MESSAGE_LP
+--- Executing after solve: elapsed 0:00:42.177
+--- MESSAGE_run.gms(4751) 851 Mb
+--- GDX File (execute_unload) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_baselineYWP.gdx
+--- MESSAGE_run.gms(4753) 851 Mb
+    +++ End of MESSAGEix (stand-alone) run - have a nice day! +++
+*** Status: Normal completion
+--- Job MESSAGE_run.gms Stop 01/31/24 17:28:02 elapsed 0:00:45.604
+--- Warning: The GAMS version [40.4.0] differs from the API version [24.8.3].
+--- Warning: The GAMS version [40.4.0] differs from the API version [24.8.3].
+2024-01-31 17:28:14,065 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'I' not found in gdx!
+2024-01-31 17:28:14,065 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'C' not found in gdx!
+[I 17:29:55.150 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:31:55.136 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:33:55.147 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:35:56.233 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:37:55.139 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:39:55.765 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:42:11.823 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:47:06.263 NotebookApp] Starting buffering for 9a8208a2-c35b-4461-b340-5c8c653cb4b5:8288d94883cd4ef3924e2d3f83f94b8e
+[I 17:47:08.342 NotebookApp] Kernel restarted: 9a8208a2-c35b-4461-b340-5c8c653cb4b5
+[I 17:47:08.350 NotebookApp] Restoring connection for 9a8208a2-c35b-4461-b340-5c8c653cb4b5:8288d94883cd4ef3924e2d3f83f94b8e
+[I 17:47:09.887 NotebookApp] Replaying 3 buffered messages
+2024-01-31 17:47:18,699  INFO at.ac.iiasa.ixmp.Platform:165 - Welcome to the IX modeling platform!
+2024-01-31 17:47:18,699  INFO at.ac.iiasa.ixmp.Platform:166 -  connected to database 'jdbc:oracle:thin:@x8oda.iiasa.ac.at:1521/pIXMP2.iiasa.ac.at' (user: ixmp_dev)...
+[I 17:47:55.160 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+--- Warning: The GAMS version [40.4.0] differs from the API version [24.8.3].
+[I 17:49:55.165 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+--- Job MESSAGE_run.gms Start 01/31/24 17:51:41 40.4.0 d540b52e WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\40\gmsprmNT.txt
+    C:\Users\pratama\Documents\GAMS\gamsconfig.yaml
+--- GAMS Parameters defined
+    Input C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_run.gms
+    ScrDir C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\225a\
+    SysDir C:\GAMS\40\
+    LogOption 4
+    --in C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_daccs1000.gdx
+    --out C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_daccs1000.gdx
+    --iter C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgIterationReport_GENIE_sandbox_daccs1000.gdx
+Licensee: Small MUD - 5 User License                     S210922|0002AP-GEN
+          IIASA, Information and Communication Technologies Dep.      DC216
+          C:\Users\pratama\Documents\GAMS\gamslice.txt
+          License Admin: Melanie Weed-Wenighofer, wenighof@iiasa.ac.at     
+Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
+GAMS 40.4.0   Copyright (C) 1987-2022 GAMS Development. All rights reserved
+--- Starting compilation
+--- MESSAGE_run.gms(65) 2 Mb
+--- . model_setup.gms(71) 2 Mb
+--- .. auxiliary_settings.gms(37) 2 Mb
+--- . model_setup.gms(74) 2 Mb
+--- .. version.gms(23) 2 Mb
+--- . model_setup.gms(75) 2 Mb
+--- .. version_check.gms(7) 2 Mb
+--- GDXin=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_daccs1000.gdx
+--- GDX File ($gdxIn) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_daccs1000.gdx
+--- .. version_check.gms(24) 3 Mb
+--- . model_setup.gms(78) 3 Mb
+--- .. sets_maps_def.gms(493) 3 Mb
+--- . model_setup.gms(79) 3 Mb
+--- .. parameter_def.gms(878) 3 Mb
+--- . model_setup.gms(82) 3 Mb
+--- .. data_load.gms(9) 3 Mb
+--- GDXin=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_daccs1000.gdx
+--- GDX File ($gdxIn) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_daccs1000.gdx
+--- .. data_load.gms(113) 28 Mb
+--- ... period_parameter_assignment.gms(118) 28 Mb
+--- .. data_load.gms(254) 28 Mb
+--- . model_setup.gms(85) 28 Mb
+--- .. scaling_investment_costs.gms(182) 28 Mb
+--- . model_setup.gms(91) 28 Mb
+--- .. model_core.gms(2311) 28 Mb
+--- . model_setup.gms(92) 28 Mb
+--- .. model_learningeos.gms(47) 28 Mb
+--- . model_setup.gms(92) 28 Mb
+--- MESSAGE_run.gms(71) 28 Mb
+--- . model_solve.gms(185) 28 Mb
+--- MESSAGE_run.gms(78) 28 Mb
+--- . reporting.gms(26) 28 Mb
+--- MESSAGE_run.gms(87) 28 Mb
+--- Starting execution: elapsed 0:00:00.047
+--- MESSAGE_run.gms(1608) 29 Mb
+    +++ Importing data from 'C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_daccs1000.gdx'... +++
+--- MESSAGE_run.gms(1633) 29 Mb
+--- GDXin=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_daccs1000.gdx
+--- MESSAGE_run.gms(1633) 406 Mb
+--- GDX File (execute_load) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_sandbox_daccs1000.gdx
+--- MESSAGE_run.gms(4544) 473 Mb
+    +++ Solve the perfect-foresight version of MESSAGEix +++
+--- Generating LP model MESSAGE_LP
+--- MESSAGE_run.gms(4563) 1122 Mb
+---   732,016 rows  624,682 columns  5,641,742 non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.956E-36, 6.643E+06] - Zero values observed as well
+--- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+--- Matrix    [min, max] : [ 9.044E-11, 4.136E+06]
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:15.936
+
+IBM ILOG CPLEX   40.4.0 d540b52e Oct 3, 2022           WEI x86 64bit/MS Window
+
+--- GAMS/Cplex licensed for continuous and discrete problems.
+
+Reading parameter(s) from "C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\cplex.opt"
+>>  advind = 0
+>>  lpmethod = 4
+>>  threads = 4
+>>  epopt = 1e-06
+Finished reading from "C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\cplex.opt"
+
+--- GMO setup time: 0.00s
+--- Space for names approximately 73.09 Mb
+--- Use option 'names no' to turn use of names off
+--- GMO memory 418.94 Mb (peak 421.73 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.0.0 link memory 20.29 Mb (peak 173.34 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
+CPXPARAM_Advance                                 0
+CPXPARAM_LPMethod                                4
+CPXPARAM_Threads                                 4
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_Barrier_Limits_Iteration                100000000
+CPXPARAM_TimeLimit                               1000000
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   0
+Tried aggregator 1 time.
+LP Presolve eliminated 489794 rows and 390602 columns.
+Aggregator did 39865 substitutions.
+Reduced LP has 202161 rows, 204690 columns, and 1222435 nonzeros.
+Presolve time = 1.13 sec. (1185.18 ticks)
+Parallel mode: using up to 4 threads for barrier.
+Number of nonzeros in lower triangle of A*A' = 1839243
+Using Nested Dissection ordering
+Total time for automatic ordering = 1.63 sec. (1551.73 ticks)
+Summary statistics for Cholesky factor:
+  Threads                   = 4
+  Rows in Factor            = 202161
+  Integer space required    = 1437617
+  Total non-zeros in factor = 10031897
+  Total FP ops to factor    = 1938824639
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf Inf Ratio
+   0   2.4773073e+08  -2.4370366e+10  5.24e+07  4.81e+05  3.74e+08  1.00e+00
+   1   2.3800728e+08  -2.2972055e+10  4.95e+07  4.54e+05  3.52e+08  1.06e-03
+   2   2.2848435e+08  -2.1943867e+10  4.69e+07  4.30e+05  3.36e+08  7.08e-04
+   3   2.1777517e+08  -2.0358410e+10  4.38e+07  4.02e+05  3.12e+08  4.84e-04
+   4   2.0454984e+08  -1.7915272e+10  4.01e+07  3.68e+05  2.75e+08  3.42e-04
+   5   1.9623626e+08  -1.6587699e+10  3.76e+07  3.45e+05  2.55e+08  2.66e-04
+   6   1.8661510e+08  -1.3819065e+10  3.48e+07  3.19e+05  2.12e+08  1.96e-04
+   7   1.7855302e+08  -1.1131274e+10  3.23e+07  2.96e+05  1.71e+08  1.42e-04
+   8   1.7776052e+08  -9.7768047e+09  3.12e+07  2.86e+05  1.51e+08  8.85e-05
+   9   1.7596649e+08  -8.2174565e+09  2.96e+07  2.71e+05  1.27e+08  6.56e-05
+  10   1.7227043e+08  -6.4240013e+09  2.71e+07  2.48e+05  9.97e+07  5.46e-05
+  11   1.6607848e+08  -5.0895614e+09  2.40e+07  2.20e+05  7.94e+07  5.24e-05
+  12   1.5737525e+08  -3.4975279e+09  2.06e+07  1.89e+05  5.50e+07  5.50e-05
+  13   1.4663972e+08  -2.2254373e+09  1.74e+07  1.59e+05  3.55e+07  6.52e-05
+  14   1.3133061e+08  -1.3968074e+09  1.37e+07  1.26e+05  2.27e+07  8.50e-05
+  15   1.0888347e+08  -9.4516624e+08  9.46e+06  8.67e+04  1.57e+07  1.15e-04
+  16   8.6877368e+07  -5.0152215e+08  6.01e+06  5.51e+04  8.67e+06  1.88e-04
+  17   7.0599636e+07  -2.7677826e+08  4.18e+06  3.83e+04  5.03e+06  3.03e-04
+  18   5.6757050e+07  -1.6656331e+08  2.92e+06  2.68e+04  3.19e+06  4.67e-04
+  19   4.2456510e+07  -8.4907222e+07  1.81e+06  1.66e+04  1.79e+06  8.30e-04
+  20   3.3010899e+07  -4.2400789e+07  1.20e+06  1.10e+04  1.02e+06  1.45e-03
+  21   2.8139147e+07  -2.5662795e+07  9.46e+05  8.67e+03  6.97e+05  2.10e-03
+  22   2.6532214e+07  -1.2243546e+07  8.69e+05  7.97e+03  4.22e+05  3.28e-03
+  23   2.5105310e+07  -7.5713230e+06  8.10e+05  7.43e+03  3.10e+05  4.31e-03
+  24   2.1721854e+07  -5.1772070e+06  6.79e+05  6.23e+03  2.47e+05  5.43e-03
+  25   1.9660885e+07  -2.7287556e+06  6.00e+05  5.50e+03  1.81e+05  7.28e-03
+  26   1.9617201e+07  -2.5840702e+06  5.99e+05  5.49e+03  1.77e+05  7.43e-03
+  27   1.7982004e+07  -1.2419616e+06  5.38e+05  4.94e+03  1.37e+05  9.43e-03
+  28   1.6732432e+07  -4.5509112e+05  4.93e+05  4.52e+03  1.13e+05  1.13e-02
+  29   1.5533635e+07   1.3857616e+05  4.49e+05  4.12e+03  9.43e+04  1.35e-02
+  30   1.4416636e+07   5.4863915e+05  4.09e+05  3.75e+03  8.14e+04  1.55e-02
+  31   1.3487606e+07   1.1491202e+06  3.75e+05  3.44e+03  6.32e+04  1.97e-02
+  32   1.2569244e+07   1.5676590e+06  3.42e+05  3.13e+03  4.97e+04  2.46e-02
+  33   1.1259353e+07   2.0493379e+06  2.94e+05  2.70e+03  3.41e+04  3.49e-02
+  34   1.0959391e+07   2.1666407e+06  2.84e+05  2.60e+03  3.02e+04  3.87e-02
+  35   1.0129819e+07   2.3658649e+06  2.54e+05  2.33e+03  2.38e+04  4.79e-02
+  36   9.4829693e+06   2.5112796e+06  2.30e+05  2.11e+03  1.94e+04  5.70e-02
+  37   8.7626902e+06   2.7135902e+06  2.04e+05  1.87e+03  1.38e+04  7.60e-02
+  38   7.8403732e+06   2.8441665e+06  1.70e+05  1.55e+03  1.05e+04  9.50e-02
+  39   7.4025549e+06   3.0041262e+06  1.53e+05  1.40e+03  7.20e+03  1.28e-01
+  40   6.7727417e+06   3.1165901e+06  1.29e+05  1.18e+03  4.97e+03  1.67e-01
+  41   6.0766612e+06   3.1977311e+06  1.02e+05  9.37e+02  3.67e+03  2.06e-01
+  42   5.3721824e+06   3.2717421e+06  7.42e+04  6.80e+02  2.81e+03  2.52e-01
+  43   5.0959521e+06   3.3392362e+06  6.27e+04  5.74e+02  2.22e+03  3.04e-01
+  44   4.9365516e+06   3.3964015e+06  5.59e+04  5.13e+02  1.75e+03  3.67e-01
+  45   4.6341617e+06   3.4578350e+06  4.32e+04  3.96e+02  1.25e+03  4.74e-01
+  46   4.5393649e+06   3.5048906e+06  3.91e+04  3.58e+02  9.17e+02  6.04e-01
+  47   4.3804555e+06   3.5298387e+06  3.22e+04  2.96e+02  7.35e+02  7.10e-01
+  48   4.2046085e+06   3.5589835e+06  2.45e+04  2.25e+02  5.51e+02  8.81e-01
+  49   4.1226485e+06   3.5775319e+06  2.08e+04  1.91e+02  4.50e+02  1.03e+00
+  50   4.0536221e+06   3.6025849e+06  1.77e+04  1.62e+02  3.23e+02  1.34e+00
+  51   3.9532085e+06   3.6171582e+06  1.31e+04  1.20e+02  2.52e+02  1.62e+00
+  52   3.9044523e+06   3.6268067e+06  1.07e+04  9.85e+01  2.12e+02  1.86e+00
+  53   3.8596413e+06   3.6345559e+06  8.58e+03  7.86e+01  1.83e+02  2.12e+00
+  54   3.8342746e+06   3.6468120e+06  7.33e+03  6.72e+01  1.38e+02  2.70e+00
+  55   3.8171356e+06   3.6536554e+06  6.49e+03  5.95e+01  1.13e+02  3.21e+00
+  56   3.8100972e+06   3.6555689e+06  6.14e+03  5.63e+01  1.07e+02  3.38e+00
+  57   3.7991043e+06   3.6592312e+06  5.60e+03  5.14e+01  9.36e+01  3.77e+00
+  58   3.7812063e+06   3.6639982e+06  4.72e+03  4.32e+01  7.69e+01  4.45e+00
+  59   3.7746623e+06   3.6658919e+06  4.39e+03  4.02e+01  7.05e+01  4.79e+00
+  60   3.7598282e+06   3.6718276e+06  3.65e+03  3.34e+01  5.06e+01  6.33e+00
+  61   3.7525370e+06   3.6728864e+06  3.28e+03  3.01e+01  4.71e+01  6.71e+00
+  62   3.7432806e+06   3.6777195e+06  2.81e+03  2.58e+01  3.16e+01  9.32e+00
+  63   3.7407780e+06   3.6780523e+06  2.69e+03  2.46e+01  3.06e+01  9.57e+00
+  64   3.7393837e+06   3.6790400e+06  2.62e+03  2.40e+01  2.74e+01  1.04e+01
+  65   3.7151215e+06   3.6806083e+06  1.39e+03  1.27e+01  2.24e+01  1.21e+01
+  66   3.7108188e+06   3.6807054e+06  1.13e+03  1.04e+01  2.22e+01  1.20e+01
+  67   3.7102153e+06   3.6808458e+06  1.08e+03  9.93e+00  2.20e+01  1.20e+01
+  68   3.7079923e+06   3.6812225e+06  9.56e+02  8.76e+00  2.12e+01  1.24e+01
+  69   3.7064101e+06   3.6814486e+06  8.66e+02  7.94e+00  2.08e+01  1.26e+01
+  70   3.7052264e+06   3.6816969e+06  7.98e+02  7.31e+00  2.02e+01  1.30e+01
+  71   3.7041080e+06   3.6820057e+06  7.33e+02  6.72e+00  1.96e+01  1.34e+01
+  72   3.7026692e+06   3.6823768e+06  6.50e+02  5.96e+00  1.88e+01  1.39e+01
+  73   3.7017811e+06   3.6825909e+06  5.97e+02  5.47e+00  1.84e+01  1.42e+01
+  74   3.7004115e+06   3.6828537e+06  5.13e+02  4.70e+00  1.79e+01  1.45e+01
+  75   3.6992808e+06   3.6830128e+06  4.42e+02  4.05e+00  1.76e+01  1.47e+01
+  76   3.6985184e+06   3.6832087e+06  3.96e+02  3.63e+00  1.72e+01  1.50e+01
+  77   3.6981887e+06   3.6833292e+06  3.74e+02  3.43e+00  1.70e+01  1.51e+01
+  78   3.6976892e+06   3.6835108e+06  3.44e+02  3.15e+00  1.66e+01  1.55e+01
+  79   3.6969790e+06   3.6837230e+06  3.02e+02  2.77e+00  1.62e+01  1.59e+01
+  80   3.6966905e+06   3.6839130e+06  2.85e+02  2.61e+00  1.58e+01  1.63e+01
+  81   3.6962942e+06   3.6840492e+06  2.60e+02  2.38e+00  1.56e+01  1.65e+01
+  82   3.6959502e+06   3.6842635e+06  2.39e+02  2.19e+00  1.51e+01  1.70e+01
+  83   3.6955162e+06   3.6844824e+06  2.14e+02  1.96e+00  1.47e+01  1.76e+01
+  84   3.6951094e+06   3.6846558e+06  1.91e+02  1.75e+00  1.44e+01  1.81e+01
+  85   3.6947994e+06   3.6848123e+06  1.73e+02  1.58e+00  1.40e+01  1.85e+01
+  86   3.6944295e+06   3.6849099e+06  1.50e+02  1.38e+00  1.38e+01  1.87e+01
+  87   3.6939712e+06   3.6850380e+06  1.24e+02  1.13e+00  1.36e+01  1.91e+01
+  88   3.6935170e+06   3.6854252e+06  9.78e+01  8.97e-01  1.28e+01  2.05e+01
+  89   3.6928126e+06   3.6863964e+06  5.88e+01  5.39e-01  1.08e+01  2.49e+01
+  90   3.6919427e+06   3.6883683e+06  2.73e+01  2.50e-01  6.39e+00  4.56e+01
+  91   3.6918212e+06   3.6895889e+06  2.31e+01  2.12e-01  3.58e+00  9.46e+01
+  92   3.6915840e+06   3.6896384e+06  1.75e+01  1.60e-01  3.44e+00  9.89e+01
+  93   3.6914526e+06   3.6896670e+06  1.43e+01  1.31e-01  3.36e+00  1.02e+02
+  94   3.6912646e+06   3.6896850e+06  9.63e+00  8.83e-02  3.31e+00  1.03e+02
+  95   3.6910382e+06   3.6899258e+06  4.92e+00  4.51e-02  2.60e+00  1.35e+02
+  96   3.6909138e+06   3.6902234e+06  2.15e+00  1.97e-02  1.73e+00  2.22e+02
+  97   3.6908266e+06   3.6903889e+06  8.56e-01  7.84e-03  1.21e+00  3.46e+02
+  98   3.6907751e+06   3.6904784e+06  3.92e-01  3.59e-03  8.91e-01  5.01e+02
+  99   3.6907386e+06   3.6905468e+06  2.15e-01  1.97e-03  6.08e-01  7.75e+02
+ 100   3.6907290e+06   3.6905945e+06  1.68e-01  1.54e-03  4.12e-01  1.26e+03
+ 101   3.6907247e+06   3.6906309e+06  1.54e-01  1.41e-03  2.35e-01  2.46e+03
+ 102   3.6907021e+06   3.6906503e+06  8.89e-02  8.15e-04  1.22e-01  5.31e+03
+ 103   3.6906853e+06   3.6906553e+06  4.62e-02  4.23e-04  8.57e-02  7.78e+03
+ 104   3.6906763e+06   3.6906616e+06  2.35e-02  2.15e-04  3.97e-02  1.91e+04
+ 105   3.6906706e+06   3.6906641e+06  1.09e-02  1.00e-04  1.56e-02  5.30e+04
+ 106   3.6906687e+06   3.6906648e+06  7.15e-03  6.40e-05  6.27e-03  1.33e+05
+ 107   3.6906669e+06   3.6906650e+06  4.03e-03  3.03e-05  4.12e-03  1.91e+05
+ 108   3.6906661e+06   3.6906651e+06  1.97e-03  1.45e-05  2.23e-03  3.49e+05
+ 109   3.6906657e+06   3.6906652e+06  1.14e-03  8.01e-06  1.33e-03  5.94e+05
+ 110   3.6906655e+06   3.6906652e+06  1.72e-03  3.94e-06  8.45e-04  9.52e+05
+ 111   3.6906654e+06   3.6906653e+06  7.24e-04  1.62e-06  4.62e-04  1.81e+06
+ 112   3.6906653e+06   3.6906653e+06  3.65e-04  4.80e-07  2.35e-04  3.98e+06
+ 113   3.6906653e+06   3.6906653e+06  6.64e-04  1.97e-07  1.42e-04  7.28e+06
+ 114   3.6906653e+06   3.6906653e+06  2.56e-04  7.21e-08  4.37e-05  2.71e+07
+Barrier time = 25.81 sec. (26084.87 ticks)
+Parallel mode: deterministic, using up to 4 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting primal Simplex on 1 thread...
+
+Dual crossover.
+  Dual:  Fixing 157904 variables.
+   157903 DMoves:  Infeasibility  9.44877429e-05  Objective  3.69066531e+06
+   155791 DMoves:  Infeasibility  9.16912527e-02  Objective  3.69066531e+06
+   153929 DMoves:  Infeasibility  9.17345749e-02  Objective  3.69066531e+06
+   152007 DMoves:  Infeasibility  8.30634100e-02  Objective  3.69066531e+06
+   149453 DMoves:  Infeasibility  4.85134828e-01  Objective  3.69066531e+06
+   146535 DMoves:  Infeasibility  4.85134437e-01  Objective  3.69066531e+06
+   143729 DMoves:  Infeasibility  4.85134044e-01  Objective  3.69066531e+06
+   141075 DMoves:  Infeasibility  4.85133500e-01  Objective  3.69066531e+06
+   138759 DMoves:  Infeasibility  4.85133149e-01  Objective  3.69066531e+06
+   130855 DMoves:  Infeasibility  1.36500249e+00  Objective  3.69066531e+06
+   126603 DMoves:  Infeasibility  2.11970877e-02  Objective  3.69066530e+06
+   124342 DMoves:  Infeasibility  2.46123032e-03  Objective  3.69066530e+06
+   121353 DMoves:  Infeasibility  2.77376386e-03  Objective  3.69066530e+06
+   118834 DMoves:  Infeasibility  2.76988567e-03  Objective  3.69066530e+06
+   116093 DMoves:  Infeasibility  2.76363347e-03  Objective  3.69066530e+06
+   113226 DMoves:  Infeasibility  2.74822640e-03  Objective  3.69066530e+06
+   110604 DMoves:  Infeasibility  2.74317745e-03  Objective  3.69066530e+06
+   107760 DMoves:  Infeasibility  2.73595389e-03  Objective  3.69066530e+06
+   105165 DMoves:  Infeasibility  2.73167862e-03  Objective  3.69066530e+06
+   102507 DMoves:  Infeasibility  2.72445402e-03  Objective  3.69066530e+06
+    99601 DMoves:  Infeasibility  2.72115042e-03  Objective  3.69066530e+06
+    96928 DMoves:  Infeasibility  2.40316137e-03  Objective  3.69066530e+06
+    94256 DMoves:  Infeasibility  2.40205799e-03  Objective  3.69066530e+06
+    91488 DMoves:  Infeasibility  2.39371232e-03  Objective  3.69066530e+06
+    88613 DMoves:  Infeasibility  2.39012477e-03  Objective  3.69066530e+06
+    85718 DMoves:  Infeasibility  2.38332401e-03  Objective  3.69066530e+06
+    82643 DMoves:  Infeasibility  2.38062621e-03  Objective  3.69066530e+06
+    79938 DMoves:  Infeasibility  5.34840170e-02  Objective  3.69066530e+06
+    77138 DMoves:  Infeasibility  3.84958679e-03  Objective  3.69066530e+06
+    74898 DMoves:  Infeasibility  3.84743570e-03  Objective  3.69066530e+06
+    73035 DMoves:  Infeasibility  3.60147675e-03  Objective  3.69066530e+06
+    71148 DMoves:  Infeasibility  3.59520113e-03  Objective  3.69066530e+06
+    69598 DMoves:  Infeasibility  3.59519813e-03  Objective  3.69066530e+06
+    67836 DMoves:  Infeasibility  2.23539324e-02  Objective  3.69066530e+06
+    65903 DMoves:  Infeasibility  1.05145689e-01  Objective  3.69066530e+06
+    64143 DMoves:  Infeasibility  5.34435017e-03  Objective  3.69066530e+06
+    62402 DMoves:  Infeasibility  5.34114851e-03  Objective  3.69066530e+06
+    60132 DMoves:  Infeasibility  6.65714373e-03  Objective  3.69066530e+06
+    58210 DMoves:  Infeasibility  5.32903013e-03  Objective  3.69066530e+06
+    56485 DMoves:  Infeasibility  5.32784529e-03  Objective  3.69066530e+06
+    54824 DMoves:  Infeasibility  5.32501930e-03  Objective  3.69066530e+06
+    52256 DMoves:  Infeasibility  5.31953497e-03  Objective  3.69066530e+06
+    50692 DMoves:  Infeasibility  2.89577137e-01  Objective  3.69066530e+06
+    48681 DMoves:  Infeasibility  2.83260871e-01  Objective  3.69066530e+06
+    46143 DMoves:  Infeasibility  2.86004286e-01  Objective  3.69066530e+06
+    44148 DMoves:  Infeasibility  2.86000694e-01  Objective  3.69066530e+06
+    42231 DMoves:  Infeasibility  2.85352609e-01  Objective  3.69066530e+06
+    40248 DMoves:  Infeasibility  2.85350682e-01  Objective  3.69066530e+06
+    38193 DMoves:  Infeasibility  2.85345249e-01  Objective  3.69066530e+06
+    36551 DMoves:  Infeasibility  3.14117632e-01  Objective  3.69066530e+06
+    34768 DMoves:  Infeasibility  3.12466507e-01  Objective  3.69066531e+06
+    33105 DMoves:  Infeasibility  1.09413192e+01  Objective  3.69066531e+06
+    31233 DMoves:  Infeasibility  3.31043077e-01  Objective  3.69066531e+06
+    29133 DMoves:  Infeasibility  3.31047348e-01  Objective  3.69066531e+06
+    26977 DMoves:  Infeasibility  3.31042916e-01  Objective  3.69066531e+06
+    24939 DMoves:  Infeasibility  3.31036559e-01  Objective  3.69066531e+06
+    23037 DMoves:  Infeasibility  3.31034494e-01  Objective  3.69066531e+06
+    20758 DMoves:  Infeasibility  3.30771041e-01  Objective  3.69066531e+06
+    18733 DMoves:  Infeasibility  3.30762707e-01  Objective  3.69066531e+06
+    16558 DMoves:  Infeasibility  3.29129208e-01  Objective  3.69066531e+06
+    14541 DMoves:  Infeasibility  3.47725460e-01  Objective  3.69066531e+06
+    12771 DMoves:  Infeasibility  3.47518156e-01  Objective  3.69066531e+06
+    10771 DMoves:  Infeasibility  3.53059880e-01  Objective  3.69066531e+06
+     8699 DMoves:  Infeasibility  3.62745295e-01  Objective  3.69066531e+06
+     6690 DMoves:  Infeasibility  3.62740222e-01  Objective  3.69066531e+06
+     5041 DMoves:  Infeasibility  3.61081178e-01  Objective  3.69066531e+06
+     3970 DMoves:  Infeasibility  3.91879932e-02  Objective  3.69066530e+06
+     3007 DMoves:  Infeasibility  2.61434806e-02  Objective  3.69066530e+06
+     2434 DMoves:  Infeasibility  2.61390929e-02  Objective  3.69066531e+06
+     1816 DMoves:  Infeasibility  2.63010239e-02  Objective  3.69066530e+06
+     1169 DMoves:  Infeasibility  2.95278202e-04  Objective  3.69066530e+06
+      713 DMoves:  Infeasibility  5.74101827e-03  Objective  3.69066567e+06
+       48 DMoves:  Infeasibility  1.12720286e-06  Objective  3.69066531e+06
+        0 DMoves:  Infeasibility  2.25488062e-12  Objective  3.69066531e+06
+  Dual:  Pushed 35307, exchanged 122596.
+  Primal:  Fixing 17838 variables.
+    17837 PMoves:  Infeasibility  9.11106944e-02  Objective  3.69066531e+06
+     8826 PMoves:  Infeasibility  6.45789927e-02  Objective  3.69066530e+06
+     6924 PMoves:  Infeasibility  4.80173101e-02  Objective  3.69066530e+06
+     5745 PMoves:  Infeasibility  4.20504031e-02  Objective  3.69066530e+06
+     4713 PMoves:  Infeasibility  2.09968656e-02  Objective  3.69066531e+06
+     3823 PMoves:  Infeasibility  1.05868539e-02  Objective  3.69066531e+06
+     1416 PMoves:  Infeasibility  4.52425889e-05  Objective  3.69066533e+06
+        0 PMoves:  Infeasibility  2.23209452e-06  Objective  3.69066576e+06
+  Primal:  Pushed 10651, exchanged 7187.
+Elapsed time = 43.26 sec. (39465.72 ticks, 1 iterations)
+
+Iteration log . . .
+Iteration:     1   Dual objective     =       3690665.307294
+
+Primal simplex solved model.
+
+Iteration:   729    Objective     =       3690665.373508
+Elapsed time = 49.86 sec. (39315.46 ticks, 729 iterations)
+Iteration:   753    Objective     =       3690665.299659
+Total crossover time = 23.39 sec. (12621.55 ticks)
+
+Total time on 4 threads = 50.39 sec. (39926.15 ticks)
+
+--- LP status (1): optimal.
+--- Cplex Time: 50.41sec (det. 39928.24 ticks)
+
+
+Optimal solution found
+Simplex iterations after crossover: 0
+Objective:      3690665.299659
+
+--- Reading solution for model MESSAGE_LP
+--- Executing after solve: elapsed 0:01:09.371
+--- MESSAGE_run.gms(4751) 1122 Mb
+--- GDX File (execute_unload) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_daccs1000.gdx
+--- MESSAGE_run.gms(4753) 1122 Mb
+    +++ End of MESSAGEix (stand-alone) run - have a nice day! +++
+*** Status: Normal completion
+--- Job MESSAGE_run.gms Stop 01/31/24 17:52:54 elapsed 0:01:13.058
+--- Warning: The GAMS version [40.4.0] differs from the API version [24.8.3].
+--- Warning: The GAMS version [40.4.0] differs from the API version [24.8.3].
+2024-01-31 17:53:06,261 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'I' not found in gdx!
+2024-01-31 17:53:06,261 ERROR at.ac.iiasa.ixmp.objects.Scenario:1691 - variable 'C' not found in gdx!
+[I 17:53:55.150 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:55:55.142 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 17:57:55.154 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 18:07:07.226 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 18:07:11.974 NotebookApp] Starting buffering for 9a8208a2-c35b-4461-b340-5c8c653cb4b5:8288d94883cd4ef3924e2d3f83f94b8e
+[I 18:07:13.655 NotebookApp] Kernel restarted: 9a8208a2-c35b-4461-b340-5c8c653cb4b5
+[I 18:07:13.665 NotebookApp] Restoring connection for 9a8208a2-c35b-4461-b340-5c8c653cb4b5:8288d94883cd4ef3924e2d3f83f94b8e
+[I 18:07:15.203 NotebookApp] Replaying 3 buffered messages
+2024-01-31 18:07:28,855  INFO at.ac.iiasa.ixmp.Platform:165 - Welcome to the IX modeling platform!
+2024-01-31 18:07:28,855  INFO at.ac.iiasa.ixmp.Platform:166 -  connected to database 'jdbc:oracle:thin:@x8oda.iiasa.ac.at:1521/pIXMP2.iiasa.ac.at' (user: ixmp_dev)...
+[I 18:07:55.157 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 18:09:55.153 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 18:11:28.709 NotebookApp] Saving file at /[Tutorial] 4 get_report (DACs Capacity).ipynb
+[I 18:11:33.347 NotebookApp] Starting buffering for a67462a5-0d34-4411-bcc5-93552ac8bc5e:6cb894567bb3481d9ee2e12e2df0dc90
+[I 18:11:33.906 NotebookApp] Starting buffering for 9a8208a2-c35b-4461-b340-5c8c653cb4b5:8288d94883cd4ef3924e2d3f83f94b8e
