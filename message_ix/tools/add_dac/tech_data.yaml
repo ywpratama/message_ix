@@ -38,6 +38,9 @@ DACCS:
     emission:
       CO2: -20
       CH4: 0
+    node_loc:
+      Westeros: 1
+      Easteros: 1
   input:
     unit: '-'
     value: 1
@@ -59,6 +62,8 @@ DACCS:
   capacity_factor:
     unit: '-'
     value: 1
+    node_loc:
+      Westeros: 1
   technical_lifetime:
     unit: y
     value: 20
