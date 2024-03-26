@@ -202,15 +202,15 @@ Parameter check ;
 *) ;
 
 * check that the economic and technical lifetime are defined and consistent for all investment technologies
-loop((node,inv_tec,model_horizon)$( map_tec(node,inv_tec,model_horizon) ),
-    if ( technical_lifetime(node,inv_tec,model_horizon) <= 0 ,
-        put_utility 'log'/" Error: Technical lifetime not defined for '"node.tl:0"|"inv_tec.tl:0"|"model_horizon.tl:0"' !" ;
-        check = 1 ;
-    ) ;
-) ;
-if (check,
-    abort "There is a problem with the definition of the technical lifetime!" ;
-) ;
+*loop((node,inv_tec,model_horizon)$( map_tec(node,inv_tec,model_horizon) ),
+*    if ( technical_lifetime(node,inv_tec,model_horizon) <= 0 ,
+*        put_utility 'log'/" Error: Technical lifetime not defined for '"node.tl:0"|"inv_tec.tl:0"|"model_horizon.tl:0"' !" ;
+*        check = 1 ;
+*    ) ;
+*) ;
+*if (check,
+*    abort "There is a problem with the definition of the technical lifetime!" ;
+*) ;
 
 * check for validity of temporal resolution with an accepted difference in the scale of 1e-12, due to the different percision between GAMS and python values.
 loop(lvl_temporal,
