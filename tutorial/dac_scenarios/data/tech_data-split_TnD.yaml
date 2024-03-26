@@ -1,0 +1,1055 @@
+# FOSSIL CCS
+c_ppl_co2scr:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -2.32267
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+cement_co2scr:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -1
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+coal_adv_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -2.09429
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+g_ppl_co2scr:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -0.905747
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+gas_cc_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -0.904167
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+h2_coal_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -1.23733
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+h2_smr_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -0.623188
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+igcc_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -2.15588
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+meth_coal_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -0.863462
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+meth_ng_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -0.228333
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+syn_liq_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -1.04318
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+#--- The pipelines
+co2_tr:
+  year_init: 2030
+  var_cost_: 
+    par_name: var_cost
+    value: 75
+    unit: '-' #$/tCO2a
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_vtg:
+      rate: 0
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+    time:
+      year: 1
+  output_:
+    par_name: output
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      co2_ccs: 1
+    level:
+      secondary: 1
+  capacity_factor_:
+    par_name: capacity_factor
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+  soft_activity_lo_:
+    par_name: soft_activity_lo
+    value: -0.05
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  soft_activity_up_:
+    par_name: soft_activity_up
+    value: 0.05
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  level_cost_activity_soft_lo_:
+    par_name: level_cost_activity_soft_lo
+    value: 0.5
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  level_cost_activity_soft_up_:
+    par_name: level_cost_activity_soft_up
+    value: 0.5
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: 1
+    unit: Mt C/yr
+    relation: [co2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+##############
+# BIOMASS CCS
+bio_istig_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -2.70333
+    unit: Mt C/yr
+    relation: [bco2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+bio_ppl_co2scr:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -2.51467
+    unit: Mt C/yr
+    relation: [bco2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+eth_bio_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -1.5439
+    unit: Mt C/yr
+    relation: [bco2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+h2_bio_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -1.45818
+    unit: Mt C/yr
+    relation: [bco2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+liq_bio_ccs:
+  year_init: 2030
+  relation_activity_co2_trans:
+    par_name: relation_activity
+    value: -1.39773
+    unit: Mt C/yr
+    relation: [bco2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+#--- The pipelines
+bco2_tr:
+  year_init: 2030
+  var_cost_: 
+    par_name: var_cost
+    value: 150
+    unit: '-' #$/tCO2a
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_vtg:
+      rate: 0
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+    time:
+      year: 1
+  output_:
+    par_name: output
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      co2_ccs: 1
+    level:
+      secondary: 1
+  capacity_factor_:
+    par_name: capacity_factor
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+  soft_activity_lo_:
+    par_name: soft_activity_lo
+    value: -0.05
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  soft_activity_up_:
+    par_name: soft_activity_up
+    value: 0.05
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  level_cost_activity_soft_lo_:
+    par_name: level_cost_activity_soft_lo
+    value: 0.5
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  level_cost_activity_soft_up_:
+    par_name: level_cost_activity_soft_up
+    value: 0.5
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  growth_activity_up_:
+    par_name: growth_activity_up
+    value: 0.08
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  initial_activity_up_:
+    par_name: initial_activity_up
+    value: 0.2
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  relation_activity_bco2_trans:
+    par_name: relation_activity
+    value: 1
+    unit: Mt C/yr
+    relation: [bco2_trans]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+  relation_activity_limit_tot_BECCS:
+    par_name: relation_activity
+    value: -1.0605
+    unit: Mt C/yr
+    relation: [limit_tot_BECCS]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+###############
+# CO2 STORAGE
+#--- The storage
+co2_stor:
+  year_init: 2030
+  var_cost_: 
+    par_name: var_cost
+    value: 0
+    unit: '-' #$/tCO2a
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_vtg:
+      rate: 0
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+    time:
+      year: 1
+  input_:
+    par_name: input
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      co2_ccs: 1
+    level:
+      secondary: 1
+  output_:
+    par_name: output
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      co2_ccs: 1
+    level:
+      final: 1
+  capacity_factor_:
+    par_name: capacity_factor
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+  soft_activity_lo_:
+    par_name: soft_activity_lo
+    value: -0.1 # -0.05
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  soft_activity_up_:
+    par_name: soft_activity_up
+    value: 0.1 #0.05
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  level_cost_activity_soft_lo_:
+    par_name: level_cost_activity_soft_lo
+    value: 0.5
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  level_cost_activity_soft_up_:
+    par_name: level_cost_activity_soft_up
+    value: 0.5
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  relation_activity_CO2_Emission:
+    par_name: relation_activity
+    value: -1
+    unit: Mt C/yr
+    relation: [CO2_Emission]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+  relation_activity_CO2_cc:
+    par_name: relation_activity
+    value: -1
+    unit: Mt C/yr
+    relation: [CO2_cc]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+  emission_factor_:
+    par_name: emission_factor
+    value: 1
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    emission:
+      CO2_storage: 1

@@ -263,7 +263,7 @@ def generate_df(
 
             # index adjusted df
             value = df["value"] * mult
-            value = [round(e, 3) for e in value]
+            value = [e for e in value]
             df["value"] = value
 
             data[tec][name] = df
@@ -310,11 +310,11 @@ def add_dac(scenario, filepath=""):
         scenario.add_set("type_emission", "co2_storage_pot")
     if "co2_potential" not in scenario.set("type_tec"):
         scenario.add_set("type_tec", "co2_potential")
-    if "dacco2_tr_dis" not in scenario.set("technology"):
-        scenario.add_set("technology", "dacco2_tr_dis")
+    if "co2_stor" not in scenario.set("technology"):
+        scenario.add_set("technology", "co2_stor")
 
     scenario.add_set("cat_emission", ["co2_storage_pot", "CO2_storage"])
-    scenario.add_set("cat_tec", ["co2_potential", "dacco2_tr_dis"])
+    scenario.add_set("cat_tec", ["co2_potential", "co2_stor"])
 
     # Reading new technology database
     if not filepath:
@@ -368,28 +368,44 @@ def add_dac(scenario, filepath=""):
     # Creating dataframe for CO2_Emission_Global_Total relation
     # TODO: next verion should be able to check RXX_GLB
     # according to regional config used by the scenario
-
     CO2_global_par = []
-    for tech in set(tech_data.keys()) - set(["dacco2_tr_dis", "DAC_mpen"]):
+    for reg in node_loc:
+        CO2_global_par.append(
+            make_df(
+                "relation_activity",
+                relation="CO2_Emission_Global_Total",
+                node_rel=f"R{n_nodes}_GLB",
+                year_rel=year_act,
+                node_loc=reg,
+                technology="co2_stor",
+                year_act=year_act,
+                mode="M1",
+                value=-1,
+                unit="-",
+            )
+        )
+    CO2_global_par = pd.concat(CO2_global_par)
+
+    # relation lower and upper bounds
+    rel_lower_upper = []
+    for rel in ["co2_trans", "bco2_trans"]:
         for reg in node_loc:
-            CO2_global_par.append(
+            rel_lower_upper.append(
                 make_df(
-                    "relation_activity",
-                    relation="CO2_Emission_Global_Total",
-                    node_rel=f"R{n_nodes}_GLB",
+                    "relation_lower",
+                    relation=rel,
+                    node_rel=reg,
                     year_rel=year_act,
-                    node_loc=reg,
-                    technology=tech,
-                    year_act=year_act,
-                    mode="M1",
-                    value=-1,
+                    value=0,
                     unit="-",
                 )
             )
-    CO2_global_par = pd.concat(CO2_global_par)
+    rel_lower_upper = pd.concat(rel_lower_upper)
 
     # Adding the dataframe to the scenario
     scenario.add_par("relation_activity", CO2_global_par)
+    scenario.add_par("relation_lower", rel_lower_upper)
+    scenario.add_par("relation_upper", rel_lower_upper)
 
     # Setting up sets requirements
     # type_emission_list = ["co2_storage_pot"]
