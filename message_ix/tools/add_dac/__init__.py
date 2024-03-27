@@ -304,6 +304,7 @@ def add_dac(scenario, filepath=""):
     """
 
     # check if all required sets already in scenario
+    # TODO: this must not be hardcoded here
     if "CO2_storage" not in scenario.set("emission"):
         scenario.add_set("emission", "CO2_storage")
     if "co2_storage_pot" not in scenario.set("type_emission"):
@@ -387,31 +388,25 @@ def add_dac(scenario, filepath=""):
     CO2_global_par = pd.concat(CO2_global_par)
 
     # relation lower and upper bounds
-    rel_lower_upper = []
-    for rel in ["co2_trans", "bco2_trans"]:
-        for reg in node_loc:
-            rel_lower_upper.append(
-                make_df(
-                    "relation_lower",
-                    relation=rel,
-                    node_rel=reg,
-                    year_rel=year_act,
-                    value=0,
-                    unit="-",
-                )
-            )
-    rel_lower_upper = pd.concat(rel_lower_upper)
+    # rel_lower_upper = []
+    # for rel in ["co2_trans", "bco2_trans"]:
+    #    for reg in node_loc:
+    #        rel_lower_upper.append(
+    #            make_df(
+    #                "relation_lower",
+    #                relation=rel,
+    #                node_rel=reg,
+    #                year_rel=year_act,
+    #                value=0,
+    #                unit="-",
+    #            )
+    #        )
+    # rel_lower_upper = pd.concat(rel_lower_upper)
 
     # Adding the dataframe to the scenario
     scenario.add_par("relation_activity", CO2_global_par)
-    scenario.add_par("relation_lower", rel_lower_upper)
-    scenario.add_par("relation_upper", rel_lower_upper)
-
-    # Setting up sets requirements
-    # type_emission_list = ["co2_storage_pot"]
-    # emission_list = ["CO2_storage"]
-    # type_tec_list = ["co2_potential"]
-    # technology_list = ["dacco2_tr_dis"]
+    # scenario.add_par("relation_lower", rel_lower_upper)
+    # scenario.add_par("relation_upper", rel_lower_upper)
 
 
 def get_values(
