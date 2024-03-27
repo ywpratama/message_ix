@@ -20,7 +20,7 @@ c_ppl_co2scr:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -45,7 +45,7 @@ cement_co2scr:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -70,7 +70,7 @@ coal_adv_ccs:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -95,7 +95,7 @@ g_ppl_co2scr:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -120,7 +120,7 @@ gas_cc_ccs:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -145,7 +145,7 @@ h2_coal_ccs:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -170,7 +170,7 @@ h2_smr_ccs:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -195,7 +195,7 @@ igcc_ccs:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -220,7 +220,7 @@ meth_coal_ccs:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -245,7 +245,7 @@ meth_ng_ccs:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
@@ -270,10 +270,138 @@ syn_liq_ccs:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
 
+# BIOMASS CCS
+bio_istig_ccs:
+  year_init: 2030
+  output_:
+    par_name: output
+    value: 2.70333
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      bco2_captured: 1
+    level:
+      secondary: 1
+
+bio_ppl_co2scr:
+  year_init: 2030
+  output_:
+    par_name: output
+    value: 2.51467
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      bco2_captured: 1
+    level:
+      secondary: 1
+
+eth_bio_ccs:
+  year_init: 2030
+  output_:
+    par_name: output
+    value: 1.5439
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      bco2_captured: 1
+    level:
+      secondary: 1
+
+h2_bio_ccs:
+  year_init: 2030
+  output_:
+    par_name: output
+    value: 1.45818
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      bco2_captured: 1
+    level:
+      secondary: 1
+
+liq_bio_ccs:
+  year_init: 2030
+  output_:
+    par_name: output
+    value: 1.39773
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      bco2_captured: 1
+    level:
+      secondary: 1
+
+
+##############
 #--- The pipelines
 co2_tr:
   year_init: 2030
@@ -320,10 +448,10 @@ co2_tr:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       secondary: 1
-output_:
+  output_:
     par_name: output
     value: 1
     unit: '-'
@@ -342,7 +470,7 @@ output_:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       final: 1
   capacity_factor_:
@@ -442,133 +570,6 @@ output_:
     time:
       year: 1
 
-##############
-# BIOMASS CCS
-bio_istig_ccs:
-  year_init: 2030
-  output_:
-    par_name: output
-    value: 2.70333
-    unit: Mt C/yr
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    mode:
-      M1: 1
-    commodity:
-      co2_ccs: 1
-    level:
-      secondary: 1
-
-bio_ppl_co2scr:
-  year_init: 2030
-  output_:
-    par_name: output
-    value: 2.51467
-    unit: Mt C/yr
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    mode:
-      M1: 1
-    commodity:
-      co2_ccs: 1
-    level:
-      secondary: 1
-
-eth_bio_ccs:
-  year_init: 2030
-  output_:
-    par_name: output
-    value: 1.5439
-    unit: Mt C/yr
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    mode:
-      M1: 1
-    commodity:
-      co2_ccs: 1
-    level:
-      secondary: 1
-
-h2_bio_ccs:
-  year_init: 2030
-  output_:
-    par_name: output
-    value: 1.45818
-    unit: Mt C/yr
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    mode:
-      M1: 1
-    commodity:
-      co2_ccs: 1
-    level:
-      secondary: 1
-
-liq_bio_ccs:
-  year_init: 2030
-  output_:
-    par_name: output
-    value: 1.39773
-    unit: Mt C/yr
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    mode:
-      M1: 1
-    commodity:
-      co2_ccs: 1
-    level:
-      secondary: 1
-
 #--- The pipelines
 bco2_tr:
   year_init: 2030
@@ -615,7 +616,7 @@ bco2_tr:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      bco2_captured: 1
     level:
       secondary: 1
   output_:
@@ -637,7 +638,7 @@ bco2_tr:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      bco2_captured: 1
     level:
       final: 1
   capacity_factor_:
@@ -776,29 +777,6 @@ bco2_tr:
       rate: 0.0
     time:
       year: 1
-  relation_activity_bco2_trans:
-    par_name: relation_activity
-    value: 1
-    unit: Mt C/yr
-    relation: [bco2_trans]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
   relation_activity_limit_tot_BECCS:
     par_name: relation_activity
     value: -1.0605
@@ -850,9 +828,10 @@ co2_stor:
       rate: 0
     mode:
       M1: 1
+      M2: 1
     time:
       year: 1
-  input_:
+  input_co2:
     par_name: input
     value: 1
     unit: '-'
@@ -871,10 +850,32 @@ co2_stor:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
     level:
       final: 1
-  output_:
+  input_bco2:
+    par_name: input
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M2: 1
+    commodity:
+      bco2_captured: 1
+    level:
+      final: 1
+  output_co2:
     par_name: output
     value: 1
     unit: '-'
@@ -893,7 +894,29 @@ co2_stor:
     mode:
       M1: 1
     commodity:
-      co2_ccs: 1
+      co2_captured: 1
+    level:
+      useful: 1
+  output_bco2:
+    par_name: output
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M2: 1
+    commodity:
+      bco2_captured: 1
     level:
       useful: 1
   emission_factor_:
@@ -914,6 +937,7 @@ co2_stor:
       R11_WEU: 1
     mode:
       M1: 1
+      M2: 1
     emission:
       CO2_storage: 1
   capacity_factor_:
@@ -1035,27 +1059,4 @@ co2_stor:
       rate: 0
     mode:
       M1: 1
-#  relation_activity_CO2_cc:
-#    par_name: relation_activity
-#    value: -1
-#    unit: Mt C/yr
-#    relation: [CO2_cc]
-#    year_rel:
-#      rate: 0
-#    node_loc:
-#      R11_AFR: 1
-#      R11_CPA: 1
-#      R11_EEU: 1
-#      R11_FSU: 1
-#      R11_LAM: 1
-#      R11_MEA: 1
-#      R11_NAM: 1
-#      R11_PAO: 1
-#      R11_PAS: 1
-#      R11_SAS: 1
-#      R11_WEU: 1
-#    year_act:
-#      rate: 0
-#    mode:
-#      M1: 1
-  
+      M2: 1
