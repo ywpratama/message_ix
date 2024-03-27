@@ -199,7 +199,7 @@ def generate_df(
                                 + tech_data[tec]
                                 .get(name, {})
                                 .get("year_vtg", {})
-                                .get("rate", 0)
+                                .get("rate", 0.0)
                             ),
                             exp_year_vtg,
                         )
