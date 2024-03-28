@@ -45,8 +45,8 @@ $ONGLOBAL
 *----------------------------------------------------------------------------------------------------------------------*
 
 ** scenario/case selection - this must match the name of the MsgData_<%%%>.gdx input data file **
-$SETGLOBAL data "<your datafile name here>"
-*$SETGLOBAL data "GENIE_sandbox_add_tech_baseline"
+*$SETGLOBAL data "<your datafile name here>"
+$SETGLOBAL data "Westeros_Electrified_multinode_hub_emission_bound"
 
 ** MACRO mode
 * "none": MESSAGEix is run in stand-alone mode
