@@ -48,26 +48,14 @@ daccs:
       electricity: 1
     level:
       final: 1
-  output_:
-    par_name: output
-    value: 1
-    unit: tCO2
-    node_loc:
-      Westeros: 1
-      Essos: 1
-      Stepstones: 1
-    mode:
-      standard: 1
-    commodity:
-      CO2: 1
-    level:
-      final: 1
   capacity_factor_:
     par_name: capacity_factor
     value: 0.913
     unit: '-'
     node_loc:
       Westeros: 1
+      Essos: 1
+      Stepstones: 1
   emission_factor_:
     par_name: emission_factor
     value: -1
@@ -112,21 +100,3 @@ daccs:
       rate: 0
     time:
       year: 1
-  relation_activity_CO2_Emission_World_Accounting:
-    par_name: relation_activity
-    value: -1
-    unit: '-'
-    relation: [CO2_Emission_World_Accounting]
-    year_rel:
-      rate: 0
-    node_loc:
-      Westeros: 1
-      Essos: 1
-      Stepstones: 1
-    year_act:
-      rate: 0
-    mode:
-      standard: 1
-  
-
-  
