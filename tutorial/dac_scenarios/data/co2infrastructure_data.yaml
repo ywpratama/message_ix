@@ -403,7 +403,7 @@ liq_bio_ccs:
 
 ##############
 #--- The pipelines
-co2_tr:
+co2_tr_ld:
   year_init: 2030
   var_cost_: 
     par_name: var_cost
@@ -571,7 +571,7 @@ co2_tr:
       year: 1
 
 #--- The pipelines
-bco2_tr:
+co2_tr_sd:
   year_init: 2030
   var_cost_: 
     par_name: var_cost
