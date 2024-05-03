@@ -100,6 +100,28 @@ dac_1:
       electr: 1
     level:
       secondary: 1
+  output_:
+    par_name: output
+    value: 1
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      dacco2_captured: 1
+    level:
+      secondary: 1
   capacity_factor_:
     par_name: capacity_factor
     value: 0.913242
@@ -233,52 +255,6 @@ dac_1:
     value: 1
     unit: Mt C/yr
     relation: [DAC_mpen_c]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-  relation_activity_CO2_Emission:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [CO2_Emission]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-  relation_activity_dacco2_trans_disp:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [dacco2_trans_disp]
     year_rel:
       rate: 0
     node_loc:
@@ -480,6 +456,28 @@ dac_2:
       electr: 1
     level:
       secondary: 1
+  output_:
+    par_name: output
+    value: 1
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      dacco2_captured: 1
+    level:
+      secondary: 1
   capacity_factor_:
     par_name: capacity_factor
     value: 0.913242
@@ -613,52 +611,6 @@ dac_2:
     value: 1
     unit: Mt C/yr
     relation: [DAC_mpen_c]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-  relation_activity_CO2_Emission:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [CO2_Emission]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-  relation_activity_dacco2_trans_disp:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [dacco2_trans_disp]
     year_rel:
       rate: 0
     node_loc:
@@ -847,6 +799,28 @@ dac_3:
       electr: 1
     level:
       secondary: 1
+  output_:
+    par_name: output
+    value: 1
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      dacco2_captured: 1
+    level:
+      secondary: 1
   capacity_factor_:
     par_name: capacity_factor
     value: 0.913242
@@ -980,52 +954,6 @@ dac_3:
     value: 1
     unit: Mt C/yr
     relation: [DAC_mpen_c]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-  relation_activity_CO2_Emission:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [CO2_Emission]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-  relation_activity_dacco2_trans_disp:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [dacco2_trans_disp]
     year_rel:
       rate: 0
     node_loc:
@@ -1192,6 +1120,28 @@ dac_4:
       electr: 1
     level:
       secondary: 1
+  output_:
+    par_name: output
+    value: 1
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      dacco2_captured: 1
+    level:
+      secondary: 1
   capacity_factor_:
     par_name: capacity_factor
     value: 0.913242
@@ -1325,52 +1275,6 @@ dac_4:
     value: 1
     unit: Mt C/yr
     relation: [DAC_mpen_c]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-  relation_activity_CO2_Emission:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [CO2_Emission]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-  relation_activity_dacco2_trans_disp:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [dacco2_trans_disp]
     year_rel:
       rate: 0
     node_loc:
@@ -1537,6 +1441,28 @@ dac_5:
       electr: 1
     level:
       secondary: 1
+  output_:
+    par_name: output
+    value: 1
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      dacco2_captured: 1
+    level:
+      secondary: 1
   capacity_factor_:
     par_name: capacity_factor
     value: 0.913242
@@ -1688,52 +1614,6 @@ dac_5:
       rate: 0
     mode:
       M1: 1
-  relation_activity_CO2_Emission:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [CO2_Emission]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-  relation_activity_dacco2_trans_disp:
-    par_name: relation_activity
-    value: -1
-    unit: Mt C/yr
-    relation: [dacco2_trans_disp]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
   relation_activity_CO2_cc:
     par_name: relation_activity
     value: -1
@@ -1810,7 +1690,93 @@ dac_5:
     mode:
       M1: 1
 
-dacco2_tr_dis:
+DAC_mpen:
+  year_init: 2025
+  growth_activity_up_:
+    par_name: growth_activity_up
+    value: 0.1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  soft_activity_up_:
+    par_name: soft_activity_up
+    value: 0.05
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  initial_activity_up_:
+    par_name: initial_activity_up
+    value: 0.00824158
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 14.1
+      R11_EEU: 1.5
+      R11_FSU: 2.6
+      R11_LAM: 4.5
+      R11_MEA: 3.4
+      R11_NAM: 14.6
+      R11_PAO: 3.8
+      R11_PAS: 4.5
+      R11_SAS: 2.8
+      R11_WEU: 10.9
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  relation_activity_DAC_mpen_c:
+    par_name: relation_activity
+    value: -1
+    unit: Mt C/yr  
+    relation: [DAC_mpen_c]
+    year_rel:
+      rate: 0
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+
+co2_tr_sd:
   year_init: 2025
   var_cost_: 
     par_name: var_cost
@@ -1833,9 +1799,31 @@ dacco2_tr_dis:
     year_act:
       rate: 0
     mode:
-      M1: 1
+      M2: 1
     time:
       year: 1
+  input_:
+    par_name: input
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M2: 1
+    commodity:
+      dacco2_captured: 1
+    level:
+      secondary: 1
   output_:
     par_name: output
     value: 1
@@ -1853,31 +1841,11 @@ dacco2_tr_dis:
       R11_SAS: 1
       R11_WEU: 1
     mode:
-      M1: 1
+      M2: 1
     commodity:
-      exports: 1
+      dacco2_captured: 1
     level:
-      secondary: 1
-  emission_factor_:
-    par_name: emission_factor
-    value: 1
-    unit: Mt C/yr
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    mode:
-      M1: 1
-    emission:
-      CO2_storage: 1
+      final: 1
   capacity_factor_:
     par_name: capacity_factor
     value: 1
@@ -1974,57 +1942,9 @@ dacco2_tr_dis:
       rate: 0.0
     time:
       year: 1
-  relation_activity_dacco2_trans_disp:
-    par_name: relation_activity
-    value: 1
-    unit: Mt C/yr
-    relation: [dacco2_trans_disp]
-    year_rel:
-      rate: 0
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0
-    mode:
-      M1: 1
-
-
-
-DAC_mpen:
-  year_init: 2025
   growth_activity_up_:
     par_name: growth_activity_up
-    value: 0.1
-    unit: '-'
-    node_loc:
-      R11_AFR: 1
-      R11_CPA: 1
-      R11_EEU: 1
-      R11_FSU: 1
-      R11_LAM: 1
-      R11_MEA: 1
-      R11_NAM: 1
-      R11_PAO: 1
-      R11_PAS: 1
-      R11_SAS: 1
-      R11_WEU: 1
-    year_act:
-      rate: 0.0
-    time:
-      year: 1
-  soft_activity_up_:
-    par_name: soft_activity_up
-    value: 0.05
+    value: 0.08
     unit: '-'
     node_loc:
       R11_AFR: 1
@@ -2044,29 +1964,216 @@ DAC_mpen:
       year: 1
   initial_activity_up_:
     par_name: initial_activity_up
-    value: 0.00824158
+    value: 0.2
     unit: '-'
     node_loc:
       R11_AFR: 1
-      R11_CPA: 14.1
-      R11_EEU: 1.5
-      R11_FSU: 2.6
-      R11_LAM: 4.5
-      R11_MEA: 3.4
-      R11_NAM: 14.6
-      R11_PAO: 3.8
-      R11_PAS: 4.5
-      R11_SAS: 2.8
-      R11_WEU: 10.9
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
     year_act:
       rate: 0.0
     time:
       year: 1
-  relation_activity_DAC_mpen_c:
+
+co2_stor:
+  year_init: 2025
+  var_cost_: 
+    par_name: var_cost
+    value: 0
+    unit: '-' #$/tCO2a
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_vtg:
+      rate: 0
+    year_act:
+      rate: 0
+    mode:
+      M3: 1
+    time:
+      year: 1
+  input_dacco2:
+    par_name: input
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M3: 1
+    commodity:
+      dacco2_captured: 1
+    level:
+      final: 1
+  output_dacco2:
+    par_name: output
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M3: 1
+    commodity:
+      dacco2_captured: 1
+    level:
+      useful: 1
+  emission_factor_:
+    par_name: emission_factor
+    value: 1
+    unit: Mt C/yr
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    mode:
+      M3: 1
+    emission:
+      CO2_storage: 1
+  capacity_factor_:
+    par_name: capacity_factor
+    value: 1
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+  soft_activity_lo_:
+    par_name: soft_activity_lo
+    value: -0.1 # -0.05
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  soft_activity_up_:
+    par_name: soft_activity_up
+    value: 0.1 #0.05
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  level_cost_activity_soft_lo_:
+    par_name: level_cost_activity_soft_lo
+    value: 0.5
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  level_cost_activity_soft_up_:
+    par_name: level_cost_activity_soft_up
+    value: 0.5
+    unit: '-'
+    node_loc:
+      R11_AFR: 1
+      R11_CPA: 1
+      R11_EEU: 1
+      R11_FSU: 1
+      R11_LAM: 1
+      R11_MEA: 1
+      R11_NAM: 1
+      R11_PAO: 1
+      R11_PAS: 1
+      R11_SAS: 1
+      R11_WEU: 1
+    year_act:
+      rate: 0.0
+    time:
+      year: 1
+  relation_activity_CO2_Emission:
     par_name: relation_activity
     value: -1
-    unit: Mt C/yr  
-    relation: [DAC_mpen_c]
+    unit: Mt C/yr
+    relation: [CO2_Emission]
     year_rel:
       rate: 0
     node_loc:
@@ -2084,4 +2191,4 @@ DAC_mpen:
     year_act:
       rate: 0
     mode:
-      M1: 1
+      M3: 1
