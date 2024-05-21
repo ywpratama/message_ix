@@ -42,24 +42,41 @@ PlaneRownr=-1
 PlaneFilter1=LT_DAC
 PlaneFilter2=Level
 
-[RP:DATA_LOAD]
-1=
-
 [RP:MESSAGE_MASTER]
 1=
 
-[MRUFILES]
-1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_add_tech_baseline.gdx
+[RP:DATA_LOAD]
+1=
+
+[GDXDISP: bound_total_capacity_up Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
 
 [OPENWINDOW_1]
-FILE0=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data_load.lst
-FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\data_load.gms
-FILE2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_solve.gms
-FILE3=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
-FILE4=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.lst
-FILE5=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\data_load.gms
 MAXIM=1
 TOP=50
 LEFT=50
 HEIGHT=400
 WIDTH=400
+
+[GDXDISP: bound_activity_up Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[MRUFILES]
+1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_dev_SSP1_v0.1_dac_1000f_v0.13.gdx
+2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_GENIE_SSP2_v4.1.7_EN_NPi2020-DACm-MP-median-stor3-final_1000.gdx
+3=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
+4=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_solve.gms
+5=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\data_load.gms
+6=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_add_tech_baseline.gdx
