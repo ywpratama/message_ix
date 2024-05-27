@@ -1,5 +1,3 @@
-import os
-import platform
 from pathlib import Path
 
 import numpy as np
@@ -11,13 +9,6 @@ from message_ix import Scenario, macro
 from message_ix.models import MACRO
 from message_ix.report import Quantity
 from message_ix.testing import SCENARIO, make_westeros
-
-FLAKY = pytest.mark.flaky(
-    reruns=5,
-    rerun_delay=2,
-    condition="GITHUB_ACTIONS" in os.environ and platform.system() == "Darwin",
-    reason="Flaky; see iiasa/message_ix#731",
-)
 
 # Fixtures
 
@@ -62,7 +53,6 @@ def westeros_not_solved(request, _ws):
 # Tests
 
 
-@FLAKY
 def test_calc_valid_data_file(westeros_solved, w_data_path):
     c = macro.prepare_computer(westeros_solved, data=w_data_path)
     c.get("check all")
@@ -109,7 +99,6 @@ def test_calc_no_solution(westeros_not_solved, w_data_path):
         macro.prepare_computer(s, data=w_data_path)
 
 
-@FLAKY
 def test_config(westeros_solved, w_data_path):
     c = macro.prepare_computer(westeros_solved, data=w_data_path)
     assert "config::macro" in c.graph
@@ -185,7 +174,6 @@ def test_calc_data_missing_datapoint(westeros_solved, w_data):
 #
 
 
-@FLAKY
 @pytest.mark.parametrize(
     "key, test, expected",
     (
@@ -193,8 +181,12 @@ def test_calc_data_missing_datapoint(westeros_solved, w_data):
         ("rho", "equal", [-4.0]),
         ("historical_gdp", "equal", [500.0]),
         ("k0", "equal", [1500.0]),
-        ("cost_MESSAGE", "allclose", [6.18242, 8.6601720, 13.4040172, 14.9067117]),
-        ("price_MESSAGE", "allclose", [211, 511.0282933, 162.0395393, 161.0026274]),
+        ("cost_MESSAGE", "allclose", [6.18242, 8.44930447, 11.89512066, 12.84911389]),
+        (
+            "price_MESSAGE",
+            "allclose",
+            [211.0, 512.03088025, 162.65962971, 160.65616805],
+        ),
         ("demand_MESSAGE", "allclose", [27, 55, 82, 104]),
         ("prfconst", "allclose", [9.68838201e-08]),
         ("lakl", "allclose", [26.027323]),
@@ -250,7 +242,6 @@ def test_init(message_test_mp):
     assert "COST_ACCOUNTING_NODAL" in scen.equ_list()
 
 
-@FLAKY
 def test_add_model_data(westeros_solved, w_data_path):
     base = westeros_solved
     clone = base.clone(scenario=f"{base.scenario} cloned", keep_solution=False)
@@ -289,12 +280,12 @@ def test_calibrate(westeros_solved, w_data_path):
 
 
 def test_calibrate_roundtrip(westeros_solved, w_data_path):
-    # this is a regression test with values observed on Aug 9, 2019
+    # this is a regression test with values observed on May 23, 2024
     with_macro = westeros_solved.add_macro(w_data_path, check_convergence=True)
     aeei = with_macro.par("aeei")["value"].values
     npt.assert_allclose(
         aeei,
-        1e-3 * np.array([20, -7.53474955303437, 43.6388021078658, 21.1470758210961]),
+        1e-3 * np.array([20.0, -7.56480599206068, 43.6577, 21.18243]),
     )
     grow = with_macro.par("grow")["value"].values
     npt.assert_allclose(
@@ -302,19 +293,19 @@ def test_calibrate_roundtrip(westeros_solved, w_data_path):
         1e-3
         * np.array(
             [
-                26.583631304232,
-                69.1441230700944,
-                79.1406795348988,
-                24.5225816398262,
+                26.583631,
+                69.146018,
+                79.138644,
+                24.522467,
             ]
         ),
     )
 
 
 @pytest.fixture
-def mr_scenario(test_mp):
+def mr_scenario(test_mp, request):
     """Fixture with a multi-region, multi-sector scenario."""
-    scenario = make_westeros(test_mp)
+    scenario = make_westeros(test_mp, request=request)
     with scenario.transact():
         scenario.add_set("year", [2020, 2030, 2040])
 
