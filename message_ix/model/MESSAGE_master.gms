@@ -46,7 +46,7 @@ $ONGLOBAL
 
 ** scenario/case selection - this must match the name of the MsgData_<%%%>.gdx input data file **
 $SETGLOBAL data "<your datafile name here>"
-*$SETGLOBAL data "Westeros_Electrified_baseline"
+*$SETGLOBAL data "Westeros_Electrified_recursive-dynamic"
 
 ** MACRO mode
 * "none": MESSAGEix is run in stand-alone mode
@@ -57,7 +57,7 @@ $SETGLOBAL macromode "none"
 * perfect foresight - 0
 * myopic optimization (period-by-period, recursive-dynamic without any foresight) - 1
 * rolling horizon (period-by-period, recursive-dynamic with limited foresight - 'number of years of foresight'
-$SETGLOBAL foresight "0"
+$SETGLOBAL foresight "1"
 
 ** for recursive dynamic approach, this is to activate/deactivate technology learning module **
 * deactivate technology learning - 0

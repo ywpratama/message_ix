@@ -8,8 +8,15 @@
 *set year_rd(year_all) /700, 710/;
 *set year_rd(year_all) all year in recursive dynamic iterations ;
 *year_rd(year_all) = ord(year_all) >1;
-Parameter iter 'iteration number';
-iter = 1;
+Parameter
+    count_iter  'iteration counter'
+    prev_OBJ    'previous objective value'
+    delta_OBJ   'difference between current and previous objective value'
+;
+
+count_iter = 1;
+prev_OBJ   = 0;
+delta_OBJ  = 1;
 
 if (%foresight% = 0,
 ***
@@ -27,10 +34,39 @@ if (%foresight% = 0,
 * include all model periods in the optimization horizon (excluding historical periods prior to 'first_period')
     year(year_all)$( model_horizon(year_all) ) = yes ;
 
-* write a status update to the log file, solve the model
-    put_utility 'log' /'+++ Solve the perfect-foresight version of MESSAGEix +++ ' ;
-    option threads = 4 ;
-    Solve MESSAGE_LP using LP minimizing OBJ ;
+    IF(%learningmode% = 1,
+        put_utility 'log' /'+++ Solve the perfect-foresight with learning version of MESSAGEix +++ ' ;
+        option threads = 4 ;
+        while(count_iter <= 10 and
+              delta_OBJ >= 0.01,
+              Solve MESSAGE_LP using LP minimizing OBJ ;
+*             passing CAP_NEW values to update cap_new2 data for unit and size optimization
+              cap_new2(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
+*             making bin param equal to 1 when technology is built, and 0 if otherwise
+              bin_cap_new(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
+              bin_cap_new(node,newtec,year_all2)$(bin_cap_new(node,newtec,year_all2) > 0) = 1 ;
+*             solving the unit and size optimization
+              Solve learningeos using nlp minimizing OBJECT;
+*             passing CapexTec values to update inv_cost data for MESSAGE optimization
+              inv_cost(node,newtec,year_all2) = CAPEX_TEC.l(node,newtec,year_all2);
+              if(count_iter = 1,
+                      delta_OBJ = 1 ;
+              else
+                      delta_OBJ = (prev_OBJ - OBJ.l)/prev_OBJ ;
+              );
+              prev_OBJ = OBJ.l ;
+              display count_iter, delta_OBJ;
+              display year,year_all,year_all2,model_horizon ;
+              count_iter = count_iter + 1 ;
+        );
+
+    ELSE
+*       write a status update to the log file, solve the model
+        put_utility 'log' /'+++ Solve the perfect-foresight version of MESSAGEix +++ ' ;
+        option threads = 4 ;
+        Solve MESSAGE_LP using LP minimizing OBJ ;
+        display year,year_all,year_all2,model_horizon ;
+    );
 
 * write model status summary
     status('perfect_foresight','modelstat') = MESSAGE_LP.modelstat ;
@@ -98,7 +134,11 @@ else
     LOOP(year_all$( model_horizon(year_all) ),
 
 * include all past periods and future periods including the period where the %foresight% is reached
-             year(year_all2)$( ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
+*             year(year_all2)$( ORD(year_all2) ge (ORD(year_all)) and ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
+*             year4(year_all2)$( ORD(year_all2) ge (ORD(year_all)) and (ord(year_all2) le ord(year_all))) = yes ;
+*             year(year_all2)$( ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
+*             year4(year_all2)$((ord(year_all2) < ord(year_all))) = yes ;
+             year(year_all2)$( ORD(year_all2) ge (ORD(year_all)) and ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
              year4(year_all2)$((ord(year_all2) < ord(year_all))) = yes ;
 
              option threads = 4 ;
@@ -182,4 +222,5 @@ COST_NODAL_NET.L(node, year)$(NOT macro_base_period(year)) = (
             AND map_node(node2,node) AND cat_year(type_year,year) ),
         emission_scaling(type_emission,emission) * tax_emission(node2,type_emission,type_tec,type_year)
         * EMISS.L(node,emission,type_tec,year) )
-) / 1000 ;
+) ;
+*  / 1000 # this is the old implementation. check if everything holds
