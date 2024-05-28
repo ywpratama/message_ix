@@ -675,6 +675,14 @@ var(
     "n t m l c y h",
     "State of charge (SoC) of storage at each sub-annual time slice (positive)",
 )
+## Learning related variables
+var(
+    "IC",
+    "t y",
+    "Investment cost index",
+)
+
+
 
 # Equations
 # FIXME Many of these lack coords and dims; transcribe from the GAMS code
