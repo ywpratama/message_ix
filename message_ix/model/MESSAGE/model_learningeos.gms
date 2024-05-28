@@ -4,17 +4,17 @@ PARAMETERS
   bin_cap_new(newtec,year_all2)          'binary of newly installed capacity'
 
 * learning and economies of scale parameters
-  alpha(newtec)                          'technology cost learning parameter'            / wind_ppl      0.2     /
-  beta_unit(newtec)                      'economy of scale parameter at unit level'      / wind_ppl      0.8     /
-  beta_proj(newtec)                      'economy of scale parameter at project level'   / wind_ppl      0.0     /
-  gamma_unit(newtec)                     'unit scale-up rate'                            / wind_ppl      0.03     /
-  gamma_proj(newtec)                     'project scale-up rate'                         / wind_ppl      0.0     /
+  alpha(newtec)                          'technology cost learning parameter'
+  beta_unit(newtec)                      'economy of scale parameter at unit level'
+  beta_proj(newtec)                      'economy of scale parameter at project level'
+  gamma_unit(newtec)                     'unit scale-up rate'
+  gamma_proj(newtec)                     'project scale-up rate'
 
 * initial condition
-  inv_cost_refidx(newtec)                'initial capex'                                 / wind_ppl      1       /
-  knref_unit(newtec)                     'initial number of unit'                        / wind_ppl      30       /
-  sizeref_unit(newtec)                   'initial size of unit'                          / wind_ppl      1       /
-  sizeref_proj(newtec)                   'initial size of project'                       / wind_ppl      10       /
+  inv_cost_refidx(newtec)                'initial capex'
+  knref_unit(newtec)                     'initial number of unit'
+  sizeref_unit(newtec)                   'initial size of unit'
+  sizeref_proj(newtec)                   'initial size of project'
 
 * log2 parameters
   log2_cap_new2(newtec,year_all2)        'log2 of new capacity addition'
