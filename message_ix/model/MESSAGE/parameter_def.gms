@@ -882,4 +882,23 @@ Parameters
 Parameters
     ctr               counter parameter for loops
     status(*,*)       model solution status parameter for log writing
+
+*----------------------------------------------------------------------------------------------------------------------*
+* Parameters for learning module                                                                                       *
+*----------------------------------------------------------------------------------------------------------------------*
+
+* learning and economies of scale parameters
+  alpha(newtec)                          'technology cost learning parameter'
+  beta_unit(newtec)                      'economy of scale parameter at unit level'
+  beta_proj(newtec)                      'economy of scale parameter at project level'
+  gamma_unit(newtec)                     'unit scale-up rate'
+  gamma_proj(newtec)                     'project scale-up rate'
+
+* initial condition
+  inv_cost_refidx(newtec)                'initial capex'
+  knref_unit(newtec)                     'initial number of unit'
+  sizeref_unit(newtec)                   'initial size of unit'
+  sizeref_proj(newtec)                   'initial size of project'
+
+
 ;
