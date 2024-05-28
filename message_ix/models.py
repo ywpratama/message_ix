@@ -385,6 +385,7 @@ _set(
 )
 _set("map_temporal_hierarchy", "lvl_temporal h time_parent")
 _set("map_time", "time_parent h")
+_set("newtec", "t")
 _set("type_tec_land", "type_tec")
 
 # Parameters
@@ -496,6 +497,16 @@ par("tax", "nl type_tec ya")
 par("technical_lifetime", "nl t yv")
 par("time_order", "lvl_temporal h", "Order of sub-annual time slices")
 par("var_cost", "nl t yv ya m h")
+### learning related parameters
+par("alpha","t")
+par("beta_unit","t")
+par("beta_proj","t")
+par("gamma_unit","t")
+par("gamma_proj","t")
+par("inv_cost_refidx","t")
+par("knref_unit","t")
+par("sizeref_unit","t")
+par("sizeref_proj","t")
 
 # Variables
 var(
