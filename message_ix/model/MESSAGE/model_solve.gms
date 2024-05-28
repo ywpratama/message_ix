@@ -5,9 +5,6 @@
 * This part of the code includes the perfect-foresight, myopic and rolling-horizon model solve statements
 * including the required accounting of investment costs beyond the model horizon.
 ***
-*set year_rd(year_all) /700, 710/;
-*set year_rd(year_all) all year in recursive dynamic iterations ;
-*year_rd(year_all) = ord(year_all) >1;
 Parameter
     count_iter  'iteration counter'
     prev_OBJ    'previous objective value'
@@ -40,15 +37,20 @@ if (%foresight% = 0,
         while(count_iter <= 10 and
               delta_OBJ >= 0.01,
               Solve MESSAGE_LP using LP minimizing OBJ ;
-*             passing CAP_NEW values to update cap_new2 data for unit and size optimization
-              cap_new2(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
-*             making bin param equal to 1 when technology is built, and 0 if otherwise
-              bin_cap_new(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
-              bin_cap_new(node,newtec,year_all2)$(bin_cap_new(node,newtec,year_all2) > 0) = 1 ;
-*             solving the unit and size optimization
+
+*             passing CAP_NEW values to update cap_new2 data for unit and size optimization,
+*             make bin parameters equal to 1 when technology is built, and 0 if otherwise,
+*             and passing log2_cap_new parameter to learning module
+*             NOTE: there is no log 0, thus binary parameter is added as helper to avoid error.
+*                   multiplication with the binary parameter in learning module negates effect of this helper
+              cap_new2(newtec,year_all2) = sum(node, CAP_NEW.l(node,newtec,year_all2));
+              bin_cap_new(newtec,year_all2) = sum(node, CAP_NEW.l(node,newtec,year_all2));
+              bin_cap_new(newtec,year_all2)$(bin_cap_new(newtec,year_all2) > 0) = 1 ;
+              log2_cap_new2(newtec,year_all2) = log2(sum(node, CAP_NEW.l(node,newtec,year_all2)) + [1-bin_cap_new(newtec,year_all2)] ) ;
               Solve learningeos using nlp minimizing OBJECT;
-*             passing CapexTec values to update inv_cost data for MESSAGE optimization
-              inv_cost(node,newtec,year_all2) = CAPEX_TEC.l(node,newtec,year_all2);
+
+*             update inv_cost values using indexed (normalized) cost IC
+              inv_cost(node,newtec,year_all2) = IC.l(newtec,year_all2) * inv_cost(node,newtec,year_all2);
               if(count_iter = 1,
                       delta_OBJ = 1 ;
               else
@@ -139,10 +141,6 @@ else
     LOOP(year_all$( model_horizon(year_all) ),
 
 * include all past periods and future periods including the period where the %foresight% is reached
-*             year(year_all2)$( ORD(year_all2) ge (ORD(year_all)) and ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
-*             year4(year_all2)$( ORD(year_all2) ge (ORD(year_all)) and (ord(year_all2) le ord(year_all))) = yes ;
-*             year(year_all2)$( ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
-*             year4(year_all2)$((ord(year_all2) < ord(year_all))) = yes ;
              year(year_all2)$( ORD(year_all2) ge (ORD(year_all)) and ORD(year_all2) < (ORD(year_all) + %foresight%) ) = yes ;
              year4(year_all2)$((ord(year_all2) < ord(year_all))) = yes ;
 
@@ -162,16 +160,21 @@ else
              ) ;
 
              IF(%learningmode% = 1,
-*            passing CAP_NEW values to update cap_new2 data for unit and size optimization
-                 cap_new2(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
-*            this is to make bin param equal to 1 when technology is built, and 0 if otherwise
-                 bin_cap_new(node,newtec,year_all2) = CAP_NEW.l(node,newtec,year_all2);
-                 bin_cap_new(node,newtec,year_all2)$(bin_cap_new(node,newtec,year_all2) > 0) = 1 ;
-                 solve learningeos using nlp minimizing OBJECT;
-*            passing CapexTec values to update inv_cost data for MESSAGE optimization
-                 inv_cost(node,newtec,year_all2) = CAPEX_TEC.l(node,newtec,year_all2);
+*             passing CAP_NEW values to update cap_new2 data for unit and size optimization,
+*             make bin parameters equal to 1 when technology is built, and 0 if otherwise,
+*             and passing log2_cap_new parameter to learning module
+*             NOTE: there is no log 0, thus binary parameter is added as helper to avoid error.
+*                   multiplication with the binary parameter in learning module negates effect of this helper
+                 cap_new2(newtec,year_all2) = sum(node, CAP_NEW.l(node,newtec,year_all2));
+                 bin_cap_new(newtec,year_all2) = sum(node, CAP_NEW.l(node,newtec,year_all2));
+                 bin_cap_new(newtec,year_all2)$(bin_cap_new(newtec,year_all2) > 0) = 1 ;
+                 log2_cap_new2(newtec,year_all2) = log2(sum(node, CAP_NEW.l(node,newtec,year_all2)) + [1-bin_cap_new(newtec,year_all2)] ) ;
+                 Solve learningeos using nlp minimizing OBJECT;
 
-                 display bin_cap_new, NBR_UNIT.l, CAPEX_TEC.l, inv_cost, cap_new2, CAP_NEW.l;
+*             update inv_cost values using indexed (normalized) cost IC
+                 inv_cost(node,newtec,year_all2) = IC.l(newtec,year_all2) * inv_cost(node,newtec,year_all2);
+
+                 display hist_length, bin_cap_new, IC.l, inv_cost, cap_new2, CAP_NEW.l;
                  );
 
 * fix all variables of the current iteration period 'year_all' to the optimal levels
