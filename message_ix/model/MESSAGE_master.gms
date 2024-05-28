@@ -47,6 +47,7 @@ $ONGLOBAL
 ** scenario/case selection - this must match the name of the MsgData_<%%%>.gdx input data file **
 *$SETGLOBAL data "<your datafile name here>"
 $SETGLOBAL data "Westeros_Electrified_emission-bound_adaptive-learning"
+*$SETGLOBAL data "Westeros_Electrified_baseline"
 
 
 ** MACRO mode
