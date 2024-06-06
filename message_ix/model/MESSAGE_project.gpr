@@ -57,13 +57,6 @@ Order=1,2,3
 Decim=7
 PlaneRownr=-1
 
-[OPENWINDOW_1]
-MAXIM=1
-TOP=50
-LEFT=50
-HEIGHT=400
-WIDTH=400
-
 [GDXDISP: bound_activity_up Par 5]
 PlaneDim=0
 RowDim=5
@@ -80,3 +73,21 @@ PlaneRownr=-1
 4=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_solve.gms
 5=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\data_load.gms
 6=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_add_tech_baseline.gdx
+
+[OPENWINDOW_1]
+FILE0=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_dev_SSP1_v0.1_dac_baseline_v0.13_dac-co2split.gdx
+FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_dev_SSP1_v0.1_dac_baseline_v0.13_dac-co2split.gdx
+MAXIM=1
+TOP=50
+LEFT=50
+HEIGHT=400
+WIDTH=400
+
+[GDXDISP: input Par 10]
+PlaneDim=1
+RowDim=9
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5,6,7,8,9,10
+Decim=7
+PlaneRownr=-1

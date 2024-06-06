@@ -82,7 +82,7 @@ dac_lt:
       2110: 0.50
   input_:
     par_name: input
-    value: 0.54
+    value: 1.09
     unit: GWa
     node_loc:
       R12_AFR: 1
@@ -128,7 +128,7 @@ dac_lt:
       secondary: 1
   capacity_factor_:
     par_name: capacity_factor
-    value: 0.913242
+    value: 0.91
     unit: '-'
     node_loc:
       R12_AFR: 1
@@ -417,7 +417,7 @@ dac_ht:
       2110: 0.29
   input_:
     par_name: input
-    value: 1.13
+    value: 1.05
     unit: GWa
     node_loc:
       R12_AFR: 1
@@ -463,7 +463,7 @@ dac_ht:
       secondary: 1
   capacity_factor_:
     par_name: capacity_factor
-    value: 0.913242
+    value: 0.91
     unit: '-'
     node_loc:
       R12_AFR: 1
