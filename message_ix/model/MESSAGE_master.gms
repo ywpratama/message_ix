@@ -46,7 +46,8 @@ $ONGLOBAL
 
 ** scenario/case selection - this must match the name of the MsgData_<%%%>.gdx input data file **
 *$SETGLOBAL data "<your datafile name here>"
-$SETGLOBAL data "GENIE_sandbox_cb1000_splitCO2transdisp"
+$SETGLOBAL data "SSP_dev_SSP1_v0.1_dac_1000f_v0.13_dac-co2split_no-dac"
+*$SETGLOBAL data "GENIE_sandbox_cb1000_splitCO2transdisp"
 
 ** MACRO mode
 * "none": MESSAGEix is run in stand-alone mode
