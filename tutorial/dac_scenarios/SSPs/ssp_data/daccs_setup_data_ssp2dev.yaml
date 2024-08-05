@@ -123,7 +123,7 @@ dac_lt:
     mode:
       M1: 1
     commodity:
-      dacco2_captured: 1
+      dac_co2: 1
     level:
       secondary: 1
   capacity_factor_:
@@ -458,7 +458,7 @@ dac_ht:
     mode:
       M1: 1
     commodity:
-      dacco2_captured: 1
+      dac_co2: 1
     level:
       secondary: 1
   capacity_factor_:
@@ -807,7 +807,7 @@ co2_tr_sd:
     mode:
       M2: 1
     commodity:
-      dacco2_captured: 1
+      dac_co2: 1
     level:
       secondary: 1
   output_:
@@ -830,7 +830,7 @@ co2_tr_sd:
     mode:
       M2: 1
     commodity:
-      dacco2_captured: 1
+      dac_co2: 1
     level:
       final: 1
   capacity_factor_:
@@ -1024,7 +1024,7 @@ co2_stor:
     mode:
       M3: 1
     commodity:
-      dacco2_captured: 1
+      dac_co2: 1
     level:
       final: 1
   output_dacco2:
@@ -1047,7 +1047,7 @@ co2_stor:
     mode:
       M3: 1
     commodity:
-      dacco2_captured: 1
+      dac_co2: 1
     level:
       useful: 1
   emission_factor_:
