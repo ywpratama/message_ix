@@ -21,7 +21,7 @@ c_ppl_co2scr:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -47,7 +47,7 @@ cement_co2scr:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -73,7 +73,7 @@ coal_adv_ccs:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -99,7 +99,7 @@ g_ppl_co2scr:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -125,7 +125,7 @@ gas_cc_ccs:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -151,7 +151,7 @@ h2_coal_ccs:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -177,7 +177,7 @@ h2_smr_ccs:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -203,7 +203,7 @@ igcc_ccs:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -229,7 +229,7 @@ meth_coal_ccs:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -255,7 +255,7 @@ meth_ng_ccs:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -281,7 +281,7 @@ syn_liq_ccs:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
 
@@ -308,7 +308,7 @@ bio_istig_ccs:
     mode:
       M1: 1
     commodity:
-      bco2_captured: 1
+      bic_co2: 1
     level:
       secondary: 1
 
@@ -334,7 +334,7 @@ bio_ppl_co2scr:
     mode:
       M1: 1
     commodity:
-      bco2_captured: 1
+      bic_co2: 1
     level:
       secondary: 1
 
@@ -360,7 +360,7 @@ eth_bio_ccs:
     mode:
       M1: 1
     commodity:
-      bco2_captured: 1
+      bic_co2: 1
     level:
       secondary: 1
 
@@ -386,7 +386,7 @@ h2_bio_ccs:
     mode:
       M1: 1
     commodity:
-      bco2_captured: 1
+      bic_co2: 1
     level:
       secondary: 1
 
@@ -412,7 +412,7 @@ liq_bio_ccs:
     mode:
       M1: 1
     commodity:
-      bco2_captured: 1
+      bic_co2: 1
     level:
       secondary: 1
 
@@ -466,7 +466,7 @@ co2_tr_ld:
     mode:
       M1: 1
     commodity:
-      bco2_captured: 1
+      bic_co2: 1
     level:
       secondary: 1
   output_:
@@ -489,7 +489,7 @@ co2_tr_ld:
     mode:
       M1: 1
     commodity:
-      bco2_captured: 1
+      bic_co2: 1
     level:
       final: 1
   capacity_factor_:
@@ -641,7 +641,7 @@ co2_tr_sd:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       secondary: 1
   output_:
@@ -664,7 +664,7 @@ co2_tr_sd:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       final: 1
   capacity_factor_:
@@ -835,8 +835,8 @@ co2_tr_sd:
     mode:
       M1: 1
 
-###############
-# CO2 STORAGE
+# - - - - - - - - - - - - - - - -
+# CO2 STORAGE and UTILIZATION
 #--- The storage
 co2_stor:
   year_init: 2025
@@ -886,7 +886,7 @@ co2_stor:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       final: 1
   input_bco2:
@@ -909,7 +909,7 @@ co2_stor:
     mode:
       M2: 1
     commodity:
-      bco2_captured: 1
+      bic_co2: 1
     level:
       final: 1
   output_co2:
@@ -932,7 +932,7 @@ co2_stor:
     mode:
       M1: 1
     commodity:
-      fco2_captured: 1
+      fic_co2: 1
     level:
       useful: 1
   output_bco2:
@@ -955,7 +955,7 @@ co2_stor:
     mode:
       M2: 1
     commodity:
-      bco2_captured: 1
+      bic_co2: 1
     level:
       useful: 1
   emission_factor_:
@@ -1106,3 +1106,144 @@ co2_stor:
     mode:
       M1: 1
       M2: 1
+
+#--- For utilization
+co2_util:
+  year_init: 2025
+  var_cost_: 
+    par_name: var_cost
+    value: 0
+    unit: '-' #$/tCO2a
+    node_loc:
+      R12_AFR: 1
+      R12_CHN: 1
+      R12_RCPA: 1
+      R12_EEU: 1
+      R12_FSU: 1
+      R12_LAM: 1
+      R12_MEA: 1
+      R12_NAM: 1
+      R12_PAO: 1
+      R12_PAS: 1
+      R12_SAS: 1
+      R12_WEU: 1
+    year_vtg:
+      rate: 0
+    year_act:
+      rate: 0
+    mode:
+      M1: 1
+      M2: 1
+    time:
+      year: 1
+  input_co2:
+    par_name: input
+    value: 1
+    unit: '-'
+    node_loc:
+      R12_AFR: 1
+      R12_CHN: 1
+      R12_RCPA: 1
+      R12_EEU: 1
+      R12_FSU: 1
+      R12_LAM: 1
+      R12_MEA: 1
+      R12_NAM: 1
+      R12_PAO: 1
+      R12_PAS: 1
+      R12_SAS: 1
+      R12_WEU: 1
+    mode:
+      M1: 1
+    commodity:
+      fic_co2: 1
+    level:
+      final: 1
+  input_bco2:
+    par_name: input
+    value: 1
+    unit: '-'
+    node_loc:
+      R12_AFR: 1
+      R12_CHN: 1
+      R12_RCPA: 1
+      R12_EEU: 1
+      R12_FSU: 1
+      R12_LAM: 1
+      R12_MEA: 1
+      R12_NAM: 1
+      R12_PAO: 1
+      R12_PAS: 1
+      R12_SAS: 1
+      R12_WEU: 1
+    mode:
+      M2: 1
+    commodity:
+      bic_co2: 1
+    level:
+      final: 1
+  input_dacco2:
+    par_name: input
+    value: 1
+    unit: '-'
+    node_loc:
+      R12_AFR: 1
+      R12_CHN: 1
+      R12_RCPA: 1
+      R12_EEU: 1
+      R12_FSU: 1
+      R12_LAM: 1
+      R12_MEA: 1
+      R12_NAM: 1
+      R12_PAO: 1
+      R12_PAS: 1
+      R12_SAS: 1
+      R12_WEU: 1
+    mode:
+      M3: 1
+    commodity:
+      dac_co2: 1
+    level:
+      final: 1
+  output_co2:
+    par_name: output
+    value: 1
+    unit: '-'
+    node_loc:
+      R12_AFR: 1
+      R12_CHN: 1
+      R12_RCPA: 1
+      R12_EEU: 1
+      R12_FSU: 1
+      R12_LAM: 1
+      R12_MEA: 1
+      R12_NAM: 1
+      R12_PAO: 1
+      R12_PAS: 1
+      R12_SAS: 1
+      R12_WEU: 1
+    mode:
+      M1: 1
+      M2: 1
+      M3: 1
+    commodity:
+      captured_co2: 1
+    level:
+      final: 1
+  capacity_factor_:
+    par_name: capacity_factor
+    value: 1
+    unit: '-'
+    node_loc:
+      R12_AFR: 1
+      R12_CHN: 1
+      R12_RCPA: 1
+      R12_EEU: 1
+      R12_FSU: 1
+      R12_LAM: 1
+      R12_MEA: 1
+      R12_NAM: 1
+      R12_PAO: 1
+      R12_PAS: 1
+      R12_SAS: 1
+      R12_WEU: 1
