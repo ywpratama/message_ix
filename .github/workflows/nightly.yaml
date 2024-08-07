@@ -11,7 +11,7 @@ on:
   - cron: "0 5 * * *"
 
 env:
-  GAMS_VERSION: 25.1.1
+  GAMS_VERSION: 29.1.0
   # See description in lint.yml
   depth: 100
 
@@ -65,6 +65,10 @@ jobs:
         python -m pip install --upgrade pip wheel setuptools-scm
         (cd ixmp; pip install .[tests])
         (cd message_ix; pip install .[tests])
+
+        # TEMPORARY Work around unionai-oss/pandera#1685;
+        # see https://github.com/khaeru/genno/issues/140
+        pip install "numpy < 2"
 
     - name: Run test suite using pytest
       env:
