@@ -1,3 +1,4 @@
+
 PARAMETERS
 * inherrited parameters
   cap_new2(newtec,year_all2)             'annual newly installed capacity'
@@ -125,3 +126,4 @@ PROJ_SIZELB(newtec,year_all2)..
 
 
 model learningeos / all /;
+*option nlp = minos;
