@@ -498,6 +498,7 @@ par("tax", "nl type_tec ya")
 par("technical_lifetime", "nl t yv")
 par("time_order", "lvl_temporal h", "Order of sub-annual time slices")
 par("var_cost", "nl t yv ya m h")
+
 ### learning related parameters
 par("alpha","t")
 par("beta_unit","t")

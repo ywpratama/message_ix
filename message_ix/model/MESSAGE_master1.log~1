@@ -1,0 +1,321 @@
+
+--- Job MESSAGE_master.gms Start 08/09/24 11:50:56 40.4.0 d540b52e WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\40\gmsprmNT.txt
+    C:\Users\pratama\Documents\GAMS\gamsconfig.yaml
+--- GAMS Parameters defined
+    Input C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
+    PageSize 0
+    ScrDir C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\225a\
+    SysDir C:\GAMS\40\
+    LogOption 3
+    ErrMsg 1
+    ErrorLog 99
+    IDE 1
+    LstTitleLeftAligned 1
+Licensee: Small MUD - 5 User License                     S210922|0002AP-GEN
+          IIASA, Information and Communication Technologies Dep.      DC216
+          C:\Users\pratama\Documents\GAMS\gamslice.txt
+          License Admin: Melanie Weed-Wenighofer, wenighof@iiasa.ac.at     
+Processor information: 1 socket(s), 4 core(s), and 8 thread(s) available
+GAMS 40.4.0   Copyright (C) 1987-2022 GAMS Development. All rights reserved
+--- Starting compilation
+--- MESSAGE_master.gms(124) 2 Mb
+--- . MESSAGE_run.gms(65) 2 Mb
+--- .. model_setup.gms(71) 2 Mb
+--- ... auxiliary_settings.gms(37) 2 Mb
+--- .. model_setup.gms(74) 2 Mb
+--- ... version.gms(23) 2 Mb
+--- .. model_setup.gms(75) 2 Mb
+--- ... version_check.gms(7) 2 Mb
+--- GDXin=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_emission-bound_adaptive-learning.gdx
+--- GDX File ($gdxIn) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_emission-bound_adaptive-learning.gdx
+--- ... version_check.gms(24) 3 Mb
+--- .. model_setup.gms(78) 3 Mb
+--- ... sets_maps_def.gms(493) 3 Mb
+--- .. model_setup.gms(79) 3 Mb
+--- ... parameter_def.gms(897) 3 Mb
+--- .. model_setup.gms(82) 3 Mb
+--- ... data_load.gms(9) 3 Mb
+--- GDXin=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_emission-bound_adaptive-learning.gdx
+--- GDX File ($gdxIn) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_emission-bound_adaptive-learning.gdx
+--- ... data_load.gms(27) 3 Mb
+--- Found nested $ifThen within $If statement (line 121).
+--- Use unique tag to ensure correct behavior.
+--- ... data_load.gms(122) 3 Mb
+--- .... period_parameter_assignment.gms(118) 3 Mb
+--- ... data_load.gms(263) 3 Mb
+--- .. model_setup.gms(85) 3 Mb
+--- ... scaling_investment_costs.gms(182) 3 Mb
+--- .. model_setup.gms(91) 3 Mb
+--- ... model_core.gms(2316) 3 Mb
+--- .. model_setup.gms(92) 3 Mb
+--- ... model_learningeos.gms(129) 3 Mb
+--- .. model_setup.gms(92) 3 Mb
+--- . MESSAGE_run.gms(71) 3 Mb
+--- .. model_solve.gms(229) 3 Mb
+--- . MESSAGE_run.gms(78) 3 Mb
+--- .. reporting.gms(26) 3 Mb
+--- . MESSAGE_run.gms(87) 3 Mb
+--- MESSAGE_master.gms(130) 3 Mb
+--- Starting execution: elapsed 0:00:00.021
+--- MESSAGE_master.gms(1748) 4 Mb
+    +++ Importing data from 'data/MsgData_Westeros_Electrified_emission-bound_adaptive-learning.gdx'... +++
+--- MESSAGE_master.gms(1775) 4 Mb
+--- GDXin=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_emission-bound_adaptive-learning.gdx
+--- GDX File (execute_load) C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_emission-bound_adaptive-learning.gdx
+--- MESSAGE_master.gms(4784) 4 Mb
+--- Generating LP model MESSAGE_LP
+--- MESSAGE_master.gms(4909) 4 Mb
+--- LOOPS year_all = 700
+---   91 rows  79 columns  246 non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.826E+01, 5.000E+02] - Zero values observed as well
+--- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+--- Matrix    [min, max] : [ 3.333E-01, 1.500E+03]
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.028
+
+IBM ILOG CPLEX   40.4.0 d540b52e Oct 3, 2022           WEI x86 64bit/MS Window
+
+--- GAMS/Cplex licensed for continuous and discrete problems.
+
+Reading parameter(s) from "C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\cplex.opt"
+>>  advind = 0
+>>  lpmethod = 4
+>>  threads = 4
+>>  epopt = 1e-06
+Finished reading from "C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\cplex.opt"
+
+--- GMO setup time: 0.00s
+--- GMO memory 0.52 Mb (peak 0.52 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.0.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
+CPXPARAM_Advance                                 0
+CPXPARAM_LPMethod                                4
+CPXPARAM_Threads                                 4
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_Barrier_Limits_Iteration                100000000
+CPXPARAM_TimeLimit                               1000000
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   0
+Tried aggregator 1 time.
+LP Presolve eliminated 49 rows and 39 columns.
+Aggregator did 18 substitutions.
+Reduced LP has 23 rows, 28 columns, and 80 nonzeros.
+Presolve time = 0.00 sec. (0.07 ticks)
+Parallel mode: using up to 4 threads for barrier.
+Number of nonzeros in lower triangle of A*A' = 61
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.00 sec. (0.01 ticks)
+Summary statistics for Cholesky factor:
+  Threads                   = 4
+  Rows in Factor            = 23
+  Integer space required    = 26
+  Total non-zeros in factor = 192
+  Total FP ops to factor    = 2056
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf Inf Ratio
+   0   4.4561119e+05   5.3634375e+03  7.12e+02  1.08e+02  9.62e+01  1.00e+00
+   1   4.1670423e+05  -1.4632484e+05  6.82e+02  1.03e+02  3.07e+01  5.10e-04
+   2   2.9059439e+05   7.8907241e+04  3.79e+02  5.72e+01  6.03e+00  7.61e-04
+   3   2.4939640e+05   1.0579190e+05  2.00e+02  3.02e+01  4.75e+00  6.63e-04
+   4   2.1809889e+05   1.5246628e+05  1.06e+02  1.59e+01  1.90e+00  1.08e-03
+   5   2.0603651e+05   1.7320814e+05  4.81e+01  7.26e+00  9.96e-01  1.81e-03
+   6   1.9379221e+05   1.8355133e+05  8.90e+00  1.35e+00  4.20e-01  3.58e-03
+   7   1.9213825e+05   1.9029834e+05  4.44e+00  6.70e-01  1.21e-02  1.01e-01
+   8   1.9156947e+05   1.9122276e+05  7.92e-01  1.20e-01  2.45e-03  8.72e-02
+   9   1.9151081e+05   1.9151070e+05  8.35e-05  1.26e-05  8.34e-07  2.45e+02
+  10   1.9151080e+05   1.9151080e+05  8.35e-09  1.26e-09  8.72e-11  3.72e+06
+  11   1.9151080e+05   1.9151080e+05  2.42e-12  1.24e-13  5.41e-12  3.72e+10
+Barrier time = 0.00 sec. (0.16 ticks)
+Parallel mode: deterministic, using up to 4 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting primal Simplex on 1 thread...
+
+Dual crossover.
+  Dual:  Fixed no variables.
+  Primal:  Fixed no variables.
+
+Dual simplex solved model.
+
+Total crossover time = 0.00 sec. (0.06 ticks)
+
+Total time on 4 threads = 0.00 sec. (0.29 ticks)
+
+--- LP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.29 ticks)
+
+
+Optimal solution found
+Objective:       191510.804279
+
+--- Reading solution for model MESSAGE_LP
+--- Executing after solve: elapsed 0:00:00.055
+--- MESSAGE_master.gms(4784) 4 Mb
+--- Generating NLP model learningeos
+--- MESSAGE_master.gms(4933) 6 Mb
+--- LOOPS year_all = 700
+---   132 rows  112 columns  336 non-zeroes
+---   86 nl-code  16 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.541E+00, 5.000E+02] - Zero values observed as well
+--- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+--- Matrix    [min, max] : [ 3.000E-01, 1.500E+03]
+--- MESSAGE_master.gms(4933) 4 Mb
+--- Executing MINOS (Solvelink=2): elapsed 0:00:00.055
+
+MINOS            40.4.0 d540b52e Oct 3, 2022           WEI x86 64bit/MS Window
+
+M I N O S  5.6      (Jul 2016)
+
+    GAMS/MINOS 5.6, Large Scale Nonlinear Solver
+    B. A. Murtagh, University of New South Wales
+    P. E. Gill, University of California at San Diego,
+    W. Murray, M. A. Saunders, and M. H. Wright,
+    Systems Optimization Laboratory, Stanford University
+
+ Work space allocated           --      0.95 Mb
+
+ Major minor  step     objective  Feasible Optimal  nsb   ncon penalty BSswp
+     1     3T 0.0e+00  0.00000e+00 3.0e+02 8.5e+00    0      1 1.0e+00     0
+     2    12  1.5e-02  2.94554e+01 3.0e+02 3.1e+12    0      4 1.0e+00     0
+     3     0  2.1e-02  3.18068e+01 3.0e+02 2.6e+12    0      6 1.0e+00     0
+
+ EXIT - Function evaluation error limit exceeded.
+
+--- Reading solution for model learningeos
+--- Executing after solve: elapsed 0:00:00.080
+--- MESSAGE_master.gms(4784) 4 Mb
+--- Generating LP model MESSAGE_LP
+--- MESSAGE_master.gms(4909) 4 Mb
+--- LOOPS year_all = 710
+---   87 rows  71 columns  238 non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.826E+01, 5.000E+02] - Zero values observed as well
+--- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+--- Matrix    [min, max] : [ 3.333E-01, 3.223E+03]
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.080
+
+IBM ILOG CPLEX   40.4.0 d540b52e Oct 3, 2022           WEI x86 64bit/MS Window
+
+--- GAMS/Cplex licensed for continuous and discrete problems.
+
+Reading parameter(s) from "C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\cplex.opt"
+>>  advind = 0
+>>  lpmethod = 4
+>>  threads = 4
+>>  epopt = 1e-06
+Finished reading from "C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\cplex.opt"
+
+--- GMO setup time: 0.00s
+--- GMO memory 0.52 Mb (peak 0.52 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.0.0 link memory 0.00 Mb (peak 0.01 Mb)
+--- Starting Cplex
+
+Version identifier: 22.1.0.0 | 2022-03-09 | 1a383f8ce
+CPXPARAM_Advance                                 0
+CPXPARAM_LPMethod                                4
+CPXPARAM_Threads                                 4
+CPXPARAM_Parallel                                1
+CPXPARAM_MIP_Display                             4
+CPXPARAM_MIP_Pool_Capacity                       0
+CPXPARAM_Barrier_Limits_Iteration                100000000
+CPXPARAM_TimeLimit                               1000000
+CPXPARAM_MIP_Tolerances_AbsMIPGap                0
+CPXPARAM_MIP_Tolerances_MIPGap                   0
+Tried aggregator 1 time.
+LP Presolve eliminated 45 rows and 31 columns.
+Aggregator did 18 substitutions.
+Reduced LP has 23 rows, 28 columns, and 80 nonzeros.
+Presolve time = 0.00 sec. (0.07 ticks)
+Parallel mode: using up to 4 threads for barrier.
+Number of nonzeros in lower triangle of A*A' = 61
+Using Approximate Minimum Degree ordering
+Total time for automatic ordering = 0.00 sec. (0.01 ticks)
+Summary statistics for Cholesky factor:
+  Threads                   = 4
+  Rows in Factor            = 23
+  Integer space required    = 26
+  Total non-zeros in factor = 192
+  Total FP ops to factor    = 2056
+ Itn      Primal Obj        Dual Obj  Prim Inf Upper Inf  Dual Inf Inf Ratio
+   0   6.7120317e+05   5.3634375e+03  7.12e+02  1.08e+02  9.62e+01  1.00e+00
+   1   6.2936535e+05  -1.4850193e+05  6.82e+02  1.03e+02  5.02e+01  4.65e-04
+   2   4.6763055e+05   7.8635647e+04  4.41e+02  6.67e+01  1.50e+01  3.43e-04
+   3   4.0791845e+05   1.8651808e+05  2.20e+02  3.32e+01  9.02e+00  3.96e-04
+   4   3.6992924e+05   2.5716299e+05  1.31e+02  1.98e+01  4.03e+00  6.50e-04
+   5   3.4987567e+05   3.0612303e+05  1.89e+01  2.86e+00  1.83e+00  1.03e-03
+   6   3.3425951e+05   3.2576841e+05  4.55e+00  6.87e-01  2.80e-01  6.65e-03
+   7   3.3084657e+05   3.2865009e+05  1.72e+00  2.60e-01  1.08e-02  1.31e-01
+   8   3.2958721e+05   3.2905982e+05  5.03e-01  7.59e-02  2.63e-04  7.32e-01
+   9   3.2917659e+05   3.2915601e+05  2.01e-02  3.04e-03  1.05e-05  1.76e+00
+  10   3.2917037e+05   3.2917037e+05  2.01e-06  3.04e-07  1.06e-09  1.75e+04
+  11   3.2917037e+05   3.2917037e+05  2.01e-10  3.04e-11  9.35e-12  1.76e+08
+Barrier time = 0.00 sec. (0.16 ticks)
+Parallel mode: deterministic, using up to 4 threads for concurrent optimization:
+ * Starting dual Simplex on 1 thread...
+ * Starting primal Simplex on 1 thread...
+
+Dual crossover.
+  Dual:  Fixed no variables.
+  Primal:  Fixed no variables.
+
+Dual simplex solved model.
+
+Total crossover time = 0.00 sec. (0.06 ticks)
+
+Total time on 4 threads = 0.00 sec. (0.28 ticks)
+
+--- LP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.28 ticks)
+
+
+Optimal solution found
+Objective:       329170.369976
+
+--- Reading solution for model MESSAGE_LP
+--- Executing after solve: elapsed 0:00:00.125
+--- MESSAGE_master.gms(4784) 4 Mb
+--- Generating NLP model learningeos
+--- MESSAGE_master.gms(4933) 6 Mb
+--- LOOPS year_all = 710
+---   132 rows  112 columns  336 non-zeroes
+---   86 nl-code  16 nl-non-zeroes
+--- Range statistics (absolute non-zero finite values)
+--- RHS       [min, max] : [ 1.541E+00, 5.000E+02] - Zero values observed as well
+--- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+--- Matrix    [min, max] : [ 3.000E-01, 3.223E+03] - Zero values observed as well
+--- MESSAGE_master.gms(4933) 4 Mb
+--- Executing MINOS (Solvelink=2): elapsed 0:00:00.125
+
+MINOS            40.4.0 d540b52e Oct 3, 2022           WEI x86 64bit/MS Window
+
+M I N O S  5.6      (Jul 2016)
+
+    GAMS/MINOS 5.6, Large Scale Nonlinear Solver
+    B. A. Murtagh, University of New South Wales
+    P. E. Gill, University of California at San Diego,
+    W. Murray, M. A. Saunders, and M. H. Wright,
+    Systems Optimization Laboratory, Stanford University
+
+ Work space allocated           --      0.95 Mb
+
+
+ EXIT - Function evaluation error limit exceeded.
+
+--- Reading solution for model learningeos
+--- Executing after solve: elapsed 0:00:00.139
+--- MESSAGE_master.gms(4784) 4 Mb
+--- Generating LP model MESSAGE_LP
+--- MESSAGE_master.gms(2923) 4 Mb
+*** Error at line 2923: Equation infeasible due to rhs value
+--- MESSAGE_master.gms(4909) 4 Mb 1 Error
+*** SOLVE aborted
+--- MESSAGE_master.gms(4909) 4 Mb 1 Error
+*** Status: Execution error(s)
+--- Job MESSAGE_master.gms Stop 08/09/24 11:50:56 elapsed 0:00:00.139
