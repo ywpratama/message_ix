@@ -671,7 +671,7 @@ co2_trans1:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 500
+    value: 220
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -785,7 +785,7 @@ co2_trans2:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 500
+    value: 220
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -899,7 +899,7 @@ co2_trans3:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 500
+    value: 220
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -1013,7 +1013,7 @@ co2_trans4:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 500
+    value: 220
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -1174,7 +1174,7 @@ co2_trans5:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 500
+    value: 220
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -1359,7 +1359,7 @@ co2_trans6:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 50000
+    value: 22000
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -1404,7 +1404,6 @@ co2_trans6:
       rate: 0
     mode:
       M2: 1
-
 
 # - - - - - - - - - - - - - - - -
 # CO2 STORAGE and UTILIZATION
