@@ -1,6 +1,6 @@
 # FOSSIL CCS
 c_ppl_co2scr:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 2.32267
@@ -26,7 +26,7 @@ c_ppl_co2scr:
       secondary: 1
 
 clinker_dry_ccs_cement:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.135
@@ -52,7 +52,7 @@ clinker_dry_ccs_cement:
       secondary: 1
 
 clinker_wet_ccs_cement:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.135
@@ -78,7 +78,7 @@ clinker_wet_ccs_cement:
       secondary: 1
 
 coal_adv_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 2.09429
@@ -104,7 +104,7 @@ coal_adv_ccs:
       secondary: 1
 
 coal_NH3_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 1.25667
@@ -130,7 +130,7 @@ coal_NH3_ccs:
       secondary: 1
 
 fueloil_NH3_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.799816
@@ -156,7 +156,7 @@ fueloil_NH3_ccs:
       secondary: 1
 
 g_ppl_co2scr:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.905747
@@ -182,7 +182,7 @@ g_ppl_co2scr:
       secondary: 1
 
 gas_cc_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.904167
@@ -208,7 +208,7 @@ gas_cc_ccs:
       secondary: 1
 
 gas_NH3_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.472617
@@ -234,7 +234,7 @@ gas_NH3_ccs:
       secondary: 1
 
 h2_coal_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 1.23733
@@ -260,7 +260,7 @@ h2_coal_ccs:
       secondary: 1
 
 h2_smr_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.623188
@@ -286,7 +286,7 @@ h2_smr_ccs:
       secondary: 1
 
 igcc_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 2.15588
@@ -312,7 +312,7 @@ igcc_ccs:
       secondary: 1
 
 meth_coal_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.863462
@@ -339,7 +339,7 @@ meth_coal_ccs:
       secondary: 1
 
 meth_ng_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.228333
@@ -366,7 +366,7 @@ meth_ng_ccs:
       secondary: 1
 
 syn_liq_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 1.04318
@@ -394,7 +394,7 @@ syn_liq_ccs:
 
 # BIOMASS CCS
 bio_istig_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 2.70333
@@ -420,7 +420,7 @@ bio_istig_ccs:
       secondary: 1
 
 biomass_NH3_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.34799
@@ -446,7 +446,7 @@ biomass_NH3_ccs:
       secondary: 1
 
 bio_ppl_co2scr:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 2.51467
@@ -472,7 +472,7 @@ bio_ppl_co2scr:
       secondary: 1
 
 eth_bio_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 1.5439
@@ -498,7 +498,7 @@ eth_bio_ccs:
       secondary: 1
 
 h2_bio_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 1.45818
@@ -524,7 +524,7 @@ h2_bio_ccs:
       secondary: 1
 
 liq_bio_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 1.39773
@@ -550,7 +550,7 @@ liq_bio_ccs:
       secondary: 1
 
 meth_bio_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.786611
@@ -580,7 +580,7 @@ meth_bio_ccs:
 ##############
 #--- The pipelines
 co2_trans1:
-  year_init: 2025
+  year_init: 2030
   var_cost_: 
     par_name: var_cost
     value: 25
@@ -694,7 +694,7 @@ co2_trans1:
       all: 1
 
 co2_trans2:
-  year_init: 2025
+  year_init: 2030
   var_cost_: 
     par_name: var_cost
     value: 50
@@ -808,7 +808,7 @@ co2_trans2:
       all: 1
 
 co2_trans3:
-  year_init: 2025
+  year_init: 2030
   var_cost_: 
     par_name: var_cost
     value: 50
@@ -922,7 +922,7 @@ co2_trans3:
       all: 1
 
 co2_trans4:
-  year_init: 2025
+  year_init: 2030
   var_cost_: 
     par_name: var_cost
     value: 50
@@ -1036,7 +1036,7 @@ co2_trans4:
       all: 1
 
 co2_trans5:
-  year_init: 2025
+  year_init: 2030
   var_cost_: 
     par_name: var_cost
     value: 125
@@ -1221,7 +1221,7 @@ co2_trans5:
       M2: 1
 
 co2_trans6:
-  year_init: 2025
+  year_init: 2030
   var_cost_: 
     par_name: var_cost
     value: 150
@@ -1409,7 +1409,7 @@ co2_trans6:
 # CO2 STORAGE and UTILIZATION
 #--- The storage
 co2_stor:
-  year_init: 2025
+  year_init: 2030
   var_cost_: 
     par_name: var_cost
     value: 0
@@ -1595,7 +1595,7 @@ co2_stor:
 
 #--- For utilization
 co2_util:
-  year_init: 2025
+  year_init: 2030
   var_cost_: 
     par_name: var_cost
     value: 0
@@ -1735,7 +1735,7 @@ co2_util:
       R12_WEU: 1
 
 meth_h2:
-  year_init: 2025
+  year_init: 2030
   input_co2:
     par_name: input
     value: 1.821
