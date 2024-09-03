@@ -26,7 +26,7 @@ c_ppl_co2scr:
       secondary: 1
 
 clinker_dry_ccs_cement:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.135
@@ -52,7 +52,7 @@ clinker_dry_ccs_cement:
       secondary: 1
 
 clinker_wet_ccs_cement:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.135
@@ -104,7 +104,7 @@ coal_adv_ccs:
       secondary: 1
 
 coal_NH3_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 1.25667
@@ -130,7 +130,7 @@ coal_NH3_ccs:
       secondary: 1
 
 fueloil_NH3_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.799816
@@ -208,7 +208,7 @@ gas_cc_ccs:
       secondary: 1
 
 gas_NH3_ccs:
-  year_init: 2025
+  year_init: 2030
   output_:
     par_name: output
     value: 0.472617
