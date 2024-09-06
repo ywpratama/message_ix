@@ -671,7 +671,7 @@ co2_trans1:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 220
+    value: 50
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -785,7 +785,7 @@ co2_trans2:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 220
+    value: 50
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -811,7 +811,7 @@ co2_trans3:
   year_init: 2030
   var_cost_: 
     par_name: var_cost
-    value: 50
+    value: 75
     unit: '-' #$/tCO2a
     node_loc:
       R12_AFR: 1
@@ -899,7 +899,7 @@ co2_trans3:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 220
+    value: 50
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -925,7 +925,7 @@ co2_trans4:
   year_init: 2030
   var_cost_: 
     par_name: var_cost
-    value: 50
+    value: 100
     unit: '-' #$/tCO2a
     node_loc:
       R12_AFR: 1
@@ -1013,7 +1013,7 @@ co2_trans4:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 220
+    value: 50
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -1039,7 +1039,7 @@ co2_trans5:
   year_init: 2030
   var_cost_: 
     par_name: var_cost
-    value: 125
+    value: 150
     unit: '-' #$/tCO2a
     node_loc:
       R12_AFR: 1
@@ -1083,7 +1083,7 @@ co2_trans5:
     mode:
       M1: 1
     commodity:
-      bic_co2: 1
+      fic_co2: 1
     level:
       secondary: 1
   input_b:
@@ -1129,7 +1129,7 @@ co2_trans5:
     mode:
       M1: 1
     commodity:
-      bic_co2: 1
+      fic_co2: 1
     level:
       final: 1
   output_b:
@@ -1174,7 +1174,7 @@ co2_trans5:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 220
+    value: 50
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -1224,7 +1224,7 @@ co2_trans6:
   year_init: 2030
   var_cost_: 
     par_name: var_cost
-    value: 150
+    value: 500
     unit: '-' #$/tCO2a
     node_loc:
       R12_AFR: 1
@@ -1268,7 +1268,7 @@ co2_trans6:
     mode:
       M1: 1
     commodity:
-      bic_co2: 1
+      fic_co2: 1
     level:
       secondary: 1
   input_b:
@@ -1314,7 +1314,7 @@ co2_trans6:
     mode:
       M1: 1
     commodity:
-      bic_co2: 1
+      fic_co2: 1
     level:
       final: 1
   output_b:
@@ -1359,7 +1359,7 @@ co2_trans6:
       R12_WEU: 1
   bound_activity_up_:
     par_name: bound_activity_up
-    value: 22000
+    value: 50000
     unit: Mt C/yr
     node_loc:
       R12_AFR: 1
@@ -1404,6 +1404,7 @@ co2_trans6:
       rate: 0
     mode:
       M2: 1
+
 
 # - - - - - - - - - - - - - - - -
 # CO2 STORAGE and UTILIZATION
