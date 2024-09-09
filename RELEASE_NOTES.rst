@@ -1,9 +1,25 @@
-Next release
-============
+.. Next release
+.. ============
+
+.. All changes
+.. -----------
+
+.. _v3.9.0:
+
+v3.9.0 (2024-06-04)
+===================
 
 All changes
 -----------
 
+- Split installation instructions to a basic :ref:`install-quick` and detailed :doc:`install-adv` (:pull:`843`).
+- Ensure compatibility with pandas upcoming 3.0 Copy-on-Write behaviour (:pull:`842`).
+- Improve tutorial Westeros baseline for correct lifetime, units, and vintage-activity years (:pull:`815`).
+- Update tutorial Westeros multinode to include code-based hints for in-depth questions (:pull:`798`).
+- :func:`.make_df` can now create partly-filled :class:`DataFrames <pandas.DataFrame>` for indexed sets; not only parameters (:pull:`784`).
+- New function :func:`.util.copy_model` that exposes the behaviour of the :program:`message-ix copy-model` CLI command to other Python code (:pull:`784`).
+- New test fixture :func:`.tmp_model_dir` (:pull:`784`).
+- Bug fix: :meth:`.Scenario.rename` would not rename keys where the index set and index name differed (:issue:`601`, :pull:`791`).
 - Increase minimum requirement for genno dependency to 1.20 (:pull:`783`).
 
 .. _v3.8.0:
@@ -13,6 +29,7 @@ v3.8.0 (2024-01-12)
 
 Migration notes
 ---------------
+
 Update code that imports from the following modules:
 
 - :py:`message_ix.reporting` → use :mod:`message_ix.report`.

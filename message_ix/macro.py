@@ -158,13 +158,13 @@ def add_structure(
         scenario.add_set("cat_node", ["economy", n])
 
     # Add sectoral set structure
-    scenario.add_set("sector", s.sector)
+    scenario.add_set("sector", sorted(s.sector))
     scenario.add_set("mapping_macro_sector", mapping_macro_sector)
 
 
 def bconst(
     demand_ref: "DataFrame", gdp0: "Series", price_ref: "DataFrame", rho: "Series"
-) -> "Series":
+) -> "DataFrame":
     """Calculate production function coefficient.
 
     This is the MACRO GAMS parameter ``prfconst``.
@@ -272,6 +272,8 @@ def extrapolate(
         The index does *not* have a ``year`` dimension; the data are implicitly for
         `ym1`.
     """
+    from sys import version_info
+
     from scipy.optimize import curve_fit
 
     def f(x, b, m):
@@ -286,8 +288,11 @@ def extrapolate(
 
     # Apply fitted_intercept to grouped data
     groupby_cols = set(model_data.columns) - {"year", "value"}
+    apply_kwargs = {"include_groups": False} if version_info.minor > 8 else {}
     result = (
-        model_data.groupby(list(groupby_cols)).apply(fitted_intercept).rename("value")
+        model_data.groupby(list(groupby_cols))
+        .apply(fitted_intercept, **apply_kwargs)
+        .rename("value")
     )
 
     # Convert "commodity" and "level" to "sector"
@@ -450,7 +455,7 @@ def validate_transform(
         for col in cols:
             if df[col].dropna().empty:
                 raise ValueError(f"Config data for {col!r} is empty")
-        return
+        return pd.Series()
 
     # Validate this parameter and retrieve the index columns/dimensions
     idx = _validate_data(name, df, s)

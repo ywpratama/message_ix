@@ -1,17 +1,6 @@
-import os
-
 import numpy.testing as npt
-import pytest
 
-from message_ix import Scenario
-
-FLAKY = pytest.mark.flaky(
-    reruns=5,
-    rerun_delay=2,
-    condition="GITHUB_ACTIONS" in os.environ,
-    reason="Flaky; see iiasa/message_ix#731",
-)
-
+from message_ix import Scenario, make_df
 
 MODEL = "test_emissions_price"
 
@@ -25,8 +14,8 @@ def model_setup(scen, years, simple_tecs=True):
 
     scen.add_set("mode", "mode")
 
-    scen.add_set("emission", "co2")
-    scen.add_cat("emission", "ghg", "co2")
+    scen.add_set("emission", "CO2")
+    scen.add_cat("emission", "ghg", "CO2")
 
     for y in years:
         scen.add_par("interestrate", y, 0.05, "-")
@@ -41,18 +30,60 @@ def model_setup(scen, years, simple_tecs=True):
 def add_two_tecs(scen, years):
     """add two technologies to the scenario"""
     scen.add_set("technology", ["dirty_tec", "clean_tec"])
-    output_specs = ["node", "comm", "level", "year", "year"]
 
-    for y in years:
-        # the dirty technology is free (no costs) but has emissions
-        tec_specs = ["node", "dirty_tec", y, y, "mode"]
-        scen.add_par("output", tec_specs + output_specs, 1, "GWa")
-        scen.add_par("emission_factor", tec_specs + ["co2"], 1, "tCO2")
+    common = dict(node_loc="node", year_vtg=years, year_act=years, value=1, mode="mode")
 
-        # the clean technology has variable costs but no emissions
-        tec_specs = ["node", "clean_tec", y, y, "mode"]
-        scen.add_par("output", tec_specs + output_specs, 1, "GWa")
-        scen.add_par("var_cost", tec_specs + ["year"], 1, "USD/GWa")
+    # the dirty technology is free (no costs) but has emissions
+    scen.add_par(
+        "output",
+        make_df(
+            "output",
+            node_dest="node",
+            technology="dirty_tec",
+            commodity="comm",
+            level="level",
+            time="year",
+            time_dest="year",
+            unit="GWa",
+            **common,
+        ),
+    )
+    scen.add_par(
+        "emission_factor",
+        make_df(
+            "emission_factor",
+            unit="tCO2",
+            technology="dirty_tec",
+            emission="CO2",
+            **common,
+        ),
+    )
+
+    # the clean technology has variable costs but no emissions
+    scen.add_par(
+        "output",
+        make_df(
+            "output",
+            node_dest="node",
+            technology="clean_tec",
+            commodity="comm",
+            level="level",
+            time="year",
+            time_dest="year",
+            unit="GWa",
+            **common,
+        ),
+    )
+    scen.add_par(
+        "var_cost",
+        make_df(
+            "var_cost",
+            time="year",
+            unit="USD/GWa",
+            technology="clean_tec",
+            **common,
+        ),
+    )
 
 
 def add_many_tecs(scen, years, n=50):
@@ -70,11 +101,11 @@ def add_many_tecs(scen, years, n=50):
             e = 1 - i / n
             scen.add_par("output", tec_specs + output_specs, 1, "GWa")
             scen.add_par("var_cost", tec_specs + ["year"], c, "USD/GWa")
-            scen.add_par("emission_factor", tec_specs + ["co2"], e, "tCO2")
+            scen.add_par("emission_factor", tec_specs + ["CO2"], e, "tCO2")
 
 
-def test_no_constraint(test_mp):
-    scen = Scenario(test_mp, MODEL, "no_constraint", version="new")
+def test_no_constraint(test_mp, request):
+    scen = Scenario(test_mp, MODEL, scenario=request.node.name, version="new")
     model_setup(scen, [2020, 2030])
     scen.commit("initialize test scenario")
     scen.solve(quiet=True)
@@ -85,9 +116,8 @@ def test_no_constraint(test_mp):
     assert scen.var("PRICE_EMISSION").empty
 
 
-@FLAKY
-def test_cumulative_equidistant(test_mp):
-    scen = Scenario(test_mp, MODEL, "cum_equidistant", version="new")
+def test_cumulative_equidistant(test_mp, request):
+    scen = Scenario(test_mp, MODEL, scenario=request.node.name, version="new")
     years = [2020, 2030, 2040]
 
     model_setup(scen, years)
@@ -104,8 +134,8 @@ def test_cumulative_equidistant(test_mp):
     npt.assert_allclose(obs, [1.05 ** (y - years[0]) for y in years])
 
 
-def test_per_period_equidistant(test_mp):
-    scen = Scenario(test_mp, MODEL, "per_period_equidistant", version="new")
+def test_per_period_equidistant(test_mp, request):
+    scen = Scenario(test_mp, MODEL, scenario=request.node.name, version="new")
     years = [2020, 2030, 2040]
 
     model_setup(scen, years)
@@ -122,9 +152,8 @@ def test_per_period_equidistant(test_mp):
     npt.assert_allclose(scen.var("PRICE_EMISSION")["lvl"], [1] * 3)
 
 
-@FLAKY
-def test_cumulative_variable_periodlength(test_mp):
-    scen = Scenario(test_mp, MODEL, "cum_equidistant", version="new")
+def test_cumulative_variable_periodlength(test_mp, request):
+    scen = Scenario(test_mp, MODEL, scenario=request.node.name, version="new")
     years = [2020, 2025, 2030, 2040]
 
     model_setup(scen, years)
@@ -141,9 +170,8 @@ def test_cumulative_variable_periodlength(test_mp):
     npt.assert_allclose(obs, [1.05 ** (y - years[0]) for y in years])
 
 
-@FLAKY
-def test_per_period_variable_periodlength(test_mp):
-    scen = Scenario(test_mp, MODEL, "cum_equidistant", version="new")
+def test_per_period_variable_periodlength(test_mp, request):
+    scen = Scenario(test_mp, MODEL, scenario=request.node.name, version="new")
     years = [2020, 2025, 2030, 2040]
 
     model_setup(scen, years)
@@ -160,9 +188,8 @@ def test_per_period_variable_periodlength(test_mp):
     npt.assert_allclose(scen.var("PRICE_EMISSION")["lvl"].values, [1] * 4)
 
 
-@FLAKY
-def test_custom_type_variable_periodlength(test_mp):
-    scen = Scenario(test_mp, MODEL, "cum_equidistant", version="new")
+def test_custom_type_variable_periodlength(test_mp, request):
+    scen = Scenario(test_mp, MODEL, scenario=request.node.name, version="new")
     years = [2020, 2025, 2030, 2040, 2050]
     custom = [2025, 2030, 2040]
 
@@ -181,11 +208,13 @@ def test_custom_type_variable_periodlength(test_mp):
     npt.assert_allclose(obs, [1.05 ** (y - custom[0]) for y in custom])
 
 
-def test_price_duality(test_mp):
+def test_price_duality(test_mp, request):
     years = [2020, 2025, 2030, 2040, 2050]
     for c in [0.25, 0.5, 0.75]:
         # set up a scenario for cumulative constraints
-        scen = Scenario(test_mp, MODEL, "cum_many_tecs", version="new")
+        scen = Scenario(
+            test_mp, MODEL, scenario=request.node.name + "_cum_many_tecs", version="new"
+        )
         model_setup(scen, years, simple_tecs=False)
         scen.add_cat("year", "cumulative", years)
         scen.add_par(
@@ -195,7 +224,9 @@ def test_price_duality(test_mp):
         scen.solve(quiet=True)
 
         # set up a new scenario with emissions taxes
-        tax_scen = Scenario(test_mp, MODEL, "tax_many_tecs", version="new")
+        tax_scen = Scenario(
+            test_mp, MODEL, scenario=request.node.name + "_tax_many_tecs", version="new"
+        )
         model_setup(tax_scen, years, simple_tecs=False)
         for y in years:
             tax_scen.add_cat("year", y, y)
