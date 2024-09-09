@@ -89,4 +89,5 @@ $INCLUDE MESSAGE/scaling_investment_costs.gms
 *----------------------------------------------------------------------------------------------------------------------*
 
 $INCLUDE MESSAGE/model_core.gms
+$INCLUDE scaler/%scaler%.gms
 $INCLUDE MESSAGE/model_learningeos.gms
