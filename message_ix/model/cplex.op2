@@ -1,5 +1,7 @@
-advind = determined by GAMS Bratio
-lpmethod = 1
+advind = 0
+lpmethod = 4
 threads = 4
-epopt = 1.0e-06
+epopt = 1e-06
 barcrossalg = 2
+scaind = -1
+writemps = C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\tools\make_scaler\ScalingSSP_SSP2_v1.0_baseline_DEFAULT.mps
