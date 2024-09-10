@@ -45,8 +45,8 @@ $ONGLOBAL
 *----------------------------------------------------------------------------------------------------------------------*
 
 ** scenario/case selection - this must match the name of the MsgData_<%%%>.gdx input data file **
-*$SETGLOBAL data "<your datafile name here>"
-$SETGLOBAL data "ScalingSSP_SSP2_v1.0_baseline_DEFAULT"
+$SETGLOBAL data "<your datafile name here>"
+*$SETGLOBAL data "ScalingSSP_SSP2_v1.0_baseline_DEFAULT"
 
 ** MACRO mode
 * "none": MESSAGEix is run in stand-alone mode

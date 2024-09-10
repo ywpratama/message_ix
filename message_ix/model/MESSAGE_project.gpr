@@ -729,9 +729,6 @@ PlaneRownr=-1
 [RP:SETS_MAPS_DEF]
 1=
 
-[RP:MODEL_SETUP]
-1=
-
 [RP:MODEL_CORE]
 1=
 
@@ -739,9 +736,6 @@ PlaneRownr=-1
 1=
 
 [RP:MODEL_SOLVE]
-1=
-
-[RP:MESSAGE_MASTER]
 1=
 
 [GDXDISP: technology Set 1]
@@ -789,21 +783,26 @@ Order=1,2,3
 Decim=7
 PlaneRownr=-1
 
-[MRUFILES]
-1=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE\model_setup.gms
-2=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE\sets_maps_def.gms
-3=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE/data_load.gms
-4=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_baseline.gdx
-5=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE_run.lst
-6=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\output\MsgOutput_Westeros_Electrified_baseline.gdx
-7=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\learningeos.gdx
-
 [OPENWINDOW_1]
-FILE0=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_dev_SSP4_v1.0_materials-dac-co2split_1000f_all-ssp-param_no-dac.gdx
-FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
-FILE2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_dev_SSP4_v1.0_materials-dac-co2split_1000f_all-ssp-param_no-dac.gdx
 MAXIM=1
 TOP=7
 LEFT=50
 HEIGHT=618
 WIDTH=1307
+
+[RP:MESSAGE_MASTER]
+1=
+
+[RP:MODEL_SETUP]
+1=
+
+[MRUFILES]
+1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
+2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_setup.gms
+3=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_dev_SSP4_v1.0_materials-dac-co2split_1000f_all-ssp-param_no-dac.gdx
+4=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE\model_setup.gms
+5=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE\sets_maps_def.gms
+6=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE/data_load.gms
+7=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\data\MsgData_Westeros_Electrified_baseline.gdx
+8=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\MESSAGE_run.lst
+9=C:\Users\wiend\Documents\GitHub\message_ix\message_ix\model\output\MsgOutput_Westeros_Electrified_baseline.gdx
