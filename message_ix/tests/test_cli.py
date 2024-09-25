@@ -1,14 +1,16 @@
 import re
-import shutil
 from pathlib import Path
 
+import click
 import pytest
 
 import message_ix
 from message_ix import config
 
 
-def test_copy_model(monkeypatch, message_ix_cli, tmp_path, tmp_env):
+def test_copy_model(
+    monkeypatch, message_ix_cli, tmp_path, tmp_env, request, tmp_model_dir
+):
     # Use Pytest monkeypatch fixture; this ensures the original value is restored at the
     # end of the test
     monkeypatch.setattr(
@@ -16,7 +18,7 @@ def test_copy_model(monkeypatch, message_ix_cli, tmp_path, tmp_env):
     )
 
     r = message_ix_cli("copy-model", str(tmp_path))
-    assert r.exit_code == 0
+    assert r.exit_code == 0, (r.exception, r.output)
 
     # Copying again without --overwrite fails
     r = message_ix_cli("copy-model", str(tmp_path))
@@ -37,33 +39,35 @@ def test_copy_model(monkeypatch, message_ix_cli, tmp_path, tmp_env):
     # Check if specific directory will be skipped
 
     # Create a GAMS runtime directory; these have names like "225a", etc.
-    model_path = Path(message_ix.__file__).parent.joinpath("model", "225c", "test.txt")
-    model_path.parent.mkdir(parents=True, exist_ok=True)
-    model_path.write_text("foo")
+    model_path = tmp_model_dir.joinpath("225c")
+    model_path.mkdir()
 
-    message_ix_cli("copy-model", str(tmp_path))
+    message_ix_cli("copy-model", "--source-dir", tmp_model_dir, f"{tmp_path}-dest")
 
     # Directory is ignored
-    assert not Path(tmp_path / "225c").exists()
-
-    # Clean up
-    shutil.rmtree(model_path.parent)
+    assert not Path(f"{tmp_path}-dest/225c").exists()
 
 
 @pytest.mark.parametrize(
-    "opts",
+    "opts, exit_code",
     [
-        "",
-        "--branch=main",
-        "--tag=v1.2.0",
+        ([""], 0),
+        (["--branch=main"], 0),
+        (["--tag=v1.2.0"], 0),
         # Nonexistent tag
-        pytest.param("--tag=v999", marks=pytest.mark.xfail(raises=AssertionError)),
+        pytest.param(["--tag=v999"], 0, marks=pytest.mark.xfail(raises=ValueError)),
+        # Can't use both --tag and --branch
+        # TODO Why is this not actually raising a click.UsageError?
+        pytest.param(
+            ["--branch=main", "--tag=v1.2.0"],
+            2,
+            marks=pytest.mark.xfail(raises=click.UsageError),
+        ),
     ],
 )
-def test_dl(message_ix_cli, opts, tmp_path):
-    r = message_ix_cli("dl", opts, str(tmp_path))
-
-    assert r.exit_code == 0, (r.exception, r.output)
+def test_dl(message_ix_cli, opts, exit_code, tmp_path):
+    r = message_ix_cli("dl", *opts, str(tmp_path))
+    assert r.exit_code == exit_code, (r.exception, r.output)
 
     if opts == "":
         # Guess what the latest release will be from GitHub, using __version__.
