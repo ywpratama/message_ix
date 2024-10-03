@@ -6,14 +6,17 @@
 * including the required accounting of investment costs beyond the model horizon.
 ***
 Parameter
-    count_iter  'iteration counter'
-    prev_OBJ    'previous objective value'
-    delta_OBJ   'difference between current and previous objective value'
+    count_iter                           'iteration counter'
+    prev_OBJ                             'previous objective value'
+    delta_OBJ                            'difference between current and previous objective value'
+    inv_cost_ini(node,newtec)            'initial investment cost assumption at first model year'
 ;
 
 count_iter = 1;
 prev_OBJ   = 0;
 delta_OBJ  = 1;
+inv_cost_ini(node,newtec) = sum(first_period, inv_cost(node,newtec,first_period));
+
 
 if (%foresight% = 0,
 ***
@@ -50,7 +53,7 @@ if (%foresight% = 0,
               Solve learningeos using nlp minimizing OBJECT;
 
 *             update inv_cost values using indexed (normalized) cost IC
-              inv_cost(node,newtec,year_all2) = IC.l(newtec,year_all2) * inv_cost(node,newtec,year_all2);
+              inv_cost(node,newtec,year_all2) = IC.l(newtec,year_all2) * inv_cost_ini(node,newtec);
               if(count_iter = 1,
                       delta_OBJ = 1 ;
               else
@@ -58,7 +61,7 @@ if (%foresight% = 0,
               );
               prev_OBJ = OBJ.l ;
               display count_iter, delta_OBJ;
-              display year,year_all,year_all2,model_horizon ;
+              display year,year_all,year_all2,model_horizon,inv_cost_ini ;
               count_iter = count_iter + 1 ;
         );
 
@@ -67,7 +70,7 @@ if (%foresight% = 0,
         put_utility 'log' /'+++ Solve the perfect-foresight version of MESSAGEix +++ ' ;
         option threads = 4 ;
         Solve MESSAGE_LP using LP minimizing OBJ ;
-        display year,year_all,year_all2,model_horizon ;
+        display year,year_all,year_all2,model_horizon,inv_cost_ini ;
     );
 
 * write model status summary
@@ -172,25 +175,32 @@ else
                  Solve learningeos using nlp minimizing OBJECT;
 
 *             update inv_cost values using indexed (normalized) cost IC
-                 inv_cost(node,newtec,year_all2) = IC.l(newtec,year_all2) * inv_cost(node,newtec,year_all2);
+                 inv_cost(node,newtec,year_all2) = IC.l(newtec,year_all2) * inv_cost_ini(node,newtec);
 
-                 display hist_length, bin_cap_new, IC.l, inv_cost, cap_new2, CAP_NEW.l;
+                 display hist_length, bin_cap_new, IC.l, inv_cost, cap_new2, CAP_NEW.l,inv_cost_ini;
                  );
 
 * fix all variables of the current iteration period 'year_all' to the optimal levels
-        EXT.fx(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
-        CAP_NEW.fx(node,tec,year4) = CAP_NEW.l(node,tec,year4) ;
-*        CAP.fx(node,tec,year4,year4) = CAP.l(node,tec,year4,year4) ;
-        CAP.up(node,tec,year4,year4) = 1.000001*CAP.l(node,tec,year4,year4) ;
-        CAP.lo(node,tec,year4,year4) = 0.999999*CAP.l(node,tec,year4,year4) ;
-        ACT.fx(node,tec,year4,year4,mode,time) = ACT.l(node,tec,year4,year4,mode,time) ;
-        CAP_NEW_UP.fx(node,tec,year4) = CAP_NEW_UP.l(node,tec,year4) ;
-        CAP_NEW_LO.fx(node,tec,year4) = CAP_NEW_LO.l(node,tec,year4) ;
-        ACT_UP.fx(node,tec,year4,time) = ACT_UP.l(node,tec,year4,time) ;
-        ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
+*        EXT.fx(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
+*        CAP_NEW.fx(node,tec,year4) = CAP_NEW.l(node,tec,year4) ;
+        CAP.fx(node,tec,year4,year4) = CAP.l(node,tec,year4,year4) ;
+*        ACT.fx(node,tec,year4,year4,mode,time) = ACT.l(node,tec,year4,year4,mode,time) ;
+*        CAP_NEW_UP.fx(node,tec,year4) = CAP_NEW_UP.l(node,tec,year4) ;
+*        CAP_NEW_LO.fx(node,tec,year4) = CAP_NEW_LO.l(node,tec,year4) ;
+*        ACT_UP.fx(node,tec,year4,time) = ACT_UP.l(node,tec,year4,time) ;
+*        ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
+* relaxed "fix"
+*        EXT.up(node,commodity,grade,year4) = 1.000001*EXT.l(node,commodity,grade,year4) ;
+*        EXT.lo(node,commodity,grade,year4) = 0.999999*EXT.l(node,commodity,grade,year4) ;
+*        CAP_NEW.up(node,tec,year4) = 1.000001*CAP_NEW.l(node,tec,year4) ;
+*        CAP_NEW.lo(node,tec,year4) = 0.999999*CAP_NEW.l(node,tec,year4) ;
+*        CAP.up(node,tec,year4,year4) = 1.000001*CAP.l(node,tec,year4,year4) ;
+*        CAP.lo(node,tec,year4,year4) = 0.999999*CAP.l(node,tec,year4,year4) ;
+*        ACT.up(node,tec,year4,year4,mode,time) = 1.000001*ACT.l(node,tec,year4,year4,mode,time) ;
+*        ACT.lo(node,tec,year4,year4,mode,time) = 0.999999*ACT.l(node,tec,year4,year4,mode,time) ;
 
 
-        Display year,year4,year_all,year_all2,model_horizon ;
+        Display year,year4,year_all,year_all2,model_horizon,inv_cost_ini ;
     ) ; # end of the recursive-dynamic loop
 
 ) ; # end of if statement for the selection betwen perfect-foresight or recursive-dynamic model
