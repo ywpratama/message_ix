@@ -126,3 +126,4 @@ PROJ_SIZELB(newtec,year_all2)..
 
 
 model learningeos / all /;
+*option nlp = minos;
