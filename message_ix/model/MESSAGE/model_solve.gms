@@ -182,22 +182,22 @@ else
 
 * fix all variables of the current iteration period 'year_all' to the optimal levels
 *        EXT.fx(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
-*        CAP_NEW.fx(node,tec,year4) = CAP_NEW.l(node,tec,year4) ;
-        CAP.fx(node,tec,year4,year4) = CAP.l(node,tec,year4,year4) ;
-*        ACT.fx(node,tec,year4,year4,mode,time) = ACT.l(node,tec,year4,year4,mode,time) ;
-*        CAP_NEW_UP.fx(node,tec,year4) = CAP_NEW_UP.l(node,tec,year4) ;
-*        CAP_NEW_LO.fx(node,tec,year4) = CAP_NEW_LO.l(node,tec,year4) ;
-*        ACT_UP.fx(node,tec,year4,time) = ACT_UP.l(node,tec,year4,time) ;
-*        ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
+*        CAP_NEW.fx(node,newtec,year4) = CAP_NEW.l(node,newtec,year4) ;
+*        CAP.fx(node,newtec,year4,year4) = CAP.l(node,newtec,year4,year4) ;
+*        ACT.fx(node,newtec,year4,year4,mode,time) = ACT.l(node,newtec,year4,year4,mode,time) ;
+*        CAP_NEW_UP.fx(node,newtec,year4) = CAP_NEW_UP.l(node,newtec,year4) ;
+*        CAP_NEW_LO.fx(node,newtec,year4) = CAP_NEW_LO.l(node,newtec,year4) ;
+*        ACT_UP.fx(node,newtec,year4,time) = ACT_UP.l(node,newtec,year4,time) ;
+*        ACT_LO.fx(node,newtec,year4,time) = ACT_LO.l(node,newtec,year4,time) ;
 * relaxed "fix"
 *        EXT.up(node,commodity,grade,year4) = 1.000001*EXT.l(node,commodity,grade,year4) ;
 *        EXT.lo(node,commodity,grade,year4) = 0.999999*EXT.l(node,commodity,grade,year4) ;
-*        CAP_NEW.up(node,tec,year4) = 1.000001*CAP_NEW.l(node,tec,year4) ;
-*        CAP_NEW.lo(node,tec,year4) = 0.999999*CAP_NEW.l(node,tec,year4) ;
-*        CAP.up(node,tec,year4,year4) = 1.000001*CAP.l(node,tec,year4,year4) ;
-*        CAP.lo(node,tec,year4,year4) = 0.999999*CAP.l(node,tec,year4,year4) ;
-*        ACT.up(node,tec,year4,year4,mode,time) = 1.000001*ACT.l(node,tec,year4,year4,mode,time) ;
-*        ACT.lo(node,tec,year4,year4,mode,time) = 0.999999*ACT.l(node,tec,year4,year4,mode,time) ;
+        CAP_NEW.up(node,newtec,year4) = 1.000001*CAP_NEW.l(node,newtec,year4) ;
+        CAP_NEW.lo(node,newtec,year4) = 0.999999*CAP_NEW.l(node,newtec,year4) ;
+        CAP.up(node,newtec,year4,year4) = 1.000001*CAP.l(node,newtec,year4,year4) ;
+        CAP.lo(node,newtec,year4,year4) = 0.999999*CAP.l(node,newtec,year4,year4) ;
+        ACT.up(node,newtec,year4,year4,mode,time) = 1.000001*ACT.l(node,newtec,year4,year4,mode,time) ;
+        ACT.lo(node,newtec,year4,year4,mode,time) = 0.999999*ACT.l(node,newtec,year4,year4,mode,time) ;
 
 
         Display year,year4,year_all,year_all2,model_horizon,inv_cost_ini ;

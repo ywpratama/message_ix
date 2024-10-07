@@ -21,13 +21,11 @@ $SETGLOBAL macromode "none"
 * perfect foresight - 0
 * myopic optimization (period-by-period, recursive-dynamic without any foresight) - 1
 * rolling horizon (period-by-period, recursive-dynamic with limited foresight - 'number of years of foresight'
-*$SETGLOBAL foresight "0"
-$SETGLOBAL foresight "13"
+$SETGLOBAL foresight "0"
 
 ** for recursive dynamic approach, this is to activate/deactivate technology learning module **
 * deactivate technology learning - 0
 * activate technology learning - 1
-*$SETGLOBAL learningmode "0"
 $SETGLOBAL learningmode "0"
 
 
