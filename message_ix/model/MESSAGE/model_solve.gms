@@ -181,6 +181,16 @@ else
                  );
 
 * fix all variables of the current iteration period 'year_all' to the optimal levels
+        ext_fix(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
+        cap_new_fix(node,newtec,year4) = CAP_NEW.l(node,newtec,year4) ;
+        cap_fix(node,newtec,year4,year4) = CAP.l(node,newtec,year4,year4) ;
+        act_fix(node,newtec,year4,year4,mode,time) = ACT.l(node,newtec,year4,year4,mode,time) ;
+
+        ext_fix(node,commodity,grade,year4)$(ext_fix(node,commodity,grade,year4) ge 1E-7) =  1 ;
+        cap_new_fix(node,newtec,year4)$(cap_new_fix(node,newtec,year4) ge 1E-7) = 1 ;
+        cap_fix(node,newtec,year4,year4)$(cap_fix(node,newtec,year4,year4) ge 1E-7) = 1 ;
+        act_fix(node,newtec,year4,year4,mode,time)$(act_fix(node,newtec,year4,year4,mode,time) ge 1E-7) = 1 ;
+
 *        EXT.fx(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
 *        CAP_NEW.fx(node,newtec,year4) = CAP_NEW.l(node,newtec,year4) ;
 *        CAP.fx(node,newtec,year4,year4) = CAP.l(node,newtec,year4,year4) ;
@@ -198,7 +208,6 @@ else
         CAP.lo(node,newtec,year4,year4) = 0.999999*CAP.l(node,newtec,year4,year4) ;
         ACT.up(node,newtec,year4,year4,mode,time) = 1.000001*ACT.l(node,newtec,year4,year4,mode,time) ;
         ACT.lo(node,newtec,year4,year4,mode,time) = 0.999999*ACT.l(node,newtec,year4,year4,mode,time) ;
-
 
         Display year,year4,year_all,year_all2,model_horizon,inv_cost_ini ;
     ) ; # end of the recursive-dynamic loop
