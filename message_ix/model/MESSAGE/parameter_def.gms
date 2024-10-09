@@ -882,11 +882,13 @@ Parameters
 Parameters
     ctr               counter parameter for loops
     status(*,*)       model solution status parameter for log writing
+;
 
 *----------------------------------------------------------------------------------------------------------------------*
 * Parameters for learning module                                                                                       *
 *----------------------------------------------------------------------------------------------------------------------*
 
+Parameters
 * learning and economies of scale parameters
   alpha(newtec)                          'technology cost learning parameter'
   beta_unit(newtec)                      'economy of scale parameter at unit level'
@@ -900,5 +902,14 @@ Parameters
   sizeref_unit(newtec)                   'initial size of unit'
   sizeref_proj(newtec)                   'initial size of project'
 
+;
 
+*----------------------------------------------------------------------------------------------------------------------*
+* Parameters for fixing decision variable in recursive dynamic mode                                                                                       *
+*----------------------------------------------------------------------------------------------------------------------*
+Parameters
+  ext_fix(node,commodity,grade,year_all)            'fix parameter for EXT'
+  cap_new_fix(node,newtec,year_all)                 'fix parameter for CAP_NEW'
+  cap_fix(node,newtec,year_all,year_all)               'fix parameter for CAP'
+  act_fix(node,newtec,year_all,year_all,mode,time)    'fix parameter for ACT'
 ;
