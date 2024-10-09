@@ -136,9 +136,7 @@ PROJ_SCALEUP_LIM(newtec,year_all2)$(ord(year_all2) gt (hist_length+1))..
          + gamma_proj(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - LOG2_KN_UNIT(newtec,year_all2-1)] ;
 
 NO_BUILT_YEAR(newtec,year_all2)..
-         IC(newtec,year_all2) =e=
-         bin_cap_new(newtec,year_all2) * 2**LOG2_IC(newtec,year_all2)
-         + (1-bin_cap_new(newtec,year_all2)) * IC(newtec,year_all2-1) ;
+         IC(newtec,year_all2) =e= 2**LOG2_IC(newtec,year_all2) ;
 
 UNIT_SIZELB(newtec,year_all2)..
          LOG2_S_UNIT(newtec,year_all2) =g=
