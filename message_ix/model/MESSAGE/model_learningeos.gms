@@ -75,9 +75,11 @@ EQUATIONS
   UNIT_SCALEUP_LIM                       'calculate unit scale-up limit'
   PROJ_SCALEUP_LIM_INI                   'calculate initial project scale-up limit'
   PROJ_SCALEUP_LIM                       'calculate project scale-up limit'
-  NO_BUILT_YEAR                          'make constant investment cost for no built year'
+  INV_COST_LOG                           'calculate investment cost'
   UNIT_SIZELB                            'unit size lower bound'
+  UNIT_SIZE_NOBUILTYEAR                  'make unit size constant if no new capacity'
   PROJ_SIZELB                            'project size lower bound'
+  PROJ_SIZE_NOBUILTYEAR                  'make project size constant if no new capacity'
 ;
 
 
@@ -135,16 +137,21 @@ PROJ_SCALEUP_LIM(newtec,year_all2)$(ord(year_all2) gt (hist_length+1))..
          S_PROJ(newtec,year_all2-1)
          + gamma_proj(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - LOG2_KN_UNIT(newtec,year_all2-1)] ;
 
-NO_BUILT_YEAR(newtec,year_all2)..
+INV_COST_LOG(newtec,year_all2)..
          IC(newtec,year_all2) =e= 2**LOG2_IC(newtec,year_all2) ;
 
 UNIT_SIZELB(newtec,year_all2)..
-         LOG2_S_UNIT(newtec,year_all2) =g=
-         log2_sizeref_unit(newtec) ;
+         S_UNIT(newtec,year_all2) =g= sizeref_unit(newtec) ;
+
+UNIT_SIZE_NOBUILTYEAR(newtec,year_all2)..
+         S_UNIT(newtec,year_all2) =e= S_UNIT(newtec,year_all2-1) * (1-bin_cap_new(newtec,year_all2)) ;
 
 PROJ_SIZELB(newtec,year_all2)..
-         LOG2_S_PROJ(newtec,year_all2) =g=
-         log2_sizeref_proj(newtec) ;
+         S_PROJ(newtec,year_all2) =g= sizeref_proj(newtec) ;
+
+PROJ_SIZE_NOBUILTYEAR(newtec,year_all2)..
+         S_PROJ(newtec,year_all2) =e= S_PROJ(newtec,year_all2-1) * (1-bin_cap_new(newtec,year_all2)) ;
+
 
 * declaring model equations
 * please keep model equations listed in this format
@@ -152,7 +159,8 @@ PROJ_SIZELB(newtec,year_all2)..
 model learningeos /
   OBJECTIVE_INNER,  CAP_NEW_BALANCE,  KN_UNIT_LOG,  N_UNIT_LOG,  S_UNIT_LOG,
   S_PROJ_LOG, CAPEX_ESTIMATE, CUMUL_UNIT_INI, CUMUL_UNIT,  UNIT_SCALEUP_LIM_INI,
-  UNIT_SCALEUP_LIM, PROJ_SCALEUP_LIM_INI, PROJ_SCALEUP_LIM, NO_BUILT_YEAR,
-  UNIT_SIZELB, PROJ_SIZELB /;
+  UNIT_SCALEUP_LIM, PROJ_SCALEUP_LIM_INI, PROJ_SCALEUP_LIM, INV_COST_LOG,
+  UNIT_SIZELB, UNIT_SIZE_NOBUILTYEAR,
+  PROJ_SIZELB, PROJ_SIZE_NOBUILTYEAR /;
 * keep this option for testing purpose
 *option nlp = minos;
