@@ -55,8 +55,8 @@ VARIABLES
 ;
 
 * initializing lower bound of variable to avoid log2 singularity
-N_UNIT.lo(newtec,year_all2)  = 1E-15 ;
-KN_UNIT.lo(newtec,year_all2) = 1E-15 ;
+N_UNIT.lo(newtec,year_all2)  = 1E-7 ;
+KN_UNIT.lo(newtec,year_all2) = 1E-7 ;
 S_UNIT.lo(newtec,year_all2)  = sizeref_unit(newtec) ;
 S_PROJ.lo(newtec,year_all2)  = sizeref_proj(newtec) ;
 
@@ -75,25 +75,27 @@ EQUATIONS
   UNIT_SCALEUP_LIM                       'calculate unit scale-up limit'
   PROJ_SCALEUP_LIM_INI                   'calculate initial project scale-up limit'
   PROJ_SCALEUP_LIM                       'calculate project scale-up limit'
-  NO_BUILT_YEAR                          'make constant investment cost for no built year'
+  INV_COST_LOG                           'calculate investment cost'
   UNIT_SIZELB                            'unit size lower bound'
+  UNIT_SIZE_NOBUILTYEAR                  'make unit size constant if no new capacity'
   PROJ_SIZELB                            'project size lower bound'
+  PROJ_SIZE_NOBUILTYEAR                  'make project size constant if no new capacity'
 ;
 
 
 OBJECTIVE_INNER..        OBJECT =e= sum((node,newtec,year_all2),
                          IC(newtec,year_all2) * cap_new2(newtec,year_all2)) ;
 
-CAP_NEW_BALANCE(newtec,year_all2)..
-         log2_cap_new2(newtec,year_all2) * bin_cap_new(newtec,year_all2) =e=
-         (LOG2_N_UNIT(newtec,year_all2) + LOG2_S_UNIT(newtec,year_all2)) * bin_cap_new(newtec,year_all2) ;
+CAP_NEW_BALANCE(newtec,year_all2)$(bin_cap_new(newtec,year_all2) = 1)..
+         log2_cap_new2(newtec,year_all2) =e=
+         LOG2_N_UNIT(newtec,year_all2) + LOG2_S_UNIT(newtec,year_all2) ;
 
 KN_UNIT_LOG(newtec,year_all2)..
          LOG2_KN_UNIT(newtec,year_all2) =e= log2(KN_UNIT(newtec,year_all2)) ;
 
-N_UNIT_LOG(newtec,year_all2)..
-         LOG2_N_UNIT(newtec,year_all2) * bin_cap_new(newtec,year_all2) =e=
-         log2(N_UNIT(newtec,year_all2)) * bin_cap_new(newtec,year_all2) ;
+N_UNIT_LOG(newtec,year_all2)$(bin_cap_new(newtec,year_all2) = 1)..
+         LOG2_N_UNIT(newtec,year_all2) =e=
+         log2(N_UNIT(newtec,year_all2)) ;
 
 S_UNIT_LOG(newtec,year_all2)..
          LOG2_S_UNIT(newtec,year_all2) =e= log2(S_UNIT(newtec,year_all2)) ;
@@ -118,45 +120,52 @@ CUMUL_UNIT(newtec,year_all2)$(ord(year_all2) gt (hist_length+1))..
 UNIT_SCALEUP_LIM_INI(newtec,year_all2)$(ord(year_all2) le (hist_length+1))..
          S_UNIT(newtec,year_all2) =l=
          sizeref_unit(newtec)
-         + gamma_unit(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - log2_knref_unit(newtec)] * bin_cap_new(newtec,year_all2) ;
+         + gamma_unit(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - log2_knref_unit(newtec)] ;
 
 UNIT_SCALEUP_LIM(newtec,year_all2)$(ord(year_all2) gt (hist_length+1))..
          S_UNIT(newtec,year_all2) =l=
          S_UNIT(newtec,year_all2-1)
-         + gamma_unit(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - LOG2_KN_UNIT(newtec,year_all2-1)] * bin_cap_new(newtec,year_all2) ;
+         + gamma_unit(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - LOG2_KN_UNIT(newtec,year_all2-1)] ;
 
 PROJ_SCALEUP_LIM_INI(newtec,year_all2)$(ord(year_all2) le (hist_length+1))..
          S_PROJ(newtec,year_all2) =l=
          sizeref_proj(newtec)
-         + gamma_proj(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - log2_knref_unit(newtec)] * bin_cap_new(newtec,year_all2) ;
+         + gamma_proj(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - log2_knref_unit(newtec)] ;
 
 PROJ_SCALEUP_LIM(newtec,year_all2)$(ord(year_all2) gt (hist_length+1))..
          S_PROJ(newtec,year_all2) =l=
          S_PROJ(newtec,year_all2-1)
-         + gamma_proj(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - LOG2_KN_UNIT(newtec,year_all2-1)] * bin_cap_new(newtec,year_all2) ;
+         + gamma_proj(newtec) * [LOG2_KN_UNIT(newtec,year_all2) - LOG2_KN_UNIT(newtec,year_all2-1)] ;
 
-NO_BUILT_YEAR(newtec,year_all2)..
-         IC(newtec,year_all2) =g= 2**LOG2_IC(newtec,year_all2) ;
+INV_COST_LOG(newtec,year_all2)..
+         IC(newtec,year_all2) =e= 2**LOG2_IC(newtec,year_all2) ;
 
 UNIT_SIZELB(newtec,year_all2)..
-         LOG2_S_UNIT(newtec,year_all2) =g=
-         log2_sizeref_unit(newtec) ;
+         S_UNIT(newtec,year_all2) =g= sizeref_unit(newtec) ;
+
+UNIT_SIZE_NOBUILTYEAR(newtec,year_all2)$(bin_cap_new(newtec,year_all2) = 0 and
+         ord(year_all2) gt (hist_length+1))..
+         S_UNIT(newtec,year_all2) =e= S_UNIT(newtec,year_all2-1) ;
 
 PROJ_SIZELB(newtec,year_all2)..
-         LOG2_S_PROJ(newtec,year_all2) =g=
-         log2_sizeref_proj(newtec) ;
+         S_PROJ(newtec,year_all2) =g= sizeref_proj(newtec) ;
+
+PROJ_SIZE_NOBUILTYEAR(newtec,year_all2)$(bin_cap_new(newtec,year_all2) = 0 and
+         ord(year_all2) gt (hist_length+1))..
+         S_PROJ(newtec,year_all2) =e= S_PROJ(newtec,year_all2-1) ;
+
 
 * declaring model equations
 * please keep model equations listed in this format
 * 'all' statement will include all MESSAGE-ix equations and increase learning module solution time
 model learningeos /
-  OBJECTIVE_INNER,  CAP_NEW_BALANCE,
-  KN_UNIT_LOG,  N_UNIT_LOG,  S_UNIT_LOG, S_PROJ_LOG,
-  CAPEX_ESTIMATE,
-  CUMUL_UNIT_INI, CUMUL_UNIT,
-  UNIT_SCALEUP_LIM_INI, UNIT_SCALEUP_LIM,
-  PROJ_SCALEUP_LIM_INI, PROJ_SCALEUP_LIM,
-  NO_BUILT_YEAR,
-  UNIT_SIZELB, PROJ_SIZELB /;
+  OBJECTIVE_INNER,  CAP_NEW_BALANCE,  KN_UNIT_LOG,  N_UNIT_LOG,  S_UNIT_LOG,
+  S_PROJ_LOG, CAPEX_ESTIMATE, CUMUL_UNIT_INI, CUMUL_UNIT,  UNIT_SCALEUP_LIM_INI,
+  UNIT_SCALEUP_LIM, PROJ_SCALEUP_LIM_INI, PROJ_SCALEUP_LIM, INV_COST_LOG,
+  UNIT_SIZELB,
+  UNIT_SIZE_NOBUILTYEAR,
+  PROJ_SIZELB,
+  PROJ_SIZE_NOBUILTYEAR
+  /;
 * keep this option for testing purpose
 *option nlp = minos;
