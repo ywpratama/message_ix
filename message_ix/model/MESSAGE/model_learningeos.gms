@@ -55,8 +55,8 @@ VARIABLES
 ;
 
 * initializing lower bound of variable to avoid log2 singularity
-N_UNIT.lo(newtec,year_all2)  = 1E-30 ;
-KN_UNIT.lo(newtec,year_all2) = 1E-30 ;
+N_UNIT.lo(newtec,year_all2)  = 1E-15 ;
+KN_UNIT.lo(newtec,year_all2) = 1E-15 ;
 S_UNIT.lo(newtec,year_all2)  = sizeref_unit(newtec) ;
 S_PROJ.lo(newtec,year_all2)  = sizeref_proj(newtec) ;
 
