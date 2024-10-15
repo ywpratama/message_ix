@@ -48,7 +48,7 @@ if (%foresight% = 0,
 *                   multiplication with the binary parameter in learning module negates effect of this helper
               cap_new2(newtec,year_all2) = sum(node, CAP_NEW.l(node,newtec,year_all2));
               bin_cap_new(newtec,year_all2) = sum(node, CAP_NEW.l(node,newtec,year_all2));
-              bin_cap_new(newtec,year_all2)$(bin_cap_new(newtec,year_all2) > 0) = 1 ;
+              bin_cap_new(newtec,year_all2)$(bin_cap_new(newtec,year_all2) > 1E-10) = 1 ;
               log2_cap_new2(newtec,year_all2) = log2(sum(node, CAP_NEW.l(node,newtec,year_all2)) + [1-bin_cap_new(newtec,year_all2)] ) ;
               Solve learningeos using nlp minimizing OBJECT;
 
@@ -170,7 +170,7 @@ else
 *                   multiplication with the binary parameter in learning module negates effect of this helper
                  cap_new2(newtec,year_all2) = sum(node, CAP_NEW.l(node,newtec,year_all2));
                  bin_cap_new(newtec,year_all2) = sum(node, CAP_NEW.l(node,newtec,year_all2));
-                 bin_cap_new(newtec,year_all2)$(bin_cap_new(newtec,year_all2) > 0) = 1 ;
+                 bin_cap_new(newtec,year_all2)$(bin_cap_new(newtec,year_all2) > 1E-10) = 1 ;
                  log2_cap_new2(newtec,year_all2) = log2(sum(node, CAP_NEW.l(node,newtec,year_all2)) + [1-bin_cap_new(newtec,year_all2)] ) ;
                  Solve learningeos using nlp minimizing OBJECT;
 
@@ -186,10 +186,10 @@ else
         cap_fix(node,newtec,year4,year4) = CAP.l(node,newtec,year4,year4) ;
         act_fix(node,newtec,year4,year4,mode,time) = ACT.l(node,newtec,year4,year4,mode,time) ;
 
-        ext_fix(node,commodity,grade,year4)$(ext_fix(node,commodity,grade,year4) > 0) =  1 ;
-        cap_new_fix(node,newtec,year4)$(cap_new_fix(node,newtec,year4) > 0) = 1 ;
-        cap_fix(node,newtec,year4,year4)$(cap_fix(node,newtec,year4,year4) > 0) = 1 ;
-        act_fix(node,newtec,year4,year4,mode,time)$(act_fix(node,newtec,year4,year4,mode,time) > 0) = 1 ;
+        ext_fix(node,commodity,grade,year4)$(ext_fix(node,commodity,grade,year4) > 1E-10) =  1 ;
+        cap_new_fix(node,newtec,year4)$(cap_new_fix(node,newtec,year4) > 1E-10) = 1 ;
+        cap_fix(node,newtec,year4,year4)$(cap_fix(node,newtec,year4,year4) > 1E-10) = 1 ;
+        act_fix(node,newtec,year4,year4,mode,time)$(act_fix(node,newtec,year4,year4,mode,time) > 1E-10) = 1 ;
 
 *        EXT.fx(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
         CAP_NEW.fx(node,newtec,year4)$(cap_new_fix(node,newtec,year4) = 1) = CAP_NEW.l(node,newtec,year4) ;
