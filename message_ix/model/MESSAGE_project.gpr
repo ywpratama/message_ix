@@ -65,11 +65,11 @@ Decim=0
 PlaneRownr=-1
 
 [GDXDISP: input Par 10]
-PlaneDim=1
-RowDim=9
+PlaneDim=2
+RowDim=7
 Squeeze=1
 SqTrail0=0
-Order=1,2,3,4,5,6,7,8,9,10
+Order=1,6,2,3,5,7,8,9,10,4
 Decim=7
 PlaneRownr=-1
 
@@ -169,7 +169,7 @@ Squeeze=1
 SqTrail0=0
 Order=6,3,2,1,5,4
 Decim=0
-PlaneRownr=12
+PlaneRownr=-1
 PlaneFilter1=Level
 PlaneFilter2=secondary_material
 
@@ -281,22 +281,515 @@ Order=5,2,1,3,4
 Decim=7
 PlaneRownr=-1
 
+[GDXDISP: ACT_LO Var 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: cat_year Set 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+SqTrail0=0
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: commodity Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: construction_time Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: cost_MESSAGE Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+SqTrail0=0
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: demand Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: demand_MESSAGE Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: depr Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: df_period Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: df_year Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: drate Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: duration_period Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: duration_time Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: dynamic_land_lo Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: dynamic_land_up Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: emission Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: emission_scaling Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+SqTrail0=0
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: esub Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: fix_cost Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: fixed_activity Par 6]
+PlaneDim=0
+RowDim=6
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5,6
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: fixed_capacity Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: fixed_extraction Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: fixed_land Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: fixed_new_capacity Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: fixed_stock Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: flexibility_factor Par 9]
+PlaneDim=0
+RowDim=9
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5,6,7,8,9
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: gdp_calibrate Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+SqTrail0=0
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: grade Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: grow Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+SqTrail0=0
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: growth_activity_lo Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: growth_land_lo Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: growth_land_scen_lo Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: growth_land_scen_up Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: growth_land_up Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: growth_new_capacity_lo Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: historical_activity Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: historical_emission Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: historical_extraction Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: historical_gdp Par 2]
+PlaneDim=0
+RowDim=2
+Squeeze=1
+SqTrail0=0
+Order=1,2
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: historical_land Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: historical_new_capacity Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: initial_activity_lo Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: initial_activity_up Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: initial_land_lo Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: initial_land_scen_lo Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: initial_land_scen_up Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: initial_land_up Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: initial_new_capacity_lo Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: initial_new_capacity_up Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: interestrate Par 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: inv_cost Par 3]
+PlaneDim=0
+RowDim=3
+Squeeze=1
+SqTrail0=0
+Order=1,2,3
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: inv_tec Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: is_bound_activity_up Set 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: is_bound_emission Set 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
+[GDXDISP: land_scenario Set 1]
+PlaneDim=0
+RowDim=1
+Squeeze=1
+SqTrail0=0
+Order=1
+Decim=7
+PlaneRownr=-1
+
 [MRUFILES]
-1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_add_tech_emission_bound1000.gdx
-2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_dev_SSP2_v0.1_materials-dac-co2split-v1_1000f_all-ssp-param.gdx
-3=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_dev_SSP2_v0.1_materials-dac-co2split_1000f_no-dac.gdx
-4=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_dev_SSP2_v0.1_materials-dac_baseline.gdx
-5=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_dev_SSP2_v0.1_materials-dac_1000f.gdx
-6=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.lst
-7=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
-8=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_core.gms
+1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_SSP5_v1.0_SSP5_-_Low_Overshoot_Relaxed-CCS-v5.gdx
+2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_SSP2_v1.0_SSP2_-_Low_Overshoot_Relaxed-CCS-v2.gdx
+3=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_dev_SSP5_v0.1_materials-dac-co2split_1000f_no-dac.gdx
+4=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_dev_SSP5_v0.1_materials-dac_1000f.gdx
+5=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_add_tech_emission_bound1000.gdx
+6=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_dev_SSP2_v0.1_materials-dac-co2split-v1_1000f_all-ssp-param.gdx
+7=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_dev_SSP2_v0.1_materials-dac-co2split_1000f_no-dac.gdx
+8=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_dev_SSP2_v0.1_materials-dac_baseline.gdx
+9=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_dev_SSP2_v0.1_materials-dac_1000f.gdx
 
 [OPENWINDOW_1]
-FILE0=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_dev_SSP5_v0.1_materials-dac_1000f.gdx
-FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_dev_SSP5_v0.1_materials-dac-co2split_1000f_no-dac.gdx
-FILE2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_SSP2_v1.0_SSP2_-_Low_Overshoot_Relaxed-CCS-v2.gdx
-FILE3=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_SSP5_v1.0_SSP5_-_Low_Overshoot_Relaxed-CCS-v5.gdx
-FILE4=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_SSP5_v1.0_SSP5_-_Low_Overshoot_Relaxed-CCS-v5.gdx
+FILE0=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_CarbonDirect_SSP2_baseline_1000f_beccscost1.gdx
+FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_CarbonDirect_SSP2_baseline_1000f_beccscost1.gdx
 MAXIM=1
 TOP=50
 LEFT=50
