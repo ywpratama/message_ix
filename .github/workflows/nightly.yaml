@@ -9,9 +9,19 @@ on:
   schedule:
   # 05:00 UTC = 06:00 CET = 07:00 CEST
   - cron: "0 5 * * *"
+  pull_request_target:
+    paths:
+      - '**.gms'
+      - '**.gpr'
+      - '**.gdx'
+    types:
+     - labeled
 
 env:
-  GAMS_VERSION: 29.1.0
+  # Version used until 2024-11-20; disabled
+  # GAMS_VERSION: 29.1.0
+  # First version including a macOS arm64 distribution
+  GAMS_VERSION: 43.4.1
   # See description in lint.yml
   depth: 100
 
@@ -42,7 +52,7 @@ jobs:
       with:
         # If the "Latest version testable on GitHub Actions" in pytest.yaml
         # is not the latest 3.x stable version, adjust here to match:
-        python-version: "3.10"
+        python-version: "3.12"
         cache: pip
         cache-dependency-path: "**/setup.cfg"
 
@@ -66,9 +76,9 @@ jobs:
         (cd ixmp; pip install .[tests])
         (cd message_ix; pip install .[tests])
 
-        # TEMPORARY Work around unionai-oss/pandera#1685;
-        # see https://github.com/khaeru/genno/issues/140
-        pip install "numpy < 2"
+        # TEMPORARY Work around dask v2024.11.0;
+        # see https://github.com/khaeru/genno/issues/149
+        pip install "dask < 2024.11.0"
 
     - name: Run test suite using pytest
       env:

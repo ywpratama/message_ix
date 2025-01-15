@@ -20,19 +20,18 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
   "Programming Language :: R",
   "Topic :: Scientific/Engineering",
   "Topic :: Scientific/Engineering :: Information Analysis",
 ]
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 dependencies = [
   "click",
-  "importlib_resources; python_version <= '3.8'",
   "ixmp >= 3.9.0",
   "genno[pyam] >= 1.20",
   "numpy",
@@ -56,8 +55,9 @@ docs = [
   "sphinx_rtd_theme",
   "sphinxcontrib-bibtex",
 ]
-tutorial = ["jupyter", "matplotlib", "message_ix[report]"]
+tutorial = ["jupyter", "matplotlib", "message_ix[report,sankey]"]
 report = ["ixmp[report]"]
+sankey = ["plotly"]
 tests = [
   "asyncssh",
   "message_ix[docs,tutorial]",
@@ -87,14 +87,17 @@ omit = [
 ]
 
 [tool.mypy]
-exclude = ["doc/"]
+exclude = [
+  "build/",
+  "doc/",
+]
 # TODO Remove this once it has become default with mypy 2.0:
 local_partial_types = true
 
 [[tool.mypy.overrides]]
 # Packages/modules for which no type hints are available.
 module = [
-  "pyam",
+  "pyam.*",
   "scipy.*",
   # Indirectly via ixmp; this should be a subset of the list in ixmp's pyproject.toml
   "jpype",

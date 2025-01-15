@@ -1,5 +1,6 @@
 import logging
 import re
+import sys
 from functools import partial
 from pathlib import Path
 
@@ -17,6 +18,20 @@ from pandas.testing import assert_frame_equal, assert_series_equal
 from message_ix import Scenario
 from message_ix.report import Reporter, configure
 from message_ix.testing import SCENARIO, make_dantzig, make_westeros
+
+
+class TestReporter:
+    def test_add_sankey(self, test_mp, request) -> None:
+        scen = make_westeros(test_mp, solve=True, quiet=True, request=request)
+        rep = Reporter.from_scenario(scen, units={"replace": {"-": ""}})
+
+        # Method runs
+        key = rep.add_sankey(year=700, node="Westeros")
+
+        # Returns an existing key of the expected form
+        assert key.startswith("sankey figure ")
+
+        assert rep.check_keys(key)
 
 
 def test_reporter_no_solution(caplog, message_test_mp):
@@ -203,18 +218,34 @@ def test_reporter_as_pyam(caplog, tmp_path, dantzig_reporter):
     assert not any(c in df2.columns for c in ["h", "m", "t"])
 
     # Variable names were formatted by the callback
-    reg_var = pd.DataFrame(
-        [
-            ["san-diego", "Activity|canning_plant|production"],
-            ["san-diego", "Activity|transport_from_san-diego|to_chicago"],
-            ["san-diego", "Activity|transport_from_san-diego|to_new-york"],
-            ["san-diego", "Activity|transport_from_san-diego|to_topeka"],
-            ["seattle", "Activity|canning_plant|production"],
-            ["seattle", "Activity|transport_from_seattle|to_chicago"],
-            ["seattle", "Activity|transport_from_seattle|to_new-york"],
-            ["seattle", "Activity|transport_from_seattle|to_topeka"],
-        ],
-        columns=["region", "variable"],
+    reg_var = (
+        pd.DataFrame(
+            [
+                ["seattle", "Activity|canning_plant|production"],
+                ["seattle", "Activity|transport_from_seattle|to_new-york"],
+                ["seattle", "Activity|transport_from_seattle|to_chicago"],
+                ["seattle", "Activity|transport_from_seattle|to_topeka"],
+                ["san-diego", "Activity|canning_plant|production"],
+                ["san-diego", "Activity|transport_from_san-diego|to_new-york"],
+                ["san-diego", "Activity|transport_from_san-diego|to_chicago"],
+                ["san-diego", "Activity|transport_from_san-diego|to_topeka"],
+            ],
+            columns=["region", "variable"],
+        )
+        if sys.version_info >= (3, 10)
+        else pd.DataFrame(
+            [
+                ["san-diego", "Activity|canning_plant|production"],
+                ["san-diego", "Activity|transport_from_san-diego|to_chicago"],
+                ["san-diego", "Activity|transport_from_san-diego|to_new-york"],
+                ["san-diego", "Activity|transport_from_san-diego|to_topeka"],
+                ["seattle", "Activity|canning_plant|production"],
+                ["seattle", "Activity|transport_from_seattle|to_chicago"],
+                ["seattle", "Activity|transport_from_seattle|to_new-york"],
+                ["seattle", "Activity|transport_from_seattle|to_topeka"],
+            ],
+            columns=["region", "variable"],
+        )
     )
     assert_frame_equal(df2[["region", "variable"]], reg_var)
 

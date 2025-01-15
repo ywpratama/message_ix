@@ -1,7 +1,8 @@
 import logging
+from collections.abc import Mapping
 from functools import lru_cache, partial
 from operator import itemgetter
-from typing import TYPE_CHECKING, List, Mapping, Tuple, Union, cast
+from typing import TYPE_CHECKING, Union, cast
 
 from genno.operator import broadcast_map
 from ixmp.report import (
@@ -53,7 +54,7 @@ configure(
 #:    contains the value 1 at every valid (type_addon, ta) location, and 0 elsewhere.
 #: 2. Simple products of 2 or mode quantities.
 #: 3. Other derived quantities.
-TASKS0: Tuple[Tuple, ...] = (
+TASKS0: tuple[tuple, ...] = (
     # Mapping sets
     ("map_addon", "map_as_qty", "cat_addon", "t"),
     ("map_emission", "map_as_qty", "cat_emission", "e"),
@@ -112,7 +113,7 @@ TASKS0: Tuple[Tuple, ...] = (
 
 #: Quantities to automatically convert to IAMC format using
 #: :func:`~genno.compat.pyam.operator.as_pyam`.
-PYAM_CONVERT: List[Tuple[str, "CollapseMessageColsKw"]] = [
+PYAM_CONVERT: list[tuple[str, "CollapseMessageColsKw"]] = [
     ("out:nl-t-ya-m-nd-c-l", dict(kind="ene", var="out")),
     ("in:nl-t-ya-m-no-c-l", dict(kind="ene", var="in")),
     ("CAP:nl-t-ya", dict(var="capacity")),
@@ -148,11 +149,11 @@ TASKS1 = (
 
 
 @lru_cache(1)
-def get_tasks() -> List[Tuple[Tuple, Mapping]]:
+def get_tasks() -> list[tuple[tuple, Mapping]]:
     """Return a list of tasks describing MESSAGE reporting calculations."""
     # Assemble queue of items to add. Each element is a 2-tuple of (positional, keyword)
     # arguments for Reporter.add()
-    to_add: List[Tuple[Tuple, Mapping]] = []
+    to_add: list[tuple[tuple, Mapping]] = []
 
     strict = dict(strict=True)
 
@@ -160,7 +161,7 @@ def get_tasks() -> List[Tuple[Tuple, Mapping]]:
         if len(t) == 2 and isinstance(t[1], dict):
             # (args, kwargs) → update kwargs with strict
             t[1].update(strict)
-            to_add.append(cast(Tuple[Tuple, Mapping], t))
+            to_add.append(cast(tuple[tuple, Mapping], t))
         else:
             # args only → use strict as kwargs
             to_add.append((t, strict))
@@ -227,6 +228,62 @@ class Reporter(IXMPReporter):
         rep.add_tasks(fail_action)
 
         return rep
+
+    def add_sankey(
+        self,
+        year: int,
+        node: str,
+        exclude: list[str] = [],
+    ) -> str:
+        """Add the tasks required to produce a Sankey diagram.
+
+        See :func:`.map_for_sankey` for the meaning of the `node`, and `exclude`
+        parameters.
+
+        Parameters
+        ----------
+        year : int
+            The period (year) to be plotted.
+
+        Returns
+        -------
+        str
+            A key like :py:`"sankey figure a1b2c"`, where the last part is a unique hash
+            of the arguments `year`, `node`, and `exclude`. Calling
+            :meth:`.Reporter.get` with this key triggers generation of a
+            :class:`plotly.Figure <plotly.graph_objects.Figure>` with the Sankey
+            diagram.
+
+        See also
+        --------
+        map_for_sankey
+        pyam.figures.sankey
+        """
+        from warnings import filterwarnings
+
+        from genno import KeySeq
+        from genno.caching import hash_args
+        from pyam import IamDataFrame
+        from pyam.figures import sankey
+
+        from message_ix.tools.sankey import map_for_sankey
+
+        # Silence a warning raised by pyam-iamc 3.0.0 with pandas 2.2.3
+        filterwarnings("ignore", "Downcasting behavior", FutureWarning, "pyam.figures")
+
+        # Sequence of similar Keys for individual operations; use a unique hash of the
+        # arguments to avoid conflicts between multiple calls
+        unique = hash_args(year, node, exclude)[:6]
+        k = KeySeq(f"message sankey {unique}")
+
+        # Concatenate 'out' and 'in' data
+        self.add(k[0], "concat", "out::pyam", "in::pyam", strict=True)
+        # `df` argument to pyam.figures.sankey()
+        self.add(k[1], partial(IamDataFrame.filter, year=year), k[0])
+        # `mapping` argument to pyam.figures.sankey()
+        self.add(k[2], map_for_sankey, k[1], node=node, exclude=exclude)
+        # Generate the plotly.Figure object; return the key
+        return str(self.add(f"sankey figure {unique}", sankey, k[1], k[2]))
 
     def add_tasks(self, fail_action: Union[int, str] = "raise") -> None:
         """Add the pre-defined MESSAGEix reporting tasks to the Reporter.

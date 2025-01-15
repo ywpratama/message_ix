@@ -1,8 +1,9 @@
 import logging
 import os
+from collections.abc import Iterable, Mapping, Sequence
 from functools import lru_cache, partial
 from itertools import chain, product, zip_longest
-from typing import Dict, Iterable, List, Mapping, Optional, Sequence, Tuple, Union
+from typing import Optional, Union
 from warnings import warn
 
 import ixmp
@@ -183,13 +184,17 @@ class Scenario(ixmp.Scenario):
         """
         return self._year_as_int(name, super().var(name, filters))
 
-    def cat_list(self, name):
+    def cat_list(self, name: str) -> list[str]:
         """Return a list of all categories for a mapping set.
 
         Parameters
         ----------
         name : str
             Name of the set.
+
+        Returns
+        -------
+        list of str
         """
         return self._backend("cat_list", name)
 
@@ -236,7 +241,7 @@ class Scenario(ixmp.Scenario):
         self,
         name: str,
         key_or_data: Optional[
-            Union[int, str, Sequence[Union[int, str]], Dict, pd.DataFrame]
+            Union[int, str, Sequence[Union[int, str]], dict, pd.DataFrame]
         ] = None,
         value=None,
         unit: Optional[str] = None,
@@ -253,7 +258,7 @@ class Scenario(ixmp.Scenario):
     def add_set(
         self,
         name: str,
-        key: Union[int, str, Sequence[Union[str, int]], Dict, pd.DataFrame],
+        key: Union[int, str, Sequence[Union[str, int]], dict, pd.DataFrame],
         comment: Union[str, Sequence[str], None] = None,
     ) -> None:
         # ixmp.Scenario.add_par() is typed as accepting only str, but this method also
@@ -450,7 +455,7 @@ class Scenario(ixmp.Scenario):
 
     def vintage_and_active_years(
         self,
-        ya_args: Union[Tuple[str, str], Tuple[str, str, Union[int, str]], None] = None,
+        ya_args: Union[tuple[str, str], tuple[str, str, Union[int, str]], None] = None,
         tl_only: bool = True,
         **kwargs,
     ) -> pd.DataFrame:
@@ -600,7 +605,7 @@ class Scenario(ixmp.Scenario):
     #: Alias for :meth:`vintage_and_active_years`.
     yv_ya = vintage_and_active_years
 
-    def years_active(self, node: str, tec: str, yr_vtg: Union[int, str]) -> List[int]:
+    def years_active(self, node: str, tec: str, yr_vtg: Union[int, str]) -> list[int]:
         """Return periods in which `tec` hnology of `yr_vtg` can be active in `node`.
 
         The :ref:`parameters <params-tech>` ``duration_period`` and

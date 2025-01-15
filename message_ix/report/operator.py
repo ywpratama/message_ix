@@ -1,12 +1,5 @@
-from typing import (
-    TYPE_CHECKING,
-    Dict,
-    List,
-    Literal,
-    Mapping,
-    Tuple,
-    overload,
-)
+from collections.abc import Mapping
+from typing import TYPE_CHECKING, Literal, overload
 
 import pandas as pd
 
@@ -30,7 +23,7 @@ def as_message_df(
     dims: Mapping,
     common: Mapping,
     wrap: Literal[True] = True,
-) -> Dict[str, pd.DataFrame]: ...
+) -> dict[str, pd.DataFrame]: ...
 
 
 @overload
@@ -87,7 +80,7 @@ def as_message_df(qty, name, dims, common, wrap=True):
     return {name: df} if wrap else df
 
 
-def model_periods(y: List[int], cat_year: pd.DataFrame) -> List[int]:
+def model_periods(y: list[int], cat_year: pd.DataFrame) -> list[int]:
     """Return the elements of `y` beyond the firstmodelyear of `cat_year`."""
     return list(
         filter(
@@ -98,7 +91,7 @@ def model_periods(y: List[int], cat_year: pd.DataFrame) -> List[int]:
     )
 
 
-def plot_cumulative(x: "AnyQuantity", y: "AnyQuantity", labels: Tuple[str, str, str]):
+def plot_cumulative(x: "AnyQuantity", y: "AnyQuantity", labels: tuple[str, str, str]):
     """Plot a supply curve.
 
     - `x` and `y` must share the first two dimensions.
@@ -161,7 +154,7 @@ def plot_cumulative(x: "AnyQuantity", y: "AnyQuantity", labels: Tuple[str, str, 
 
 def stacked_bar(
     qty: "AnyQuantity",
-    dims: Tuple[str, ...] = ("nl", "t", "ya"),
+    dims: tuple[str, ...] = ("nl", "t", "ya"),
     units: str = "",
     title: str = "",
     cf: float = 1.0,
