@@ -1,5 +1,6 @@
+from collections.abc import Sequence
 from functools import lru_cache
-from typing import Optional, Sequence, Tuple
+from typing import Optional
 
 import numpy as np
 import pandas as pd
@@ -12,7 +13,7 @@ from message_ix.testing import SCENARIO
 
 
 @lru_cache()
-def _generate_yv_ya(periods: Tuple[int, ...]) -> pd.DataFrame:
+def _generate_yv_ya(periods: tuple[int, ...]) -> pd.DataFrame:
     """All meaningful combinations of (vintage year, active year) given `periods`."""
     # commented: currently unused, this does the same as the line below, using (start
     # period, final period, uniform ``duration_period). The intermediate periods are
@@ -34,7 +35,7 @@ def _generate_yv_ya(periods: Tuple[int, ...]) -> pd.DataFrame:
 
 def _setup(
     mp: Platform, years: Sequence[int], firstmodelyear: int, tl_years=None
-) -> Tuple[Scenario, pd.DataFrame]:
+) -> tuple[Scenario, pd.DataFrame]:
     """Common setup for test of :meth:`.vintage_and_active_years`.
 
     Adds:

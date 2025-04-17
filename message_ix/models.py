@@ -1,10 +1,11 @@
 import logging
 from collections import ChainMap
+from collections.abc import Mapping, MutableMapping
 from copy import copy
 from dataclasses import InitVar, dataclass, field
 from functools import partial
 from pathlib import Path
-from typing import Mapping, MutableMapping, Optional, Tuple
+from typing import Optional
 from warnings import warn
 
 import ixmp.model.gams
@@ -79,10 +80,10 @@ class Item:
 
     #: Coordinates of the item; that is, the names of sets that index its dimensions.
     #: The same set name may be repeated if it indexes multiple dimensions.
-    coords: Tuple[str, ...] = field(default_factory=tuple)
+    coords: tuple[str, ...] = field(default_factory=tuple)
 
     #: Dimensions of the item.
-    dims: Tuple[str, ...] = field(default_factory=tuple)
+    dims: tuple[str, ...] = field(default_factory=tuple)
 
     #: Text description of the item.
     description: Optional[str] = None
@@ -568,7 +569,7 @@ var(
 var(
     "PRICE_EMISSION",
     "n type_emission type_tec y",
-    "Emission price (derived from marginals of EMISSION_BOUND constraint)",
+    "Emission price (derived from marginals of EMISSION_EQUIVALENCE constraint)",
 )
 var(
     "REL",
@@ -718,14 +719,12 @@ equ("ACTIVITY_RATING_TOTAL", "", "Equivalence of `ACT_RATING` to `ACT`")
 equ(
     "ACTIVITY_SOFT_CONSTRAINT_LO",
     "",
-    "Bound on relaxation of the dynamic constraint on market penetration"
-    " (lower bound)",
+    "Bound on relaxation of the dynamic constraint on market penetration (lower bound)",
 )
 equ(
     "ACTIVITY_SOFT_CONSTRAINT_UP",
     "",
-    "Bound on relaxation of the dynamic constraint on market penetration"
-    " (upper bound)",
+    "Bound on relaxation of the dynamic constraint on market penetration (upper bound)",
 )
 equ("ADDON_ACTIVITY_LO", "", "Addon technology activity lower constraint")
 equ("ADDON_ACTIVITY_UP", "", "Addon-technology activity upper constraint")
@@ -756,8 +755,7 @@ equ("COMMODITY_BALANCE_LT", "", "Commodity supply lower than or equal demand")
 equ(
     "COMMODITY_USE_LEVEL",
     "",
-    "Aggregate use of commodity by level as defined by total input into "
-    "technologies",
+    "Aggregate use of commodity by level as defined by total input into technologies",
 )
 equ("COST_ACCOUNTING_NODAL", "n y", "Cost accounting aggregated to the node")
 equ(
@@ -787,7 +785,7 @@ equ(
 )
 equ(
     "EMISSION_EQUIVALENCE",
-    "",
+    "n e type_tec y",
     "Auxiliary equation to simplify the notation of emissions",
 )
 equ("EXTRACTION_BOUND_UP", "", "Upper bound on extraction (by grade)")
@@ -809,7 +807,7 @@ equ(
 equ(
     "MIN_UTILIZATION_CONSTRAINT",
     "",
-    "Constraint for minimum yearly operation (aggregated over the course of a " "year)",
+    "Constraint for minimum yearly operation (aggregated over the course of a year)",
 )
 equ("NEW_CAPACITY_BOUND_LO", "", "Lower bound on technology capacity investment")
 equ("NEW_CAPACITY_BOUND_UP", "", "Upper bound on technology capacity investment")
@@ -821,8 +819,7 @@ equ(
 equ(
     "NEW_CAPACITY_CONSTRAINT_UP",
     "",
-    "Dynamic constraint for capacity investment (learning and spillovers upper "
-    "bound)",
+    "Dynamic constraint for capacity investment (learning and spillovers upper bound)",
 )
 equ(
     "NEW_CAPACITY_SOFT_CONSTRAINT_LO",
@@ -857,8 +854,7 @@ equ("RENEWABLES_POTENTIAL_CONSTRAINT", "", "Constraint on renewable resource pot
 equ(
     "RESOURCE_CONSTRAINT",
     "",
-    "Constraint on resources remaining in each period (maximum extraction per "
-    "period)",
+    "Constraint on resources remaining in each period (maximum extraction per period)",
 )
 equ(
     "RESOURCE_HORIZON",

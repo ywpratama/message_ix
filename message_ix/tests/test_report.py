@@ -1,5 +1,6 @@
 import logging
 import re
+import sys
 from functools import partial
 from pathlib import Path
 
@@ -17,6 +18,20 @@ from pandas.testing import assert_frame_equal, assert_series_equal
 from message_ix import Scenario
 from message_ix.report import Reporter, configure
 from message_ix.testing import SCENARIO, make_dantzig, make_westeros
+
+
+class TestReporter:
+    def test_add_sankey(self, test_mp, request) -> None:
+        scen = make_westeros(test_mp, solve=True, quiet=True, request=request)
+        rep = Reporter.from_scenario(scen, units={"replace": {"-": ""}})
+
+        # Method runs
+        key = rep.add_sankey(year=700, node="Westeros")
+
+        # Returns an existing key of the expected form
+        assert key.startswith("sankey figure ")
+
+        assert rep.check_keys(key)
 
 
 def test_reporter_no_solution(caplog, message_test_mp):
@@ -70,11 +85,11 @@ def test_reporter_from_scenario(message_test_mp):
     assert_qty_equal(obs, demand, check_attrs=False)
 
     # ixmp.Reporter pre-populated with only model quantities and aggregates
-    assert 6462 == len(rep_ix.graph)
+    assert 6477 == len(rep_ix.graph)
 
     # message_ix.Reporter pre-populated with additional, derived quantities
     # This is the same value as in test_tutorials.py
-    assert 13724 == len(rep.graph)
+    assert 13739 == len(rep.graph)
 
     # Derived quantities have expected dimensions
     vom_key = rep.full_key("vom")
@@ -90,8 +105,8 @@ def test_reporter_from_scenario(message_test_mp):
     assert_qty_equal(vom, rep.get(vom_key))
 
 
-def test_reporter_from_dantzig(test_mp):
-    scen = make_dantzig(test_mp, solve=True, quiet=True)
+def test_reporter_from_dantzig(test_mp, request):
+    scen = make_dantzig(test_mp, solve=True, quiet=True, request=request)
 
     # Reporter.from_scenario can handle Dantzig example model
     rep = Reporter.from_scenario(scen)
@@ -100,8 +115,10 @@ def test_reporter_from_dantzig(test_mp):
     rep.get("all")
 
 
-def test_reporter_from_westeros(test_mp):
-    scen = make_westeros(test_mp, emissions=True, solve=True, quiet=True)
+def test_reporter_from_westeros(test_mp, request):
+    scen = make_westeros(
+        test_mp, emissions=True, solve=True, quiet=True, request=request
+    )
 
     # Reporter.from_scenario can handle Westeros example model
     rep = Reporter.from_scenario(scen)
@@ -201,18 +218,34 @@ def test_reporter_as_pyam(caplog, tmp_path, dantzig_reporter):
     assert not any(c in df2.columns for c in ["h", "m", "t"])
 
     # Variable names were formatted by the callback
-    reg_var = pd.DataFrame(
-        [
-            ["san-diego", "Activity|canning_plant|production"],
-            ["san-diego", "Activity|transport_from_san-diego|to_chicago"],
-            ["san-diego", "Activity|transport_from_san-diego|to_new-york"],
-            ["san-diego", "Activity|transport_from_san-diego|to_topeka"],
-            ["seattle", "Activity|canning_plant|production"],
-            ["seattle", "Activity|transport_from_seattle|to_chicago"],
-            ["seattle", "Activity|transport_from_seattle|to_new-york"],
-            ["seattle", "Activity|transport_from_seattle|to_topeka"],
-        ],
-        columns=["region", "variable"],
+    reg_var = (
+        pd.DataFrame(
+            [
+                ["seattle", "Activity|canning_plant|production"],
+                ["seattle", "Activity|transport_from_seattle|to_new-york"],
+                ["seattle", "Activity|transport_from_seattle|to_chicago"],
+                ["seattle", "Activity|transport_from_seattle|to_topeka"],
+                ["san-diego", "Activity|canning_plant|production"],
+                ["san-diego", "Activity|transport_from_san-diego|to_new-york"],
+                ["san-diego", "Activity|transport_from_san-diego|to_chicago"],
+                ["san-diego", "Activity|transport_from_san-diego|to_topeka"],
+            ],
+            columns=["region", "variable"],
+        )
+        if sys.version_info >= (3, 10)
+        else pd.DataFrame(
+            [
+                ["san-diego", "Activity|canning_plant|production"],
+                ["san-diego", "Activity|transport_from_san-diego|to_chicago"],
+                ["san-diego", "Activity|transport_from_san-diego|to_new-york"],
+                ["san-diego", "Activity|transport_from_san-diego|to_topeka"],
+                ["seattle", "Activity|canning_plant|production"],
+                ["seattle", "Activity|transport_from_seattle|to_chicago"],
+                ["seattle", "Activity|transport_from_seattle|to_new-york"],
+                ["seattle", "Activity|transport_from_seattle|to_topeka"],
+            ],
+            columns=["region", "variable"],
+        )
     )
     assert_frame_equal(df2[["region", "variable"]], reg_var)
 

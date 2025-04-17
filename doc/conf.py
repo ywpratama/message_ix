@@ -4,6 +4,7 @@
 # list see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import os
 from importlib.metadata import version as get_version
 from pathlib import Path
 from typing import Optional
@@ -11,7 +12,7 @@ from typing import Optional
 # -- Project information ---------------------------------------------------------------
 
 project = "MESSAGEix"
-copyright = "2018–2024, IIASA Energy, Climate, and Environment (ECE) Program"
+copyright = "2018–%Y, IIASA Energy, Climate, and Environment (ECE) Program"
 author = "MESSAGEix Developers"
 
 # The major project version, used as the replacement for |version|.
@@ -89,6 +90,15 @@ html_theme = "sphinx_rtd_theme"
 
 html_theme_options = {"logo_only": True}
 
+# Define the canonical URL if you are using a custom domain on Read the Docs
+html_baseurl = os.environ.get("READTHEDOCS_CANONICAL_URL", "")
+
+# Tell Jinja2 templates the build is running on Read the Docs
+if os.environ.get("READTHEDOCS", "") == "True":
+    if "html_context" not in globals():
+        html_context = {}
+    html_context["READTHEDOCS"] = True
+
 # -- Options for LaTeX output ----------------------------------------------------------
 
 # The LaTeX engine to build the docs.
@@ -157,6 +167,7 @@ def local_inv(name: str, *parts: str) -> Optional[str]:
 
     if 0 == len(parts):
         parts = ("doc", "_build", "html")
+    assert spec.origin is not None
     return str(Path(spec.origin).parents[1].joinpath(*parts, "objects.inv"))
 
 
@@ -171,9 +182,9 @@ intersphinx_mapping = {
         "https://docs.messageix.org/projects/models/en/latest/",
         None,
     ),
-    "message_doc": ("https://docs.messageix.org/projects/global/en/latest/", None),
     "pandas": ("https://pandas.pydata.org/pandas-docs/stable/", None),
     "pint": ("https://pint.readthedocs.io/en/stable/", None),
+    "plotly": ("https://plotly.com/python-api-reference", None),
     "plotnine": ("https://plotnine.org", None),
     "pyam": ("https://pyam-iamc.readthedocs.io/en/stable/", None),
     "python": ("https://docs.python.org/3/", None),

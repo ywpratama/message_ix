@@ -4,6 +4,7 @@ import warnings
 from collections import ChainMap, defaultdict
 from collections.abc import Mapping
 from pathlib import Path
+from typing import Optional
 
 import pandas as pd
 from ixmp.backend import ItemType
@@ -14,7 +15,12 @@ from message_ix.models import MACRO, MESSAGE
 
 
 def copy_model(
-    path: Path, overwrite: bool = False, set_default: bool = False, quiet: bool = False
+    path: Path,
+    overwrite: bool = False,
+    set_default: bool = False,
+    quiet: bool = False,
+    *,
+    source_dir: Optional[Path] = None,
 ) -> None:
     """Copy the MESSAGE GAMS files to a new `path`.
 
@@ -26,15 +32,14 @@ def copy_model(
         If :any:`True`, update the ixmp configuration setting "message model dir".
     quiet : bool
         If :any:`False`, print actions to stdout; otherwise display nothing.
+    source_dir : Path, optional
+        If given, copy model files from this directory instead of the main one.
     """
-    try:
-        from importlib.resources import as_file, files
-    except ImportError:  # Python < 3.9
-        from importlib_resources import as_file, files
-
     from shutil import copyfile
 
     import ixmp
+
+    import message_ix
 
     path = Path(path).resolve()
 
@@ -46,28 +51,29 @@ def copy_model(
     else:
         output = print
 
-    # Identify the source directory using importlib.resources
-    for traversable in files("message_ix").iterdir():
-        if traversable.name == "model":
-            # Record the pathlib.Path associated with the Traversible object
-            # NB This may not work if `traversable` is, for instance, in a ZIP archive
-            with as_file(traversable) as f:
-                src_dir: Path = f
-            break
+    src_dir = (
+        source_dir
+        if source_dir
+        else Path(message_ix.__file__).resolve().parent.joinpath("model")
+    )
 
-    # Iterate over files in `src_dir`
-    for src in src_dir.rglob("*"):
+    def _exclude_path(p: Path) -> bool:
         # Skip certain files
-        if src.suffix in (".gdx", ".log", ".lst") or re.search("225[a-z]+", str(src)):
-            continue
+        if p.suffix in (".gdx", ".log", ".lst") or re.search("225[a-z]+", str(p)):
+            return False
+        return True
 
+    paths = filter(_exclude_path, list(src_dir.rglob("*")))
+
+    # Iterate over pre-filtered paths in `src_dir`
+    for original_path in paths:
         # Construct the destination path
-        dst = path / src.relative_to(src_dir)
+        dst = path / original_path.relative_to(src_dir)
 
         # Create parent directory
         dst.parent.mkdir(parents=True, exist_ok=True)
 
-        if src.is_dir():
+        if original_path.is_dir():
             # No further action for directories
             continue
 
@@ -83,7 +89,7 @@ def copy_model(
         else:
             output(f"Copy to {dst}")
 
-        copyfile(src, dst)
+        copyfile(original_path, dst)
 
     if set_default:
         ixmp.config.set("message model dir", path)

@@ -129,8 +129,8 @@ class TestScenario:
             assert "'ixmp'.'3-" in result.stdout.decode()
 
 
-def test_year_int(test_mp):
-    scen = make_dantzig(test_mp, solve=True, multi_year=True)
+def test_year_int(test_mp, request):
+    scen = make_dantzig(test_mp, solve=True, multi_year=True, request=request)
 
     # Dimensions indexed by 'year' are returned as integers for all item types
     assert scen.set("cat_year").dtypes["year"] == "int"
@@ -502,7 +502,7 @@ def test_new_timeseries_long_name64(message_test_mp):
                 "India",
             ],
             "variable": [
-                ("Emissions|CO2|Energy|Demand|Transportation|Aviation|" "Domestic|Fre"),
+                ("Emissions|CO2|Energy|Demand|Transportation|Aviation|Domestic|Fre"),
             ],
             "unit": [
                 "Mt CO2/yr",

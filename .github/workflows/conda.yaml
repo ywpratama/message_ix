@@ -10,19 +10,22 @@ on:
   # pull_request:
   #   branches: [ main ]
 
+env:
+  # First version including a macOS arm64 distribution
+  GAMS_VERSION: 43.4.1
+
 jobs:
   conda:
     strategy:
       matrix:
         os: [windows-latest, macos-latest]
         conda:
-        - {installer: anaconda, version: 2023.03-1}
-        - {installer: miniconda, version: py310_23.3.1-0}
-        extra-deps: ["", "JPype1=1.2.1"]
+        - {installer: anaconda, version: 2024.06-1}
+        - {installer: miniconda, version: py312_24.7.1-0}
       fail-fast: false
 
     runs-on: ${{ matrix.os }}
-    name: ${{ matrix.os }}-${{ matrix.conda.installer }}-${{ matrix.extra-deps }}
+    name: ${{ matrix.os }}-${{ matrix.conda.installer }}
 
     steps:
     - name: Cache Anaconda installer, conda packages
@@ -57,6 +60,20 @@ jobs:
             f.write(f"profile={profile}\n")
       shell: python
 
+    - name: Cache GAMS installer
+      uses: actions/cache@v4
+      with:
+        path: |
+          gams
+        key: ${{ matrix.os }}-gams${{ env.GAMS_VERSION }}
+        restore-keys: |
+          ${{ matrix.os }}-
+
+    - uses: iiasa/actions/setup-gams@main
+      with:
+        version: ${{ env.GAMS_VERSION }}
+        license: ${{ secrets.GAMS_LICENSE }}
+
     - name: Initialize shell for "conda activate"
       run: conda init ${{ steps.shell.outputs.init }}
 
@@ -70,7 +87,9 @@ jobs:
 
         # Also install pytest and packages required for testing. pip/PyPI
         # supports this via message_ix[testing], but conda does not.
-        conda create --quiet --name testenv message-ix ${{ matrix.extra-deps }} pytest asyncssh sphinx
+        # Pin Python version to enable pyam versions relied on by the sankey tool;
+        # remove once pyam supports the latest Python
+        conda create --quiet --name testenv message-ix pytest asyncssh sphinx python=3.12
         conda list --name testenv
 
     - name: Check CLI commands and run test

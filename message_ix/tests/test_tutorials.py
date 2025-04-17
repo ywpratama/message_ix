@@ -2,7 +2,7 @@ import logging
 import os
 import sys
 from shutil import copyfile
-from typing import List, Tuple, Union
+from typing import Union
 
 import numpy as np
 import pytest
@@ -69,7 +69,7 @@ def _t(group: Union[str, None], basename: str, *, check=None, marks=None):
 
 
 #: Argument values to parametrize :func:`test_tutorial`.
-TUTORIALS: List[Tuple] = [
+TUTORIALS: list[tuple] = [
     # IPython kernel
     _t("w0", f"{W}_baseline", check=[("solve-objective-value", 159025.82812)]),
     # NB could also check objective function values in the following tutorials; however,
@@ -86,8 +86,9 @@ TUTORIALS: List[Tuple] = [
     _t("w0", f"{W}_addon_technologies"),
     _t("w0", f"{W}_historical_new_capacity"),
     _t("w0", f"{W}_multinode_energy_trade"),
+    _t("w0", f"{W}_sankey"),
     # NB this is the same value as in test_reporter()
-    _t(None, f"{W}_report", check=[("len-rep-graph", 13724)]),
+    _t(None, f"{W}_report", check=[("len-rep-graph", 13739)]),
     _t("at0", "austria", check=[("solve-objective-value", 206321.90625)]),
     _t("at0", "austria_single_policy", check=[("solve-objective-value", 205310.34375)]),
     _t("at0", "austria_multiple_policies"),

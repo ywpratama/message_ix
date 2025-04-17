@@ -1,4 +1,5 @@
-from typing import TYPE_CHECKING, List, Mapping, Tuple, Union
+from collections.abc import Mapping
+from typing import TYPE_CHECKING, Literal, overload
 
 import pandas as pd
 
@@ -15,13 +16,27 @@ __all__ = [
 ]
 
 
+@overload
 def as_message_df(
     qty: "AnyQuantity",
     name: str,
     dims: Mapping,
     common: Mapping,
-    wrap: bool = True,
-) -> Union[pd.DataFrame, dict]:
+    wrap: Literal[True] = True,
+) -> dict[str, pd.DataFrame]: ...
+
+
+@overload
+def as_message_df(
+    qty: "AnyQuantity",
+    name: str,
+    dims: Mapping,
+    common: Mapping,
+    wrap: Literal[False],
+) -> pd.DataFrame: ...
+
+
+def as_message_df(qty, name, dims, common, wrap=True):
     """Convert `qty` to an :meth:`.add_par`-ready data frame using :func:`.make_df`.
 
     The resulting data frame has:
@@ -65,7 +80,7 @@ def as_message_df(
     return {name: df} if wrap else df
 
 
-def model_periods(y: List[int], cat_year: pd.DataFrame) -> List[int]:
+def model_periods(y: list[int], cat_year: pd.DataFrame) -> list[int]:
     """Return the elements of `y` beyond the firstmodelyear of `cat_year`."""
     return list(
         filter(
@@ -76,7 +91,7 @@ def model_periods(y: List[int], cat_year: pd.DataFrame) -> List[int]:
     )
 
 
-def plot_cumulative(x: "AnyQuantity", y: "AnyQuantity", labels: Tuple[str, str, str]):
+def plot_cumulative(x: "AnyQuantity", y: "AnyQuantity", labels: tuple[str, str, str]):
     """Plot a supply curve.
 
     - `x` and `y` must share the first two dimensions.
@@ -139,7 +154,7 @@ def plot_cumulative(x: "AnyQuantity", y: "AnyQuantity", labels: Tuple[str, str, 
 
 def stacked_bar(
     qty: "AnyQuantity",
-    dims: Tuple[str, str, str] = ("nl", "t", "ya"),
+    dims: tuple[str, ...] = ("nl", "t", "ya"),
     units: str = "",
     title: str = "",
     cf: float = 1.0,
@@ -152,11 +167,11 @@ def stacked_bar(
     qty : Quantity
         Data to plot.
     dims : tuple of str
-        Dimensions for, respectively:
+        3 or more dimensions for, respectively:
 
-        1. The node/region.
-        2. Dimension to stack.
-        3. The ordinate (x-axis).
+        - 1 dimension: The node/region.
+        - 1 or more dimensions: to stack in bars of different colour.
+        - 1 dimension: The ordinate (x-axis); typically the year.
     units : str
         Units to display on the plot.
     title : str
@@ -164,15 +179,18 @@ def stacked_bar(
     cf : float, optional
         Conversion factor to apply to data.
     """
+    if len(dims) < 3:  # pragma: no cover
+        raise ValueError(f"Must pass >= 3 dimensions; got dims={dims!r}")
+
     # - Multiply by the conversion factor
     # - Convert to a pd.Series
     # - Unstack one dimension
     # - Convert to pd.DataFrame
-    df = (cf * qty).to_series().unstack(dims[1]).reset_index()
+    df = (cf * qty).to_series().unstack(dims[1:-1]).reset_index()
 
     # Plot using matplotlib via pandas
     ax = df.plot(
-        x=dims[2],
+        x=dims[-1],
         kind="bar",
         stacked=stacked,
         xlabel="Year",
