@@ -45,21 +45,45 @@ PlaneFilter2=Level
 [RP:DATA_LOAD]
 1=
 
+[RP:UNTITLED_1]
+1=
+
+[GDXDISP: abs_cost_activity_soft_up Par 4]
+PlaneDim=0
+RowDim=4
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4
+Decim=7
+PlaneRownr=-1
+
 [RP:MESSAGE_MASTER]
 1=
 
 [MRUFILES]
-1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_add_tech_baseline.gdx
+1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_SSP_SSP1_v2.1_DLE_NPi2020_600f.gdx
+2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.lst
+3=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
+4=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_SSP_SSP1_v2.1_DLE_NPi2020_600f.gdx
+5=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\Untitled_1.gms
+6=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_solve.gms
+7=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\data_load.gms
+8=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\output\MsgOutput_GENIE_sandbox_add_tech_baseline.gdx
 
 [OPENWINDOW_1]
-FILE0=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data_load.lst
-FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\data_load.gms
-FILE2=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\model_solve.gms
-FILE3=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.gms
-FILE4=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE_master.lst
-FILE5=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\MESSAGE\data_load.gms
+FILE0=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_CDR-ERW_SSP2_v2.1_600f_erw-grw15.0-eff100.gdx
+FILE1=C:\Users\pratama\Documents\GitHub\MESSAGEix\message_ix\message_ix\model\data\MsgData_CDR-ERW_SSP2_v2.1_600f_erw-grw15.0-eff100.gdx
 MAXIM=1
 TOP=50
 LEFT=50
 HEIGHT=400
-WIDTH=400
+WIDTH=603
+
+[GDXDISP: bound_activity_up Par 5]
+PlaneDim=0
+RowDim=5
+Squeeze=1
+SqTrail0=0
+Order=1,2,3,4,5
+Decim=7
+PlaneRownr=-1

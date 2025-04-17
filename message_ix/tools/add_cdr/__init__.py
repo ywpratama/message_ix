@@ -281,6 +281,11 @@ def generate_df(
             value = [e for e in value]
             df["value"] = value
 
+            # adjusting for technology lifetime
+            if all(col in df.columns for col in ["year_act", "year_vtg"]):
+                lt_tech = tech_data[tec].get("technical_lifetime_", {}).get("value", 1)
+                df = df[df["year_act"] <= df["year_vtg"].add(lt_tech)]
+
             data[tec][name] = df
 
     return data
