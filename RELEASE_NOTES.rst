@@ -1,8 +1,51 @@
 Next release
 ============
 
-GitHub community guidelines
----------------------------
+Migration notes
+---------------
+
+Users **should**:
+
+- (:pull:`930`) identify any ``type_tec`` entries
+  that are used both (a) for commodity share constraints
+  (in the ``map_shares_commodity_share`` or ``map_shares_commodity_total`` :ref:`mapping sets <section_maps_def>`),
+  *and* (b) for emissions accounting
+  (for instance in the ``tax_emission`` or ``bound_emission`` :ref:`parameters <section_parameter_emissions>`).
+
+  For any such entries,
+  users **should** reformulate to use distinct ``type_tec`` entries for these two purposes,
+  and then confirm that model behaviour relative to v3.10.0 is as expected/not different.
+
+All changes
+-----------
+
+- Adjust use of :ref:`type_tec <mapping-sets>` in :ref:`equation_emission_equivalence` (:pull:`930`, :issue:`929`).
+
+  This change reduces the size of the ``EMISS`` variable,
+  which can improve memory use performance for large scenarios
+  that make extensive use of commodity share constraints.
+
+.. _v3.10.0:
+
+v3.10.0 (2025-02-19)
+====================
+
+Migration note
+--------------
+
+.. _v3.10.0-migrate-1:
+
+1. For scenarios with :doc:`periods </time>` that have 2 or more different ``duration_period``, users should expect that values for the solution variable ``PRICE_EMISSION`` will change compared to version 3.9.0 and earlier.
+
+   **Only** such scenarios are affected.
+   For example, if ``duration_period`` is 5 years for some periods in the ``year`` set, and 10 years for others, then ``PRICE_EMISSION`` values will change.
+   On the other hand, if ``duration_period`` values are *all* 5 years, or 10 years, there should be no change.
+
+   This is a result of :pull:`912`, which adjusts the calculation of ``PRICE_EMISSION`` to give correct outcomes in the mixed-duration case.
+   Please refer to :pull:`726` and :pull:`723` for more extensive discussion of the issue and fix.
+
+GitHub-recommended community guidelines
+---------------------------------------
 
 Add community guidelines for interaction on GitHub (:pull:`871`, :pull:`911`).
 Please familiarize yourself with these to foster an open and welcoming community!
@@ -15,6 +58,8 @@ All changes
 - Add :meth:`.Reporter.add_sankey` and :mod:`.tools.sankey` to create Sankey diagrams from solved scenarios (:pull:`770`).
   The :file:`westeros_sankey.ipynb` :ref:`tutorial <tutorial-westeros>` shows how to use this feature.
 - Add option to :func:`.util.copy_model` from a non-default location of model files (:pull:`877`).
+- Bug fix for calculation of ``PRICE_EMISSION`` (:pull:`912`, :issue:`723`).
+  See the :ref:`migration note <v3.10.0-migrate-1>` above.
 
 .. _v3.9.0:
 

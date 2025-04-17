@@ -131,26 +131,22 @@ Variables
 *
 * Auxiliary variables
 * ^^^^^^^^^^^^^^^^^^^
-* =========================================================================== ======================================================================================================
+* =========================================================================== =======================================================================================================
 * Variable                                                                    Explanatory text
-* =========================================================================== ======================================================================================================
+* =========================================================================== =======================================================================================================
 * :math:`\text{DEMAND}_{n,c,l,y,h} \in \mathbb{R}`                            Demand level (in equilibrium with MACRO integration)
 * :math:`\text{PRICE_COMMODITY}_{n,c,l,y,h} \in \mathbb{R}`                   Commodity price (undiscounted marginals of :ref:`commodity_balance_gt` and :ref:`commodity_balance_lt`)
-* :math:`\text{PRICE_EMISSION}_{n,\widehat{e},\widehat{t},y} \in \mathbb{R}`  Emission price (undiscounted marginals of :ref:`emission_constraint`)
+* :math:`\text{PRICE_EMISSION}_{n,\widehat{e},\widehat{t},y} \in \mathbb{R}`  Emission price (undiscounted marginals of :ref:`emission_equivalence`)
 * :math:`\text{COST_NODAL_NET}_{n,y} \in \mathbb{R}`                          System costs at the node level net of energy trade revenues/cost
 * :math:`\text{GDP}_{n,y} \in \mathbb{R}`                                     Gross domestic product (GDP) in market exchange rates for MACRO reporting
-* =========================================================================== ======================================================================================================
-*
-* .. warning::
-*    Please be aware that transitioning from one period length to another for consecutive periods may result in false values of :math:`\text{PRICE_EMISSION}`. 
-*    Please see `this issue <https://github.com/iiasa/message_ix/issues/723>`_ for further information. We are currently working on a fix.
+* =========================================================================== =======================================================================================================
 ***
 
 Variables
 * auxiliary variables for demand, prices, costs and GDP (for reporting when MESSAGE is run with MACRO)
     DEMAND(node,commodity,level,year_all,time) demand
     PRICE_COMMODITY(node,commodity,level,year_all,time)  commodity price (derived from marginals of COMMODITY_BALANCE constraint)
-    PRICE_EMISSION(node,type_emission,type_tec,year_all) emission price (derived from marginals of EMISSION_BOUND constraint)
+    PRICE_EMISSION(node,type_emission,type_tec,year_all) emission price (derived from marginals of EMISSION_EQUIVALENCE constraint)
     COST_NODAL_NET(node,year_all)              system costs at the node level over time including effects of energy trade
     GDP(node,year_all)                         gross domestic product (GDP) in market exchange rates for MACRO reporting
 ;
@@ -1839,8 +1835,15 @@ ACTIVITY_SOFT_CONSTRAINT_LO(node,tec,year,time)$( soft_activity_lo(node,tec,year
 *              + \sum_{s} \ \text{land_emission}_{n^L,s,y,e} \cdot \text{LAND}_{n^L,s,y}
 *                   \text{ if } \widehat{t} \in \widehat{T}^{LAND} \Bigg)
 *
+* .. versionchanged:: v3.11.0
+*
+*    ``type_tec`` elements that appear in either of the :ref:`mapping sets <section_maps_def>`
+*    ``map_shares_commodity_share`` or ``map_shares_commodity_total`` are excluded from this equation,
+*    and thus also from the domain of the ``EMISS`` :ref:`variable <section_decision_variable_def>`.
 ***
-EMISSION_EQUIVALENCE(node,emission,type_tec,year)..
+EMISSION_EQUIVALENCE(node,emission,type_tec,year)$(
+  NOT type_tec_share(type_tec) AND NOT type_tec_total(type_tec)
+)..
     EMISS(node,emission,type_tec,year)
     =E=
     SUM(location$( map_node(node,location) ),
