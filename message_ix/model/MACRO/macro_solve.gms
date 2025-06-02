@@ -4,9 +4,26 @@
 * ------------------------------------------------------------------------------
 
 SVKN(node_macro, year) = ((potential_gdp(node_macro, year) - SUM(year2$( seq_period(year2,year) ), potential_gdp(node_macro, year2)) * (1 - depr(node_macro))**duration_period(year)) * kgdp(node_macro)) $ (NOT macro_base_period(year));
-SVNEWE(node_macro, sector, year) = (demand_base(node_macro, sector) * growth_factor(node_macro, year) - demand_base(node_macro, sector) * (1 - depr(node_macro))**(SUM(year2 $ macro_base_period(year2), duration_period_sum(year2, year)))) $ (NOT macro_base_period(year));
 
-NEWENE.L(node_macro, sector, macro_horizon)  = SVNEWE(node_macro, sector, macro_horizon)$(SVNEWE(node_macro, sector, macro_horizon) > 0) + epsilon ;
+* NB This value is an *estimate* provided to the solver as a initial value (NEWENE.L in the next statement) in the
+* problem domain. Depending on the interpretation of NEWENE (for instance, as an instantaneous value at the *start* or
+* *end* of a period, or some point between; or a mean/average over the whole period or the representative year) and of
+* base_demand, the value may be low or high. This affects solver performance but should not affect the optimal solution.
+* See also:
+* - The documentation of duration_period_sum.
+* - Comments at https://github.com/iiasa/message_ix/pull/926 and the related issue #925.
+
+SVNEWE(node_macro, sector, year) = (
+  demand_base(node_macro, sector) * growth_factor(node_macro, year)
+  - demand_base(node_macro, sector) * (1 - depr(node_macro)) ** (
+    SUM(year2$macro_base_period(year2), duration_period_sum(year2, year) + duration_period(year))
+  )
+)$(NOT macro_base_period(year));
+
+NEWENE.L(node_macro, sector, macro_horizon) = (
+  SVNEWE(node_macro, sector, macro_horizon)$(SVNEWE(node_macro, sector, macro_horizon) > 0) + epsilon
+);
+
 PHYSENE.L(node_macro, sector, year)  = enestart(node_macro, sector, year) ;
 KN.L(node_macro, macro_horizon)  = SVKN(node_macro, macro_horizon) $ (SVKN(node_macro, macro_horizon) > 0) + epsilon ;
 
@@ -38,30 +55,40 @@ C.FX(node_macro, macro_base_period) = c0(node_macro) ;
 I.FX(node_macro, macro_base_period) = i0(node_macro) ;
 EC.FX(node_macro, macro_base_period) = y0(node_macro) - i0(node_macro) - c0(node_macro) ;
 
-* ------------------------------------------------------------------------------
-* solving the model region by region
-* ------------------------------------------------------------------------------
+$IFTHEN %MACRO_CONCURRENT% == "0"
 
-node_active(node) = no ;
+DISPLAY "Solve MACRO for each node in sequence";
 
-LOOP(node $ node_macro(node),
+node_active(node) = NO ;
 
-    node_active(node_macro) = no ;
-    node_active(node) = YES;
-*    DISPLAY node_active ;
+LOOP(node$node_macro(node),
+  node_active(node_macro) = NO ;
+  node_active(node) = YES ;
+*  DISPLAY node_active ;
 
-* ------------------------------------------------------------------------------
-* solve statement
-* ------------------------------------------------------------------------------
+  SOLVE MESSAGE_MACRO MAXIMIZING UTILITY USING NLP ;
 
-    SOLVE MESSAGE_MACRO MAXIMIZING UTILITY USING NLP ;
+* Write model status summary for the current node
+*  status(node,'modelstat') = MESSAGE_MACRO.modelstat ;
+*  status(node,'solvestat') = MESSAGE_MACRO.solvestat ;
+*  status(node,'resUsd')    = MESSAGE_MACRO.resUsd ;
+*  status(node,'objEst')    = MESSAGE_MACRO.objEst ;
+*  status(node,'objVal')    = MESSAGE_MACRO.objVal ;
+);
 
-* write model status summary (by node)
-*    status(node,'modelstat') = MESSAGE_MACRO.modelstat ;
-*    status(node,'solvestat') = MESSAGE_MACRO.solvestat ;
-*    status(node,'resUsd')    = MESSAGE_MACRO.resUsd ;
-*    status(node,'objEst')    = MESSAGE_MACRO.objEst ;
-*    status(node,'objVal')    = MESSAGE_MACRO.objVal ;
+$ELSE
 
-) ;
+DISPLAY "Solve MACRO for all nodes concurrently";
 
+node_active(node_macro) = YES;
+
+SOLVE MESSAGE_MACRO MAXIMIZING UTILITY USING NLP;
+
+* Write model status summary for all nodes
+* status('all','modelstat') = MESSAGE_MACRO.modelstat;
+* status('all','solvestat') = MESSAGE_MACRO.solvestat;
+* status('all','resUsd')    = MESSAGE_MACRO.resUsd;
+* status('all','objEst')    = MESSAGE_MACRO.objEst;
+* status('all','objVal')    = MESSAGE_MACRO.objVal;
+
+$ENDIF
