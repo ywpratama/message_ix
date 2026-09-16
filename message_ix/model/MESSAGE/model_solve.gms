@@ -139,21 +139,28 @@ else
     year(year_all) = no ;
 
     LOOP(year_all$( model_horizon(year_all)
-         AND remaining_years(year_all) gt %foresight%),
-
+         AND remaining_years(year_all) ge %foresight%),
+*        display year_all,year_all2;
 * include all past periods and future periods including the period where the %foresight% is reached
-        year(year_all) = yes ;
-
+        year(year_all2) = no ;
+*        display year;
 * reset the investment cost scaling parameter
-        year(year_all2)$( ORD(year_all2) > ORD(year_all)
+        year(year_all2)$(ORD(year_all2) >= ORD(year_all)
             AND duration_period_sum(year_all,year_all2) < %foresight% ) = yes ;
-        year4(year_all2)$((ORD(year_all2) < ORD(year_all) + 1)) = yes ;
+*        display year;
+        year4(year_all2)$(ORD(year_all2) < ORD(year_all) + 1) = yes ;
 
-* reset last_fixed_period
+* reset last_fixed_period, first period and future_period for next iteration
         last_fixed_period(year_all2) = no ;
-        future_period(year_all) = no ;
         last_fixed_period(year_all2)$((ord(year_all2) = card(year4))) = yes ;
+        first_period(year_all2) = no ;
+        first_period(year_all2)$(ORD(year_all2) = ORD(year_all)) = yes ;
+        future_period(year_all2) = no ;
         future_period(year_all2)$((ord(year_all2) > card(year4))) = yes ;
+*        cat_year('firstmodelyear',year_all2)=no ;
+*        cat_year('firstmodelyear',year_all2)$(ORD(year_all2) = ORD(year_all)) = yes ;
+*        map_first_period('firstmodelyear',year_all2)=no ;
+*        map_first_period('firstmodelyear',year_all2)$(ORD(year_all2) = ORD(year_all)) = yes ;
 
 * reset bound_emission
         emiss_bin(type_year,year) = 1 ;
@@ -163,7 +170,7 @@ else
                        emiss_bin(type_year,year) * bound_emission_container(node,type_emission,type_tec,type_year)) ;
         tax_emission(node,type_emission,type_tec,type_year) = sum(year$(cat_year(type_year,year)),
                        emiss_bin(type_year,year) * tax_emission_container(node,type_emission,type_tec,type_year)) ;
-
+        Display year,year4,year_all,year_all2,model_horizon,last_fixed_period,first_period,future_period;
 * write a status update and time elapsed to the log file, solve the model
         put_utility 'log' /'+++ Solve the recursive-dynamic version of MESSAGEix - iteration ' year_all.tl:0 '  +++ ' ;
         $$INCLUDE includes/aux_computation_time.gms
@@ -201,32 +208,30 @@ else
         );
 
 * fix all variables of the current iteration period 'year_all' to the optimal levels
-        ext_fix(node,commodity,grade,year4) =  0 ;
-        cap_new_fix(node,tec,year4) = 0 ;
-        act_fix(node,tec,year4,year4,mode,time) = 0 ;
-        cap_fix(node,tec,year4,year4) = 0 ;
-        cap_new_up_fix(node,tec,year4) = 0 ;
-        cap_new_lo_fix(node,tec,year4) = 0 ;
-        act_up_fix(node,tec,year4,time) = 0 ;
-        act_lo_fix(node,tec,year4,time) = 0 ;
+        EXT.fx(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
+*        CAP_NEW.fx(node,tec,year4) = CAP_NEW.l(node,tec,year4) ;
+*        ACT.fx(node,tec,year4,year4,mode,time) = ACT.l(node,tec,year4,year4,mode,time) ;
+        CAP.fx(node,tec,year4,year4) = CAP.l(node,tec,year4,year4) ;
+*        CAP_NEW_UP.fx(node,tec,year4) = CAP_NEW_UP.l(node,tec,year4) ;
+*        CAP_NEW_LO.fx(node,tec,year4) = CAP_NEW_LO.l(node,tec,year4) ;
+*        ACT_UP.fx(node,tec,year4,time) = ACT_UP.l(node,tec,year4,time) ;
+*        ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
 
-        ext_fix(node,commodity,grade,year4)$(abs(EXT.l(node,commodity,grade,year4)) > 1E-6 ) =  1 ;
-        cap_new_fix(node,tec,year4)$(abs(CAP_NEW.l(node,tec,year4)) > 1E-6 ) = 1 ;
-        act_fix(node,tec,year4,year4,mode,time)$(abs(ACT.l(node,tec,year4,year4,mode,time)) > 1E-6 ) = 1 ;
-        cap_fix(node,tec,year4,year4)$(abs(CAP.l(node,tec,year4,year4)) > 1E-6) = 1 ;
-        cap_new_up_fix(node,tec,year4)$(abs(CAP_NEW_UP.l(node,tec,year4)) > 1E-6) = 1 ;
-        cap_new_lo_fix(node,tec,year4)$(abs(CAP_NEW_LO.l(node,tec,year4)) > 1E-6) = 1 ;
-        act_up_fix(node,tec,year4,time)$(abs(ACT_UP.l(node,tec,year4,time)) > 1E-6) = 1 ;
-        act_lo_fix(node,tec,year4,time)$(abs(ACT_LO.l(node,tec,year4,time)) > 1E-6) = 1 ;
+*        STOCK.fx(node,commodity,level,year4)=STOCK.l(node,commodity,level,year4)  ;
+*        REN.fx(node, tec, commodity, grade, year4, time)=REN.l(node, tec, commodity, grade, year4, time) ;
+*        CAP_FIRM.fx(node,tec,commodity,level,year4)=CAP_FIRM.l(node,tec,commodity,level,year4)   ;
+*        ACT_RATING.fx(node,tec,vintage,year4,commodity,level,time,rating)=ACT_RATING.l(node,tec,vintage,year4,commodity,level,time,rating);
+*        LAND.fx(node,land_scenario,year4)=LAND.l(node,land_scenario,year4);
+*        STORAGE.fx(node,tec,mode,level,commodity,year4,time)=STORAGE.l(node,tec,mode,level,commodity,year4,time) ;
+*        STOCK_CHG.fx(node,commodity,level,year4,time)=STOCK_CHG.l(node,commodity,level,year4,time)  ;
+*        COMMODITY_USE.fx(node,commodity,level,year4)=COMMODITY_USE.l(node,commodity,level,year4) ;
+*        COST_NODAL.fx(node, year4)=COST_NODAL.l(node, year4) ;
+*        EMISS.fx(node,emission,type_tec,year4)=EMISS.l(node,emission,type_tec,year4);
+*        REL.fx(relation,node,year4)=REL.l(relation,node,year4) ;
+*        STORAGE_CHARGE.fx(node,tec,mode,level,commodity,year4,time)=STORAGE_CHARGE.l(node,tec,mode,level,commodity,year4,time);
 
-        EXT.up(node,commodity,grade,year4)$(ext_fix(node,commodity,grade,year4) = 1) =  EXT.l(node,commodity,grade,year4) + 1E-4 ;
-        CAP_NEW.up(node,tec,year4)$(cap_new_fix(node,tec,year4) = 1) = CAP_NEW.l(node,tec,year4) + 1E-4 ;
-        ACT.up(node,tec,year4,year4,mode,time)$(act_fix(node,tec,year4,year4,mode,time) = 1) = ACT.l(node,tec,year4,year4,mode,time) + 1E-4 ;
-        CAP.fx(node,tec,year4,year4)$(cap_fix(node,tec,year4,year4) = 1) = CAP.l(node,tec,year4,year4) ;
-        CAP_NEW_UP.fx(node,tec,year4)$(cap_new_up_fix(node,tec,year4) = 1) = CAP_NEW_UP.l(node,tec,year4) ;
-        CAP_NEW_LO.fx(node,tec,year4)$(cap_new_lo_fix(node,tec,year4) = 1) = CAP_NEW_LO.l(node,tec,year4) ;
-        ACT_UP.fx(node,tec,year4,time)$(act_up_fix(node,tec,year4,time) = 1) = ACT_UP.l(node,tec,year4,time) ;
-        ACT_LO.fx(node,tec,year4,time)$(act_lo_fix(node,tec,year4,time) = 1) = ACT_LO.l(node,tec,year4,time) ;
+
+
 
 *        IF timing permanence uncertainty run
 * for ERW, the coefficient is 0.5 because we reduce its efficiency but
@@ -237,7 +242,6 @@ else
 
 
 
-        Display year,year4,year_all,year_all2,model_horizon,last_fixed_period,future_period;
     ) ; # end of the recursive-dynamic loop
 
 ) ; # end of if statement for the selection betwen perfect-foresight or recursive-dynamic model
