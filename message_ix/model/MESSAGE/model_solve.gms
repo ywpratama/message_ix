@@ -138,17 +138,15 @@ else
 
     year(year_all) = no ;
 
-    LOOP(year_all$( model_horizon(year_all)
-         AND remaining_years(year_all) ge %foresight%),
-*        display year_all,year_all2;
+    LOOP(year_all$( model_horizon(year_all) AND remaining_years(year_all) ge %foresight%),
 * include all past periods and future periods including the period where the %foresight% is reached
+* exclude all past periods and future periods
         year(year_all2) = no ;
 *        display year;
-* reset the investment cost scaling parameter
+* assign future periods (year) for model run and past periods (year4) for variabl fix after run
         year(year_all2)$(ORD(year_all2) >= ORD(year_all)
             AND duration_period_sum(year_all,year_all2) < %foresight% ) = yes ;
-*        display year;
-        year4(year_all2)$(ORD(year_all2) < ORD(year_all) + 1) = yes ;
+        year4(year_all2)$(ORD(year_all2) <= ORD(year_all)) = yes ;
 
 * reset last_fixed_period, first period and future_period for next iteration
         last_fixed_period(year_all2) = no ;
@@ -170,11 +168,12 @@ else
                        emiss_bin(type_year,year) * bound_emission_container(node,type_emission,type_tec,type_year)) ;
         tax_emission(node,type_emission,type_tec,type_year) = sum(year$(cat_year(type_year,year)),
                        emiss_bin(type_year,year) * tax_emission_container(node,type_emission,type_tec,type_year)) ;
-        Display year,year4,year_all,year_all2,model_horizon,last_fixed_period,first_period,future_period;
+*        Display year,year4,year_all,year_all2,model_horizon,last_fixed_period,first_period,future_period;
 * write a status update and time elapsed to the log file, solve the model
         put_utility 'log' /'+++ Solve the recursive-dynamic version of MESSAGEix - iteration ' year_all.tl:0 '  +++ ' ;
         $$INCLUDE includes/aux_computation_time.gms
         Solve MESSAGE_LP using LP minimizing OBJ ;
+        Display CAP.l,CAP_NEW.l;
 
 * write model status summary
         status(year_all,'modelstat') = MESSAGE_LP.modelstat ;
@@ -210,12 +209,12 @@ else
 * fix all variables of the current iteration period 'year_all' to the optimal levels
         EXT.fx(node,commodity,grade,year4) =  EXT.l(node,commodity,grade,year4) ;
 *        CAP_NEW.fx(node,tec,year4) = CAP_NEW.l(node,tec,year4) ;
-*        ACT.fx(node,tec,year4,year4,mode,time) = ACT.l(node,tec,year4,year4,mode,time) ;
+        ACT.fx(node,tec,year4,year4,mode,time) = ACT.l(node,tec,year4,year4,mode,time) ;
         CAP.fx(node,tec,year4,year4) = CAP.l(node,tec,year4,year4) ;
-*        CAP_NEW_UP.fx(node,tec,year4) = CAP_NEW_UP.l(node,tec,year4) ;
-*        CAP_NEW_LO.fx(node,tec,year4) = CAP_NEW_LO.l(node,tec,year4) ;
-*        ACT_UP.fx(node,tec,year4,time) = ACT_UP.l(node,tec,year4,time) ;
-*        ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
+        CAP_NEW_UP.fx(node,tec,year4) = CAP_NEW_UP.l(node,tec,year4) ;
+        CAP_NEW_LO.fx(node,tec,year4) = CAP_NEW_LO.l(node,tec,year4) ;
+        ACT_UP.fx(node,tec,year4,time) = ACT_UP.l(node,tec,year4,time) ;
+        ACT_LO.fx(node,tec,year4,time) = ACT_LO.l(node,tec,year4,time) ;
 
 *        STOCK.fx(node,commodity,level,year4)=STOCK.l(node,commodity,level,year4)  ;
 *        REN.fx(node, tec, commodity, grade, year4, time)=REN.l(node, tec, commodity, grade, year4, time) ;
