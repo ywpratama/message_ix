@@ -1742,8 +1742,8 @@ ACTIVITY_SOFT_CONSTRAINT_UP(node,tec,year,time)$( soft_activity_up(node,tec,year
             ACT(node,tec,vintage,year2,mode,time) ) $ (NOT first_period(year))
       + SUM((mode,year_all2)$( seq_period(year_all2,year) ),
             historical_activity(node,tec,year_all2,mode,time) ) $ first_period(year)
-      + SUM((vintage,mode,year_all2)$( seq_period(year_all2,year) ),
-            ACT(node,tec,vintage,year_all2,mode,time) ) $ first_period(year)
+*      + SUM((vintage,mode,year_all2)$( seq_period(year_all2,year) ),
+*            ACT(node,tec,vintage,year_all2,mode,time) ) $ first_period(year)
 ;
 
 ***
